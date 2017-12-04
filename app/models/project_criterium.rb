@@ -1,4 +1,6 @@
 class ProjectCriterium < ApplicationRecord
-  belongs_to :criteria
-  belongs_to :user
+  belongs_to :criterium
+  belongs_to :project
+  validates :value, :criterium, :project, presence: true
+  validates :criterium, uniqueness: { scope :project }
 end

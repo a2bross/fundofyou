@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  minimum_donation: MyString
+  description: MyText
+  delivery_date: MyString
+  project_id: MyString
+
+two:
+  minimum_donation: MyString
+  description: MyText
+  delivery_date: MyString
+  project_id: MyString

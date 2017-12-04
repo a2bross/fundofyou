@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 1
+  criteria: one
+  user: one
+
+two:
+  value: 1
+  criteria: two
+  user: two

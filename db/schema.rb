@@ -10,13 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204155954) do
+ActiveRecord::Schema.define(version: 20171204162204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "charities", force: :cascade do |t|
+    t.string "name"
+    t.string "immatriculation"
+    t.string "address"
+    t.string "phone_number"
+    t.string "email"
+    t.string "contact_name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "criteria", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.date "execution_date"
+    t.bigint "project_id"
+    t.bigint "subscription_id"
+    t.bigint "user_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.index ["project_id"], name: "index_donations_on_project_id"
+    t.index ["subscription_id"], name: "index_donations_on_subscription_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "project_criteria", force: :cascade do |t|
+    t.integer "value", default: 0
+    t.bigint "criteria_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["criteria_id"], name: "index_project_criteria_on_criteria_id"
+    t.index ["user_id"], name: "index_project_criteria_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "contact_name"
+    t.string "address"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "charity_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "budget_cents", default: 0, null: false
+    t.index ["charity_id"], name: "index_projects_on_charity_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "minimum_donation"
+    t.text "description"
+    t.string "delivery_date"
+    t.string "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +87,7 @@ ActiveRecord::Schema.define(version: 20171204155954) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
@@ -60,6 +121,12 @@ ActiveRecord::Schema.define(version: 20171204155954) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "donations", "projects"
+  add_foreign_key "donations", "subscriptions"
+  add_foreign_key "donations", "users"
+  add_foreign_key "project_criteria", "criteria", column: "criteria_id"
+  add_foreign_key "project_criteria", "users"
+  add_foreign_key "projects", "charities"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "user_criteria", "criteria", column: "criteria_id"
   add_foreign_key "user_criteria", "users"

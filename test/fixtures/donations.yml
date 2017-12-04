@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  execution_date: 2017-12-04
+  project: one
+  subscription: one
+  user: one
+  status: 1
+
+two:
+  execution_date: 2017-12-04
+  project: two
+  subscription: two
+  user: two
+  status: 1

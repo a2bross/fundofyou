@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204152915) do
+ActiveRecord::Schema.define(version: 20171204155954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "criteria", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.date "subscription_date"
+    t.integer "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "user_criteria", force: :cascade do |t|
+    t.integer "value", default: 0
+    t.bigint "criteria_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["criteria_id"], name: "index_user_criteria_on_criteria_id"
+    t.index ["user_id"], name: "index_user_criteria_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +53,14 @@ ActiveRecord::Schema.define(version: 20171204152915) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "subscriptions", "users"
+  add_foreign_key "user_criteria", "criteria", column: "criteria_id"
+  add_foreign_key "user_criteria", "users"
 end

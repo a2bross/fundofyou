@@ -65,10 +65,9 @@ ActiveRecord::Schema.define(version: 20171205151040) do
   end
 
   create_table "rewards", force: :cascade do |t|
-    t.string "minimum_donation"
+    t.integer "minimum_donation"
     t.text "description"
-    t.string "delivery_date"
-    t.string "project_id"
+    t.date "delivery_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

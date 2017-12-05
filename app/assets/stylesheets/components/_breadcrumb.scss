@@ -1,0 +1,29 @@
+.breadcrumb-container {
+}
+
+.criteria-breadcrumb {
+  width:300px;
+  margin: 20px auto;
+  display: flex;
+}
+
+.criteria-breadcrumb-item {
+  margin-left: 50px;
+  color:#d8d8d8;
+  font-size: 14px;
+  span {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #d8d8d8;
+    color: white;
+    display: block;
+  }
+}
+
+.criteria-breadcrumb-item-active {
+  color: #989898;
+  span {
+    background-color: #989898;
+  }
+}

@@ -6,12 +6,21 @@
 .main-container {
   background-color: white;
   margin: 70px 10%;
-  padding: 40px;
   border-radius: 4px;
   box-shadow: 1px 1px 1px rba(0, 0, 0, 0.1);
   border: 1px solid rba(0, 0 ,0 , 0.1);
 }
 
 .main-header {
+  border-bottom: 1px solid $yellow;
+  padding: 40px 40px 30px ;
+  h3 {
+    margin: 0px;
+    color: $duck-blue;
+    font-size: 25px;
+  }
+}
 
+.content-container {
+  padding: 40px;
 }

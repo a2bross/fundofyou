@@ -1,5 +1,31 @@
-As the user <%= @user.first_name %>, I want to choose my criteria
+<div class="criteria-breadcrumb-container text-center">
+<!--   <nav aria-label="breadcrumb" role="navigation">
+    <ul class="list-inline">
+      <li class="breadcrumb-item breadcrumb-item-active" aria-current="page">1<span class="breadcrumb-label">Mes causes</span></li>
+      <li class="breadcrumb-item" >2<span class="breadcrumb-label">Mes projets</span></li>
+      <li class="breadcrumb-item" >3<span class="breadcrumb-label">Contribuer</span></li>
+    </ul>
+  </nav> -->
 
-<form action="/result" method="patch">
-  <input type="submit" value="See my projects">
-</form>
+  <div class="criteria-breadcrumb">
+    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes projets</div>
+    <div class="criteria-breadcrumb-item"><span>2</span>Mes projets</div>
+    <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="main-header">
+    <h3>Choisir les causes que je soutiens</h3>
+  </div>
+ <div class="content-container">
+   <h6>Je m'intéresse aux causes...</h6>
+  <!--Pour le test -->
+   <form action="/result" method="patch">
+
+     <input type="submit" value="See my projects">
+   </form>
+
+
+ </div>
+</div>

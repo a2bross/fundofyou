@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205151040) do
+ActiveRecord::Schema.define(version: 20171205161421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,9 +68,10 @@ ActiveRecord::Schema.define(version: 20171205151040) do
     t.string "minimum_donation"
     t.text "description"
     t.string "delivery_date"
-    t.string "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_rewards_on_project_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|

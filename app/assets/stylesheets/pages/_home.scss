@@ -1,1 +1,62 @@
-// Specific CSS for your home-page
+.banner {
+  color: white;
+  text-align: center;
+  height: 70vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.buton-banner {
+  border: 1px solid gray;
+  background-color: $yellow;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.buton-banner:hover {
+  opacity: 0.8;
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  padding-top: 30px;
+  text-align: center;
+  height: 200px;
+  margin-bottom: 30px;
+}
+.presentation container {
+  text-align: center;
+  padding-bottom: 80px;
+  height: 500px;
+}
+
+.project {
+  border: 2px solid blue;
+}
+.success {
+  border: 2px solid red;
+}
+
+.success p {
+  font-size: 12px;
+  font-style: italic;
+}
+
+

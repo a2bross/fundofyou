@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204163648) do
+ActiveRecord::Schema.define(version: 20171205143015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 20171204163648) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "criteria", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "donations", force: :cascade do |t|
     t.date "execution_date"
     t.bigint "project_id"
@@ -45,16 +39,6 @@ ActiveRecord::Schema.define(version: 20171204163648) do
     t.index ["project_id"], name: "index_donations_on_project_id"
     t.index ["subscription_id"], name: "index_donations_on_subscription_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
-  end
-
-  create_table "project_criteria", force: :cascade do |t|
-    t.integer "value", default: 0
-    t.bigint "criteria_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "project_id"
-    t.index ["criteria_id"], name: "index_project_criteria_on_criteria_id"
-    t.index ["project_id"], name: "index_project_criteria_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -91,16 +75,6 @@ ActiveRecord::Schema.define(version: 20171204163648) do
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
-  create_table "user_criteria", force: :cascade do |t|
-    t.integer "value", default: 0
-    t.bigint "criteria_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["criteria_id"], name: "index_user_criteria_on_criteria_id"
-    t.index ["user_id"], name: "index_user_criteria_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -124,10 +98,6 @@ ActiveRecord::Schema.define(version: 20171204163648) do
   add_foreign_key "donations", "projects"
   add_foreign_key "donations", "subscriptions"
   add_foreign_key "donations", "users"
-  add_foreign_key "project_criteria", "criteria", column: "criteria_id"
-  add_foreign_key "project_criteria", "projects"
   add_foreign_key "projects", "charities"
   add_foreign_key "subscriptions", "users"
-  add_foreign_key "user_criteria", "criteria", column: "criteria_id"
-  add_foreign_key "user_criteria", "users"
 end

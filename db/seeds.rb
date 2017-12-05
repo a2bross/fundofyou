@@ -17,3 +17,56 @@
   #   {status: 'En cours' },
   #  ])
 
+def generate_project(project_id, array)
+  puts "Creating project..."
+  project = Project.new
+  project.name = "project_#{project_id}"
+  project.budget_cents = (1000..10000).to_a.sample
+  project.start_date = Time.at(rand * Time.now.to_i)
+  project.end_date = project.start_date + (1000..10000).to_a.sample
+  project.charity = Charity.new(name: ["croix rouge", "abbe pierre", "MSF", "Restos du Coeur"].sample)
+  project.status = [1, 10, 20, 30].sample
+  project.environment = array[0]
+  project.humanitarian = array[1]
+  project.social = array[2]
+  project.preservation = array[3]
+  project.research = array[4]
+  project.local = array[5]
+  project.abroad = array[6]
+  puts "project_#{project_id} created"
+  project.save
+  puts "... and saved!"
+end
+
+# delete all projects
+puts "Delete all projects"
+Project.delete_all
+
+#Create new seed projects
+puts "Creating seed projects..."
+puts ""
+project_id = 0
+for i in (0..6) do
+  array = Array.new(7, 0)
+  array[i] = 1
+  if i < 6
+    for j in (i+1..6) do
+      array[j] = 1
+      if j < 6
+        for k in (j+1..6) do
+          array[k] = 1
+          generate_project(project_id, array)
+          project_id += 1
+          array[k] = 0
+        end
+      else
+        generate_project(project_id, array)
+        project_id += 1
+      end
+      array[j] = 0
+    end
+  else
+    generate_project(project_id, array)
+    project_id += 1
+  end
+end

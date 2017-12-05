@@ -6,8 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Charity.create(name: 'SOS Animaux en detresse', immatriculation: 'X2467890987', address: '38 rue de la folie, 75098 Paris', phone_number: 02.45.67.89.00, email: 'sos@gmail.com', contact_name: 'Lea Dupont',
-  text: 'Venez nous soutenir pour sauver des animaux en détresse, ils vous en seront très reconnaissant, vous aimerons et resterons à vos côtés! Alors soyez sympa et venez nous voir, Pepito et ses copains vous attendent avec impatience!' , datetime: Date.Today )
+  # project1 = Project.create([{ name:'Jo le taxi animalier' },
+  # { description:  'Le métier de Taxi Animalier est un métier trés peu connu de nos jours mais il est en pleine expansion. Tout le monde ne peut pas
+  #   l exercer car il est très réglementé. En effet, il faut suivre une formation TAV (Transport d’Animaux Vivants) et obtenir l’agrément correspondant. Ensuite, il faut avoir un véhicule équipé en respectant les normes d’hygiène et de sécurité. Monter un dossier de demande d’agrément à transmettre à la Direction Départementale des Services Vétérinaires. Cet agrément est donné pour le véhicule ET pour le chauffeur.'},
+  #   { contact_name: 'Jo' },
+  #   { address: '44 rue amelot, 75011 Paris' },
+  #   { start_date: Date.today },
+  #   { end_date: Date.today },
+  #   {charity_id: '' },
+  #   {status: 'En cours' },
+  #  ])
 
-# 3 charities
-# 6 projets

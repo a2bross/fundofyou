@@ -1,0 +1,8 @@
+As the user <%= @user.first_name %>, I want to see my recommanded projects:
+<p>Name of the projet: <%= @project.name %></p>
+
+<form action="/users/<%= @user.id %>/donations" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input name="project_id" type="hidden" value="<%= @project.id %>">
+  <input type="submit" value="Make a donation">
+</form>

@@ -1,0 +1,70 @@
+<h1>USER PAGE</h1>
+
+Bienvenue <%= @user.first_name  %>
+
+<div id="dashboard" class="tabcontent">
+  <div class="show-header">
+
+    <h4>Mon dashboard</h4>
+
+      <div class="indicators">
+
+        <div class="total_dons">
+          mes dons
+        </div>
+        <div class=total_projets>
+          nombre de projets financés
+        </div>
+        <div class="repartition_cause">
+          répartition par cause
+        </div>
+      </div>
+  </div>
+</div>
+
+<div id="mes_donations" class="tabcontent">
+  <div class="show-header">
+
+    <h4>Mes donations</h4>
+    <% if @user == current_user %>
+
+      <div class="donations_list">
+        <ul>
+          <li>
+            <div class="donations_list">
+            <% @user.donations.each do |donation| %>
+              <%= donation.name %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<div id="recu_fiscaux" class="tabcontent">
+  <div class="show-header">
+
+    <h4>Mes reçus fiscaux</h4>
+    <% if @user == current_user %>
+
+      <div class="donations_list">
+        <ul>
+          <li>
+            <div class="donations_list">
+            <% @user.donations.each do |donation| %>
+              <%= donation.name %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<!-- ajouter les class hidden dans chaque tab -->
+

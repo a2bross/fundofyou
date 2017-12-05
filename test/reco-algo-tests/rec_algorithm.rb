@@ -16,6 +16,7 @@ def recommendation (projects, user, number_of_recommendations)
     end
   end
 
+  return recommendations
 end
 
 def score(project, user)

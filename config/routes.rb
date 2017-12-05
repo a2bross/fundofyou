@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:new, :create, :edit, :update]
 
   # user route for show (user dashboard)
-  resources :user, only: :show
+  resources :users, only: [:show]
 
   # adding all CRUD routes for projects in order for admins to be able to add projects more easily
   resources :charities

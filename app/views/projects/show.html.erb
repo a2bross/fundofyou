@@ -1,0 +1,22 @@
+<div class="project-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "champ.jpg" %>');">
+      <h1 id="project-name"><%= @project.name %></h1>
+</div>
+
+  <div class="container details">
+    <div class="row">
+        <div class="project-presentation">
+          <h3> Présentation du projet </h3>
+            <div class="project-info">
+                <p><%= @project.description %></p>
+            </div>
+        </div>
+    </div>
+
+      <div class="row">
+          <div class="charity-description">
+            <h4>En savoir plus sur l'association qui porte ce projet</h4>
+          </div>
+    </div>
+  </div>
+
+

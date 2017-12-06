@@ -17,6 +17,46 @@
   #   {status: 'En cours' },
   #  ])
 
+
+# Subscription.create(subscription_date: Date.new(2017,12,1),
+#   user_id: 1,
+#   amount_cents: 50,
+#   )
+
+# puts "created subscription"
+
+# Charity.create(name: "Médecin sans frontière",
+#   email: "asso@msf.fr",
+#   description: "MSF is an association that help people",
+#   )
+
+# puts "created Charity"
+
+
+
+# Project.create(name: "Help handicaped poeple",
+#   description: "this is a humanitarian_project",
+#   contact_name: "Pierre Dupond",
+#   address: "22 rue du louvre",
+#   start_date: Date.new(2017,12,6),
+#   end_date: Date.new(2018,1,6),
+#   charity_id: 2,
+#   budget_cents: 300000,
+#   humanitarian: 1,
+#   )
+
+# puts "created project"
+
+
+# Donation.create(amount_cents: 12000,
+#   execution_date: Date.new(2017,12,30),
+#   project_id: 2,
+#   subscription_id: 1,
+#   user_id: 1,
+#   )
+
+# puts "created donation"
+
 def generate_project(project_id, array)
   puts "Creating project..."
   project = Project.new

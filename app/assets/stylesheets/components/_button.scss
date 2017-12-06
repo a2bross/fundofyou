@@ -3,25 +3,16 @@
   background-color: $yellow;
   padding: 20px;
   border-radius: 5px;
-  font-size: 20px;
-  width: 300px;
-  height: 70px;
-  margin-left: 120px;
-}
-.discover-project a {
   color: white;
   margin-bottom: 10px;
   font-size: 25px;
-}
-
-.discover-project:hover {
-  opacity: 0.8;
-  color: white;
-  text-decoration: none;
-}
-
-.discover-project:hover a {
-  text-decoration: none;
+  transition: 0.5s background-color ease;
+  transition: 0.5s color ease;
+  &:hover {
+    text-decoration: none;
+    background-color: white;
+    color: $yellow;
+  }
 }
 
 .button-submit, .button-reset {

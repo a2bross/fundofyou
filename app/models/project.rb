@@ -6,6 +6,15 @@ class Project < ApplicationRecord
   monetize :budget_cents
   validates :name, :budget_cents, :start_date, :end_date, :charity, presence: true
 
+
+
+  # after_create :define_photo_number
+
+  # def define_photo_number
+  #   self.photo = rand(1..5)
+  #   self.save
+  # end
+
   def self.recommendation (user, number_of_recommendations)
     recommendations = [
       # {

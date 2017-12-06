@@ -1,5 +1,148 @@
+/////////////////TABS/////////////////////////
+
+
+.tabs {
+  display: flex;
+  padding: 10px;
+  margin-left: -13px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.tab {
+  flex: 1, 1, 33.333333333%;
+  padding: 10px;
+  margin-left: none;
+  background-color: white;
+  // text-decoration: none;
+}
+
+.tab.active {
+  flex: 1, 1, 33.333333333%;
+  background-color: $yellow;
+  padding: 10px;
+  a {
+  color: white;
+  }
+}
+
+/////////////////TABS/////////////////////////
+
+.show-header {
+  display: flex;
+}
+
+
 
 #dashboard {
-  background-color: green;
   height: 100px;
+  h4 {
+    text-align: left;
+    padding: 20px;
+  }
 }
+
+
+.indicators {
+  align-items: center;
+}
+
+.total_projets {
+  flex: 1 0 33.333333333%;
+  background-color: $blue;
+  padding: 20px;
+  color: white;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.repartition_cause {
+  flex: 1, 0, 33.333333333%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+///////////////////////////barre de progression///////////////////////
+.total_dons {
+    flex: 1, 0, 33.333333333%;
+    margin: auto;
+    background-color: white;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+}
+
+// .percent-count {
+//   width: 450px;
+//   height: 50px;
+//   margin: 100px auto;
+//   font-size: 50px;
+//   text-align: center;
+//   color: #fff;
+// }
+
+.progress-bar {
+  width: 506px;
+  height: 26px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  padding: 3px;
+  // margin: 50px auto;
+}
+
+.progress {
+  width: 25px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #259F6C;
+
+}
+
+///////////////////////////current projects///////////////////////
+
+
+.current-projects {
+  border: 1px solid grey;
+
+  margin-top: 10px;
+  ul {
+    display: flex;
+    li {
+      list-style-type: none;
+      text-align: center;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+  h6 {
+    position: absolute;
+    font-size: 20px;
+    top: 140px;
+    color: white;
+    z-index: 2;
+    left: 49px
+  }
+}
+
+
+
+.photo {
+  height: 200px;
+  width: 346px;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+
+}
+
+
+
+
+
+

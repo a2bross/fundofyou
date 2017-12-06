@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206111806) do
+ActiveRecord::Schema.define(version: 20171206172247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20171206111806) do
     t.integer "abroad"
     t.integer "urgency"
     t.integer "education"
-    t.integer "completion_rate"
+    t.integer "completion_rate", default: 0
     t.string "photo"
     t.index ["charity_id"], name: "index_projects_on_charity_id"
   end
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20171206111806) do
     t.integer "minimum_donation"
     t.text "description"
     t.date "delivery_date"
-    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_id"
     t.index ["project_id"], name: "index_rewards_on_project_id"
   end
 
@@ -120,6 +120,5 @@ ActiveRecord::Schema.define(version: 20171206111806) do
   add_foreign_key "donations", "subscriptions"
   add_foreign_key "donations", "users"
   add_foreign_key "projects", "charities"
-  add_foreign_key "rewards", "projects"
   add_foreign_key "subscriptions", "users"
 end

@@ -13,29 +13,35 @@
       <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
     </div>
     <div class="causes-buttons">
-      <a href="#" class="btn btn-primary" id="criteria-submit">Découvrir les projets</a>
-      <a href="#" class="btn btn-primary" id="criteria-reset">Réinitialiser</a>
+      <a href="#" class="btn button-submit" id="criteria-submit">Découvrir les projets</a>
+      <a href="#" class="btn button-reset" id="criteria-reset">Réinitialiser</a>
     </div>
   </div>
- <div class="content-container">
-  <div class="container">
-    <div class="row">
-      <h3>Choisir les causes qui m'importent</h3>
-        <form action="/result" method="patch" class="form-group">
+  <div class="content-container chose-criteria">
+      <div>
+        <h3>Choisir les causes qui m'importent</h3>
+      </div>
+      <form action="/result" method="patch" class="form-group">
 
-          <div class="col-md-3">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
             <label class="btn">
               <img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail img-check">
               Ecologie
               <input type="checkbox" name="environment" id="item1" class="hidden" autocomplete="off">
             </label>
           </div>
-
-          <input type="reset" class="btn btn-secondary" value="Réinitialiser le formulaire">
-          <input type="submit" class="btn btn-primary" value="Découvrir les projets">
-        </form>
+          <div class="col-xs-6 col-sm-4">Humanitaire</div>
+          <div class="col-xs-6 col-sm-4">Action sociale</div>
+          <div class="col-xs-6 col-sm-4">Patrimoine</div>
+          <div class="col-xs-6 col-sm-4">Education</div>
+          <div class="col-xs-6 col-sm-4">Recherche</div>
+       </div>
       </div>
-    </div>
+
+      <input type="reset" class="btn button-reset" value="Réinitialiser le formulaire">
+      <input type="submit" class="btn button-submit" value="Découvrir les projets">
+    </form>
   </div>
- </div>
 </div>

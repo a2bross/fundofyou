@@ -2,7 +2,7 @@
 }
 
 .criteria-breadcrumb {
-  width:300px;
+  width:400px;
   margin: 20px auto;
   display: flex;
 }
@@ -18,12 +18,16 @@
     background-color: #d8d8d8;
     color: white;
     display: block;
+    margin: 0px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .criteria-breadcrumb-item-active {
-  color: #989898;
+  color: $yellow;
   span {
-    background-color: #989898;
+    background-color: $yellow;
   }
 }

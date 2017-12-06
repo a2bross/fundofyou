@@ -1,14 +1,6 @@
 <div class="criteria-breadcrumb-container text-center">
-<!--   <nav aria-label="breadcrumb" role="navigation">
-    <ul class="list-inline">
-      <li class="breadcrumb-item breadcrumb-item-active" aria-current="page">1<span class="breadcrumb-label">Mes causes</span></li>
-      <li class="breadcrumb-item" >2<span class="breadcrumb-label">Mes projets</span></li>
-      <li class="breadcrumb-item" >3<span class="breadcrumb-label">Contribuer</span></li>
-    </ul>
-  </nav> -->
-
   <div class="criteria-breadcrumb">
-    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes projets</div>
+    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
     <div class="criteria-breadcrumb-item"><span>2</span>Mes projets</div>
     <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
   </div>
@@ -16,16 +8,34 @@
 
 <div class="main-container">
   <div class="main-header">
-    <h3>Choisir les causes que je soutiens</h3>
+    <div class="causes-resume">
+      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
+      <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
+    </div>
+    <div class="causes-buttons">
+      <a href="#" class="btn btn-primary" id="criteria-submit">Découvrir les projets</a>
+      <a href="#" class="btn btn-primary" id="criteria-reset">Réinitialiser</a>
+    </div>
   </div>
  <div class="content-container">
-   <h6>Je m'intéresse aux causes...</h6>
-  <!--Pour le test -->
-   <form action="/result" method="patch">
+  <div class="container">
+    <div class="row">
+      <h3>Choisir les causes qui m'importent</h3>
+        <form action="/result" method="patch" class="form-group">
 
-     <input type="submit" value="See my projects">
-   </form>
+          <div class="col-md-3">
+            <label class="btn">
+              <img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail img-check">
+              Ecologie
+              <input type="checkbox" name="environment" id="item1" class="hidden" autocomplete="off">
+            </label>
+          </div>
 
-
+          <input type="reset" class="btn btn-secondary" value="Réinitialiser le formulaire">
+          <input type="submit" class="btn btn-primary" value="Découvrir les projets">
+        </form>
+      </div>
+    </div>
+  </div>
  </div>
 </div>

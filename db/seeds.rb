@@ -86,7 +86,7 @@ def generate_user(user_id, array)
   puts "Creating user..."
   user = User.new
   user.first_name = "user_#{user_id}"
-  user.last_name = ("a".."z").to_a.sample(5)
+  user.last_name = ("a".."z").to_a.sample(6).join()
   user.email = "user#{user_id}@hotmail.com"
   user.password = "#{user.last_name}"
   user.address = "fake address"

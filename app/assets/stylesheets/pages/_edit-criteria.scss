@@ -7,7 +7,7 @@
   }
   p {
     font-size: 14px;
-    margin: 0px 20px;
+    margin: 0px 20px 5px;
   }
 }
 
@@ -17,6 +17,11 @@
   border-radius: 5px;
   padding: 5px 10px;
   color: white;
+
+}
+
+#no-bullet {
+  color: #ffc23f;
 }
 
 .causes-buttons {

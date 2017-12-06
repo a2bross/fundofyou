@@ -36,7 +36,7 @@ def generate_project(project_id, array)
   project.local = ((choice == "local") || (choice == "both")) ? 1 : 0;
   project.abroad = ((choice == "abroad") || (choice == "both")) ? 1 : 0;
   project.urgency = [0,1].sample
-  project.completion_rate = (30..99).to_a.sample
+  project.completion_rate = (0..150).to_a.sample
   puts "project_#{project_id} created"
   project.save!
   puts "... and saved!"

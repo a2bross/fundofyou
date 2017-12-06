@@ -14,11 +14,6 @@
     </div>
     <div class="causes-buttons">
       <%= link_to "Réinitialiser", edit_criteria_path, class: "btn button-reset", id: "criteria-reset" %>
-      <form action="/users/<%= @user.id %>/donations" method="post">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input name="recommendations" type="hidden" value="<%= @recommendations %>">
-        <input type="submit" class="btn button-submit" id="criteria-submit" value="Donner">
-      </form>
     </div>
   </div>
   <div class="content-container choose-criteria">
@@ -28,19 +23,34 @@
       <div>
         <%= form_tag user_donations_path(current_user) do %>
           <% @recommendations.each do |recommendation|%>
-            <%= hidden_field_tag recommendation[:project_id], recommendation[:project_id] %>
-            <div id="<%= recommendation[:project_id] %>" class="user-selected">
+            <% project = Project.find(recommendation[:project_id]) %>
+            <% project_categories = [] %>
+            <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+              <% project_categories << criterium if project[criterium] == 1 %>
+            <% end %>
+            <%= hidden_field_tag project.id, project.id %>
+            <div id="<%= project.id %>" class="user-selected">
                 <div class="col-xs-12 col-sm-4" >
                   <div class="card home-project">
+
                     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
                      url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
-                     <div class="card-category">Humanitaire</div>
-                     <div class="card-description">
-                       <h2><%= recommendation[:project_id] %></h2>
-                        <p>start</p>
-                        <p>end</p>
-                     </div>
-                      <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+
+                    <div class="card-category">
+                      <% project_categories.each do |category| %>
+                        <%= "#{category} " %>
+                      <% end %>
+                    </div>
+
+                    <div class="card-description">
+                      <h2><%= recommendation[:project_id] %></h2>
+                      <p>start</p>
+                      <p>end</p>
+                    </div>
+
+                    <!-- this should be a checkmark with toggled visibility -->
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+
                   </div>
                 </div>
               </div>

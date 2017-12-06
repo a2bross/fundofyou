@@ -4,7 +4,7 @@ class CreateRewards < ActiveRecord::Migration[5.1]
       t.integer :minimum_donation
       t.text :description
       t.date :delivery_date
-      t.references :project, foreign_key: true
+      t.references :projects, foreign_key: true
 
       t.timestamps
     end

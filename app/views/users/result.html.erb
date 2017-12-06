@@ -17,70 +17,48 @@
     </div>
   </div>
   <div class="content-container choose-criteria text-center">
-      <div class="choose-criteria-item">
-        <h3>Mes Recommandations</h3>
-      </div>
-      <div>
-        <%= form_tag user_donations_path(current_user) do %>
-          <div>
-            <% @recommendations.each do |recommendation|%>
-              <% project = Project.find(recommendation[:project_id]) %>
-              <% project_categories = [] %>
-              <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
-                <% project_categories << criterium if project[criterium] == 1 %>
-              <% end %>
-              <%= hidden_field_tag project.id, project.id %>
-              <div id="<%= project.id %>" class="user-selected">
-                  <div class="col-xs-12 col-sm-4" >
-                    <div class="card home-project">
+    <div class="choose-criteria-item">
+      <h3>Mes Recommandations</h3>
+    </div>
+    <div class="result-container">
+      <%= form_tag user_donations_path(current_user) do %>
+        <div>
+          <input name="Donner" type="submit" value="Donner" class="btn btn-primary"/>
+        </div>
+        <div>
+          <% @recommendations.each do |recommendation|%>
+            <% project = Project.find(recommendation[:project_id]) %>
+            <% project_categories = [] %>
+            <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+              <% project_categories << criterium if project[criterium] == 1 %>
+            <% end %>
+            <%= hidden_field_tag project.id, project.id %>
+            <div id="<%= project.id %>" class="user-selected">
+                <div class="col-xs-12 col-sm-4" >
+                  <div class="card home-project">
 
-                      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                       url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
 
-                      <div class="card-category">
-                        <% project_categories.each do |category| %>
-                          <%= "#{category} " %>
-                        <% end %>
-                      </div>
-
-                      <div class="card-description">
-                        <h2><%= "#{project.name} - (#{project.id})" %></h2>
-                      </div>
-
-                      <!-- this should be a checkmark with toggled visibility -->
-                      <i class="card-checkmark fa fa-check-circle-o" aria-hidden="true"></i>
-
+                    <div class="card-category">
+                      <% project_categories.each do |category| %>
+                        <%= "#{category} " %>
+                      <% end %>
                     </div>
+
+                    <div class="card-description">
+                      <h2><%= "#{project.name} - (#{project.id})" %></h2>
+                    </div>
+
+                    <!-- checkmark with toggled visibility -->
+                    <i class="card-checkmark fa fa-check-circle-o" aria-hidden="true"></i>
+
                   </div>
                 </div>
-            <% end %>
-          </div>
-          <div>
-            <input name="Donner" type="submit" value="Donner" />
-          </div>
-        <% end %>
-      </div>
-
-
-      <!-- <form action="/result" method="patch" class="form-group">
-
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-6 col-sm-4">
-            <label class="btn">
-              <img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail img-check">
-              Ecologie
-              <input type="checkbox" name="environment" id="item1" class="hidden" autocomplete="off">
-            </label>
-          </div>
-          <div class="col-xs-6 col-sm-4">Humanitaire</div>
-          <div class="col-xs-6 col-sm-4">Action sociale</div>
-          <div class="col-xs-6 col-sm-4">Patrimoine</div>
-          <div class="col-xs-6 col-sm-4">Education</div>
-          <div class="col-xs-6 col-sm-4">Recherche</div>
-       </div>
-      </div>
-
-    </form> -->
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

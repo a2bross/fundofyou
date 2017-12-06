@@ -43,13 +43,11 @@
                     </div>
 
                     <div class="card-description">
-                      <h2><%= recommendation[:project_id] %></h2>
-                      <p>start</p>
-                      <p>end</p>
+                      <h2><%= "#{project.name} - (#{project.id})" %></h2>
                     </div>
 
                     <!-- this should be a checkmark with toggled visibility -->
-                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                    <i class="card-checkmark fa fa-check-circle-o" aria-hidden="true"></i>
 
                   </div>
                 </div>

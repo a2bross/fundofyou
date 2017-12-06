@@ -1,5 +1,5 @@
 .card {
-  height: 175px;
+  height: 100%;
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -13,6 +13,13 @@
   width: 40px;
   border-radius: 50%;
 }
+.card-checkmark {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 40px;
+  color: $green;
+}
 .card-category {
   position: absolute;
   top: 10px;
@@ -22,10 +29,10 @@
 }
 .card-description {
   position: absolute;
-  color: black;
-  top: 155px;
-  left: 80px;
-
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
 }
 .card-description h2 {
   font-size: 24px;

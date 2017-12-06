@@ -5,4 +5,12 @@ class Project < ApplicationRecord
   has_many :users, through: :donations
   monetize :budget_cents
   validates :name, :budget_cents, :start_date, :end_date, :charity, presence: true
+
+
+  # after_create :define_photo_number
+
+  # def define_photo_number
+  #   self.photo = rand(1..5)
+  #   self.save
+  # end
 end

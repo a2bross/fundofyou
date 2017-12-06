@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name)
   end
 
+  # def projects_params
+  #   params.require(:project).permit(:name, :budget_cents, :start_date, :end_date, :charity)
+  # end
+
   def set_user
     @user = current_user
   end

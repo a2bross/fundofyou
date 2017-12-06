@@ -1,8 +1,50 @@
-As the user <%= @user.first_name %>, I want to see my recommanded projects:
-<p>Name of the projet: <%= @project.name %></p>
+<div class="criteria-breadcrumb-container text-center">
+  <div class="criteria-breadcrumb">
+    <div class="criteria-breadcrumb-item"><span>1</span>Mes causes</div>
+    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
+    <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+  </div>
+</div>
 
-<form action="/users/<%= @user.id %>/donations" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <input name="project_id" type="hidden" value="<%= @project.id %>">
-  <input type="submit" value="Make a donation">
-</form>
+<div class="main-container">
+  <div class="main-header">
+    <div class="causes-resume">
+      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
+      <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
+    </div>
+    <div class="causes-buttons">
+      <%= link_to "Réinitialiser", edit_criteria_path, class: "btn button-reset", id: "criteria-reset" %>
+      <form action="/users/<%= @user.id %>/donations" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input name="recommendations" type="hidden" value="<%= @recommendations %>">
+        <input type="submit" class="btn button-submit" id="criteria-submit" value="Donner">
+      </form>
+    </div>
+  </div>
+  <div class="content-container chose-criteria">
+      <div>
+        <h3>Mes Recommandations</h3>
+      </div>
+      display recommendations
+      <form action="/result" method="patch" class="form-group">
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <label class="btn">
+              <img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail img-check">
+              Ecologie
+              <input type="checkbox" name="environment" id="item1" class="hidden" autocomplete="off">
+            </label>
+          </div>
+          <div class="col-xs-6 col-sm-4">Humanitaire</div>
+          <div class="col-xs-6 col-sm-4">Action sociale</div>
+          <div class="col-xs-6 col-sm-4">Patrimoine</div>
+          <div class="col-xs-6 col-sm-4">Education</div>
+          <div class="col-xs-6 col-sm-4">Recherche</div>
+       </div>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -2,7 +2,10 @@ if (document.getElementById("causes-selected")) {
   $(document).ready(function(){
     $(".cause-choice").click(function(){
       $(this).toggleClass("active");
-      document.getElementById('no-bullet').classList.add("hidden");
+      const noBullet = document.getElementById('no-bullet');
+      if (noBullet) {
+        noBullet.classList.add("hidden");
+      }
       const bullet = document.getElementById(`bullet-${this.htmlFor}`);
       bullet.classList.toggle("hidden");
     });

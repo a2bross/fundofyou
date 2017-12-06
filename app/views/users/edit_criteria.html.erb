@@ -11,37 +11,103 @@
     <div class="causes-resume">
       <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
       <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
+      <p id="causes-selected">
+        <span id="bullet-environment" class="bullet hidden">Ecologie</span>
+        <span id="bullet-humanitarian" class="bullet hidden">Humanitaire</span>
+        <span id="bullet-social" class="bullet hidden">Action sociale</span>
+        <span id="bullet-preservation" class="bullet hidden">Patrimoine</span>
+        <span id="bullet-education" class="bullet hidden">Education</span>
+        <span id="bullet-research" class="bullet hidden">Recherche</span>
+        <span id="bullet-local" class="bullet hidden">Local</span>
+        <span id="bullet-abroad" class="bullet hidden">International</span>
+        <span id="bullet-no-scope" class="bullet hidden">Indifférent</span>
+      </p>
     </div>
     <div class="causes-buttons">
       <a href="#" class="btn button-submit" id="criteria-submit">Découvrir les projets</a>
       <a href="#" class="btn button-reset" id="criteria-reset">Réinitialiser</a>
     </div>
   </div>
-  <div class="content-container chose-criteria">
-      <div>
+  <div class="content-container choose-criteria">
+      <div class="choose-criteria-item" >
         <h3>Choisir les causes qui m'importent</h3>
       </div>
-      <form action="/result" method="patch" class="form-group">
-
-      <div class="container-fluid">
-        <div class="row">
+      <form action="/result" method="patch" class="cause-container">
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-xs-6 col-sm-4">
+              <input type="checkbox" class="hidden" value="1" name="environment" id="environment">
+              <label for="environment" class="cause-choice">
+                <i class="fa fa-leaf"></i> <div>Ecologie</div>
+                <i class="fa fa-check hidden"></i>
+              </label>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <input type="checkbox" class="hidden" value="1" name="humanitarian" id="humanitarian">
+              <label for="humanitarian" class="cause-choice">
+                <i class="fa fa-life-ring"></i> <div>Humanitaire</div>
+                <i class="fa fa-check hidden"></i>
+              </label>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <input type="checkbox" class="hidden" value="1" name="social" id="social">
+              <label for="social" class="cause-choice">
+                <i class="fa fa-handshake-o"></i> <div>Action sociale</div>
+                <i class="fa fa-check hidden"></i>
+              </label>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <input type="checkbox" class="hidden" value="1" name="preservation" id="preservation">
+              <label for="preservation" class="cause-choice">
+                <i class="fa fa-institution"></i> <div>Patrimoine</div>
+                <i class="fa fa-check hidden"></i>
+              </label>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <input type="checkbox" class="hidden" value="1" name="education" id="education">
+              <label for="education" class="cause-choice">
+                <i class="fa fa-graduation-cap"></i> <div>Education</div>
+                <i class="fa fa-check hidden"></i>
+              </label>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+              <input type="checkbox" class="hidden" value="1" name="research" id="research">
+              <label for="research" class="cause-choice">
+                <i class="fa fa-leaf"></i> <div>Recherche</div>
+                <i class="fa fa-check hidden"></i>
+              </label>
+            </div>
+         </div>
+        <h4>Choisir le périmètre d'action :</h4>
+        <div class="row text-center">
           <div class="col-xs-6 col-sm-4">
-            <label class="btn">
-              <img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail img-check">
-              Ecologie
-              <input type="checkbox" name="environment" id="item1" class="hidden" autocomplete="off">
+
+            <input type="radio" class="hidden" value="local" name="scope" id="local">
+            <label for="local" class="scope-choice">
+              <i class="fa fa-map-marker"></i> <div>Local</div>
+              <i class="fa fa-check hidden"></i>
             </label>
           </div>
-          <div class="col-xs-6 col-sm-4">Humanitaire</div>
-          <div class="col-xs-6 col-sm-4">Action sociale</div>
-          <div class="col-xs-6 col-sm-4">Patrimoine</div>
-          <div class="col-xs-6 col-sm-4">Education</div>
-          <div class="col-xs-6 col-sm-4">Recherche</div>
-       </div>
+          <div class="col-xs-6 col-sm-4">
+            <input type="radio" class="hidden" value="abrod" name="scope" id="abroad">
+            <label for="abroad" class="scope-choice">
+              <i class="fa fa-globe"></i> <div>International</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <input type="radio" class="hidden" value="no-scope" name="scope" id="no-scope">
+            <label for="no-scope" class="scope-choice">
+              <i class="fa fa-question"></i> <div>Indifférent</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+        </div>
       </div>
-
-      <input type="reset" class="btn button-reset" value="Réinitialiser le formulaire">
-      <input type="submit" class="btn button-submit" value="Découvrir les projets">
+      <div class="form-button">
+        <input type="reset" class="btn button-reset" value="Réinitialiser le formulaire">
+        <input type="submit" class="btn button-submit" value="Découvrir les projets">
+      </div>
     </form>
   </div>
 </div>

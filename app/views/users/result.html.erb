@@ -25,8 +25,18 @@
       <div>
         <h3>Mes Recommandations</h3>
       </div>
-      display recommendations
-      <form action="/result" method="patch" class="form-group">
+      <div>
+        <%= form_tag user_donations_path(current_user) do %>
+          <% @recommendations.each do |recommendation|%>
+            <%= hidden_field_tag recommendation[:project_id], recommendation[:project_id] %>
+            <div id="<%= recommendation[:project_id] %>" class="user-selected"><%= recommendation[:project_id] %></div>
+          <% end %>
+          <input name="Donner" type="submit" value="Donner" />
+        <% end %>
+      </div>
+
+
+      <!-- <form action="/result" method="patch" class="form-group">
 
       <div class="container-fluid">
         <div class="row">
@@ -45,6 +55,6 @@
        </div>
       </div>
 
-    </form>
+    </form> -->
   </div>
 </div>

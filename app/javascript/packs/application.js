@@ -1,2 +1,2 @@
 import "bootstrap";
-import "../components/tabs";
+import "../components/progress-bar";

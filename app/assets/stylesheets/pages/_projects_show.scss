@@ -1,0 +1,21 @@
+.project-cover {
+  height: 70vh;
+  width: 100vw;
+  background-size: cover !important;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  text-align: center;
+  opacity: 0.8;
+  display: flex;
+}
+.project-cover h1 {
+  color:white;
+  padding: 300px;
+}
+
+.details {
+  border: 1px solid red;
+  background-color: white;
+  width: 500px;
+}

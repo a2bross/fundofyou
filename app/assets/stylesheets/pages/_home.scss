@@ -23,44 +23,58 @@
 
 .explication {
   text-align: center;
-  height: 200px;
-  margin-bottom: 30px;
-  padding-top: 30px;
-
+  height: 300px;
+  padding: 70px;
 }
+
 .presentation {
   text-align: center;
   padding-bottom: 80px;
   height: 400px;
   padding-top: 30px;
-  text-align: center;
   margin-bottom: 30px;
 }
 .temoignage {
-  border: 2px solid $yellow;
+  background-color: white;
   border-radius: 5px;
   text-align: center;
-  padding-bottom: 20px;
-  height: 400px;
-  padding-top: 30px;
+  width: 100vw;
+  padding: 50px 90px;
   text-align: center;
-  margin-bottom: 30px;
-
+  margin-bottom: 20px;
+}
+.temoignage h2 {
+  padding-bottom: 30px;
 }
 
 .project {
-  border: 2px solid $blue;
-  border-radius: 5px;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+}
+.project h2 {
+  padding-bottom: 15px;
 }
 
 .success h5 {
   padding: 15px;
 }
 
-.success p {
+.suceess p {
   font-size: 15px;
   font-style: italic;
   padding: 5px;
-}
+  }
 
+.home-project {
+  border: 1px solid gray;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  height: 300px;
+  width: 350px;
+  border-radius: 5px;
+  &:hover {
+    margin-top: -10px;
+    transition: 0.5s;
+  }
+}
 

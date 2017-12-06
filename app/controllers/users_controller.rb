@@ -8,11 +8,13 @@ class UsersController < ApplicationController
   end
 
   def update_criteria
-    if @user.update(criteria_params)
-      redirect_to :result
-    else
-      render :edit_criteria
-    end
+    raise
+    redirect_to :result
+    # if @user.update(criteria_params)
+    #   redirect_to :result
+    # else
+    #   render :edit_criteria
+    # end
   end
 
   def result

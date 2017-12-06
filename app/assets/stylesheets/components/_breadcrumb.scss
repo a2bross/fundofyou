@@ -1,0 +1,33 @@
+.breadcrumb-container {
+}
+
+.criteria-breadcrumb {
+  width:400px;
+  margin: 20px auto;
+  display: flex;
+}
+
+.criteria-breadcrumb-item {
+  margin-left: 50px;
+  color:#d8d8d8;
+  font-size: 14px;
+  span {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #d8d8d8;
+    color: white;
+    display: block;
+    margin: 0px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.criteria-breadcrumb-item-active {
+  color: $yellow;
+  span {
+    background-color: $yellow;
+  }
+}

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def result
     # methode qui calcule les projets reco de current_user
-    @project = Project.new(name: "Super projet")
+    @recommendations = Project.recommendation(current_user, 3)
   end
 
   private

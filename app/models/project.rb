@@ -30,7 +30,7 @@ class Project < ApplicationRecord
     sorted_valid_projects = valid_projects.sort_by{ |project| [project.score(user), project[:completion_rate]] }
 
     sorted_valid_projects.last(number_of_recommendations).each do |project|
-      recommendations << { project_id: project[:id], score: project.score(user) }
+      recommendations << { project_id: project[:id], score: project.score(user), selected: true }
     end
 
     return recommendations

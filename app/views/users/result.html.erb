@@ -21,15 +21,29 @@
       </form>
     </div>
   </div>
-  <div class="content-container chose-criteria">
-      <div>
+  <div class="content-container choose-criteria">
+      <div class="choose-criteria-item">
         <h3>Mes Recommandations</h3>
       </div>
       <div>
         <%= form_tag user_donations_path(current_user) do %>
           <% @recommendations.each do |recommendation|%>
             <%= hidden_field_tag recommendation[:project_id], recommendation[:project_id] %>
-            <div id="<%= recommendation[:project_id] %>" class="user-selected"><%= recommendation[:project_id] %></div>
+            <div id="<%= recommendation[:project_id] %>" class="user-selected">
+                <div class="col-xs-12 col-sm-4" >
+                  <div class="card home-project">
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+                     <div class="card-category">Humanitaire</div>
+                     <div class="card-description">
+                       <h2><%= recommendation[:project_id] %></h2>
+                        <p>start</p>
+                        <p>end</p>
+                     </div>
+                      <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                  </div>
+                </div>
+              </div>
           <% end %>
           <input name="Donner" type="submit" value="Donner" />
         <% end %>

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :edit_criteria, :update_criteria, :result]
 
   def show
-
   end
 
   def edit_criteria

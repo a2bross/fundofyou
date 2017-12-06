@@ -21,42 +21,47 @@
   margin-bottom: 30px;
 }
 
-.buton-banner {
-  border: 1px solid gray;
-  background-color: $yellow;
-  padding: 10px;
-  border-radius: 5px;
-  color: white;
-}
-
-.buton-banner:hover {
-  opacity: 0.8;
-  color: white;
-  text-decoration: none;
-}
-
-.container {
-  padding-top: 30px;
+.explication {
   text-align: center;
   height: 200px;
   margin-bottom: 30px;
+  padding-top: 30px;
+
 }
-.presentation container {
+
+.presentation {
   text-align: center;
   padding-bottom: 80px;
-  height: 500px;
+  height: 400px;
+  padding-top: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.temoignage {
+  border: 2px solid $yellow;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 20px;
+  height: 400px;
+  padding-top: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+
 }
 
 .project {
-  border: 2px solid blue;
+  border: 2px solid $blue;
+  border-radius: 5px;
 }
-.success {
-  border: 2px solid red;
+
+.success h5 {
+  padding: 15px;
 }
 
 .success p {
-  font-size: 12px;
+  font-size: 15px;
   font-style: italic;
+  padding: 5px;
 }
 
 

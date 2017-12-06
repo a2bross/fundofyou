@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20171206101231) do
 
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,7 +65,9 @@ ActiveRecord::Schema.define(version: 20171206101231) do
     t.integer "abroad"
     t.integer "urgency"
     t.integer "education"
+
     t.integer "completion_rate"
+
     t.index ["charity_id"], name: "index_projects_on_charity_id"
   end
 

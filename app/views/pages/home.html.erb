@@ -2,23 +2,26 @@
   <div class="banner-content">
     <h1>Fund Of You</h1>
     <p>Le site de dons aux associations d'utilité publique</p>
-    <div class="discover-project"><%= link_to 'Decouvrez les projets', edit_criteria_path %></div>
+    <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project" %>
   </div>
 </div>
 
   <div class="container explication">
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4">
-        <i class="fa fa-hand-o-up" aria-hidden="true"></i>
-        <h4> Un selector sur mesure pour vous aider à choisir vos projets sur mesure</h4>
+        <%= image_tag "search.png", id: "search" %>
+        <h4>RECOMMANDATIONS</h4>
+        <p>Un selector avec des recommandations personnalisées.</p>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
-        <i class="fa fa-clipboard" aria-hidden="true"></i>
-        <h4>Un abonnement mensuel pour soutenir plusieurs projets</h4>
+        <%= image_tag "growth.png", id: "growth" %>
+        <h4>ABONNEMENT</h4>
+        <p> Une formule sur mesure pour faciliter vos donations vers les projets qui vous tiennent à coeur.</p>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
-        <i class="fa fa-credit-card" aria-hidden="true"></i>
-        <h4>Une contribution simplifiée et pratique pour soutenir vos projets coups de coeur</h4>
+        <%= image_tag "key.png", id: "growth" %>
+        <h4>SECURITE</h4>
+        <p>Un système sécurisé pour vos transactions.</p>
       </div>
     </div>
   </div>
@@ -26,12 +29,15 @@
   <div class="container temoignage">
     <div class="row">
         <div class="success">
-          <h3>Ils parlent de nous ... </h3>
-          <div class="col-xs-12 col-sm-4 col-md-4">Grâce au précieux accompagnement d'Augustin et de son équipe, nous avons pu financé notre projet et avons pu sauvé Pépito et ses amis ! Un grand merci à tous ! <br> <i class="fa fa-paw" aria-hidden="true"></i> Pamela de l'association "Sauvons Pépito"
+          <h2>Ils parlent de nous ... </h2>
+          <div class="col-xs-12 col-sm-4 col-md-4">"Grâce au précieux accompagnement d'Augustin et de son équipe, nous avons pu financé notre projet et avons pu sauvé Pépito et ses amis ! Un grand merci à tous !" <br><p></p>
+            <i class="fa fa-paw" aria-hidden="true"></i> Pamela, association "Sauvons Pépito"
           </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">FundOfYou nous a permis de financer notre projet et de partir au Bénin dans un orphelinat. Sans leur aide, ce projet n'aurait pas pu se réaliser, Merci du fond du coeur ! <br><i class="fa fa-plane" aria-hidden="true"></i> Aude pour "Action Bénin"
+            <div class="col-xs-12 col-sm-4 col-md-4">"FundOfYou nous a permis de financer notre projet et de partir au Bénin dans un orphelinat. Sans leur aide, ce projet n'aurait pas pu se réaliser, Merci du fond du coeur !" <br><p></p>
+              <i class="fa fa-plane" aria-hidden="true"></i> Aude, "Action Bénin"
             </div>
-              <div class="col-xs-12 col-sm-4 col-md-4">Je souhaitais soutenir des associations depuis longtemps mais ne savais pas vers lesquelles me tourner. Grâce à FundOfYou, je soutiens régulièrement des projets d'associations diverses et variées. <br><i class="fa fa-money" aria-hidden="true"></i> Zac, plombier, 28 ans
+              <div class="col-xs-12 col-sm-4 col-md-4">"Je souhaitais soutenir des associations depuis longtemps mais ne savais pas vers lesquelles me tourner. Grâce à FundOfYou, je soutiens régulièrement des projets d'associations diverses et variées." <br><p></p>
+                <i class="fa fa-money" aria-hidden="true"></i> Zac, plombier, 28 ans
               </div>
         </div>
     </div>
@@ -41,50 +47,54 @@
 <div class="presentation container">
   <div class="row">
     <div class="project">
-      <h3> Nos projets en cours </h3>
-        <div class="row">
+      <h2> Nos projets en cours </h2>
+      <%= link_to project_path(@project1) do %>
           <div class="col-xs-12 col-sm-4" >
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-             url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-             <div class="card-category">Popular</div>
-             <div class="card-description">
-              <h2>Test</h2>
-                <p>Very cool city, the best</p>
+            <div class="card home-project" >
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+               <div class="card-category">Humanitaire</div>
+               <div class="card-description">
+                 <h2><%= @project1.name %></h2>
+                  <p><%= @project1.start_date.strftime("%d/%m/%Y") %></p>
+                  <p><%= @project1.end_date.strftime("%d/%m/%Y")  %></p>
+               </div>
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
             </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <a class="card-link" href="#" ></a>
+          </div>
+        <% end %>
+
+          <div class="col-xs-12 col-sm-4" >
+            <div class="card home-project" >
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+               <div class="card-category">Humanitaire</div>
+               <div class="card-description">
+                 <h2>SOS Enfant</h2>
+                  <p>date de début</p>
+                  <p>date de fin</p>
+               </div>
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
             </div>
           </div>
 
           <div class="col-xs-12 col-sm-4" >
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-             url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-             <div class="card-category">Popular</div>
-             <div class="card-description">
-               <h2>Test</h2>
-                <p>Very cool city, the best</p>
-             </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <a class="card-link" href="#" ></a>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4" >
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-             url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-             <div class="card-category">Popular</div>
-             <div class="card-description">
-               <h2>Test</h2>
-                <p>Very cool city, the best</p>
-             </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-              <a class="card-link" href="#" ></a>
+            <div class="card home-project" >
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+               <div class="card-category">Humanitaire</div>
+               <div class="card-description">
+                 <h2>SOS Enfant</h2>
+                  <p>date de début</p>
+                  <p>date de fin</p>
+               </div>
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
             </div>
           </div>
         </div>
     </div>
   </div>
-</div>
+
 
 
 

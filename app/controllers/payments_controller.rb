@@ -20,6 +20,7 @@ class PaymentsController < ApplicationController
 
       @order.update(payment: charge.to_json, status: 20)
       @order.donations.each do |donation|
+        raise
         donation.update(status: 20, execution_date: Date.today)
         donation.project.update_completion_rate
       end

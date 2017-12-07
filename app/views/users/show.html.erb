@@ -1,79 +1,102 @@
 
-<h1>Bienvenue <%= @user.first_name  %></h1>
 
+<div class="main-container">
+  <div class="welcome">
+    <h1>  Bienvenue <%= @user.first_name  %></h1>
+  </div>
 
-<div class="container">
-
-  <ul class="nav nav-tabs">
-    <li> <a class="active" href="#dashboard" data-toggle="tab">Mon tableau de bord</a> </li>
+  <ul class="nav nav-pills">
+    <li class="active"> <a href="#dashboard" data-toggle="tab">Mon tableau de bord</a> </li>
     <li> <a href="#mes_donations" data-toggle="tab">Mes donations</a> </li>
     <li> <a href="#recu_fiscaux" data-toggle="tab">Mes reçus fiscaux</a> </li>
   </ul>
 
   <div class="tab-content">
     <div id="dashboard" class="tab-pane fade in active">
-
-      <div class="show-header col-xs-12">
-        <h4>Mon tableau de bord</h4>
-      </div>
-      <div class="row indicators">
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="total_dons">
-            <h5>Mes dons</h5>
-            <% sum = 0 %>
-            <% @user.donations.each do |donation| %>
-            <% sum += donation.amount_cents.to_i %>
-            <% end %>
-            <h6> <%= total_donations = sum / 100  %> € </h6>
-            <div id="percentCount" class="percent-count"></div>
-            <div class="progress-bar">
-              <div class="progress" id="progress"></div>
-            </div>
-            <p> <%= deductible_donations = total_donations * 0.66 %> </p>
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class=total_projets>
-            <h5>Vous avez financé <%= @user.donations.count %> projets</h5>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="repartition_cause">
-            <h5>Répartition par cause</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="current-projects">
-        <h5>Vos projets en cours</h5>
-        <ul>
+      <h4>Mon tableau de bord</h4>
+      <div class="tableau">
+        <div class="total_dons">
+          <h5>Mes dons</h5>
+          <% sum = 0 %>
           <% @user.donations.each do |donation| %>
-          <li class="col-xs-12 col-sm-4">
-          <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
-          </div>
-           <%= donation.project.name %>
+          <% sum += donation.amount_cents.to_i %>
           <% end %>
-          </li>
+          <h6> <%= total_donations = sum / 100  %> € </h6>
+          <p> <%= deductible_donations = total_donations * 0.66 %> € déductibles de vos impôts </p>
+        </div>
+
+        <div class=total_projets>
+          <h5>Vous avez financé <%= @user.donations.count %> projets</h5>
+          <!-- add condition where status == 20 -->
+        </div>
+
+        <div class="repartition_cause">
+          <h5>Répartition par cause</h5>
+        </div>
+
+        <div class="current-projects">
+          <div class="rubrique-title">
+            <h5>Vos projets en cours</h5>
+          </div>
+
+          <ul class="proj-encours">
+            <% @user.donations.each do |donation| %>
+            <li>
+              <% if donation.execution_date < donation.project.end_date %>
+                <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
+                </div>
+                <div class="project-name"><h5> <%= donation.project.name  %></h5></div>
+                <div class="asso-name"><p> <%= donation.project.charity.name  %></p></div>
+                <div class="project-amount"><p> <%= donation.amount_cents / 100 %> € </p></div>
+                <div class="end_date"><%= donation.execution_date %></div>
+              <% end %>
+            <% end %>
+            </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div id="mes_donations" class="tab-pane fade">
-      <div class="show-header col-xs-12">
-        <h4>Mes donations</h4>
-      </div>
+    <div  class="tab-pane fade" id="mes_donations">
+      <ul class="project-history">
+        <% @user.donations.each do |donation| %>
+        <li>
+            <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
+            </div>
+            <div class="project-history-amount"><p> <%= donation.amount_cents / 100 %> €</p></div>
+            <div class="project-history-name"> <%= donation.project.name %></div>
+            <div class="project-history-date"><p> date du versement : <%= donation.execution_date %> </p></div>
+            <div class="project-end_date"><p> J - <%= (donation.project.end_date - Date.today).to_i %></p></div>
+            <div class="status"><p> En cours </p></div>
+        </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div id="recu_fiscaux" class="tab-pane fade">
-      <div class="show-header col-xs-12">
-        <h4>Mes reçus fiscaux</h4>
-      </div>
+    <div  class="tab-pane fade" id="recu_fiscaux">
+      <h4>Mes reçus fiscaux</h4>
+      <object data="data/test.pdf" type="application/pdf" width="300" height="200">
+      <a href="data/test.pdf">test.pdf</a>
+      </object>
     </div>
   </div>
 </div>
+  <!-- <div class="container">
+    <div class="carousel-slide" data-ride="carousel" id="carousel-ex">
+      <ol class="carousel-indicators">
+        <li data-taget=#carousel-ex data-slide-to="0" class="active"></li>
+        <li data-taget=#carousel-ex data-slide-to="1"></li>
+        <li data-taget=#carousel-ex data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="humanitaire.jpg" alt=""> %>')
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+
+
+
+

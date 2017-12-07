@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # JUST POUR LE TEST
+  get 'test', to: "pages#test"
   # route for chosing your criteria
   get 'edit_criteria', to: 'users#edit_criteria', as: :edit_criteria
 
@@ -15,7 +17,12 @@ Rails.application.routes.draw do
   # user route for show (user dashboard)
   resources :users, only: :show do
     # route for donation
-    resources :donations, only: [:create]
+    resources :donations, only: :create
+  end
+
+  # route for order and payment
+  resources :orders, only: :create do
+      resources :payments, only: [:new, :create]
   end
 
   # adding all CRUD routes for projects in order for admins to be able to add projects more easily

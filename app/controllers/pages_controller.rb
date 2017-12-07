@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @project1 = Project.find(1)
   end
+
+  def test
+  end
 end

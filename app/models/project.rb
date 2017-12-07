@@ -45,4 +45,12 @@ class Project < ApplicationRecord
     end
     return score
   end
+
+  def update_completion_rate
+    @collected = 0
+    self.donations.each do |donation|
+      @collected << donation.amount.to_i
+    end
+    completion_rate = (@collected.fdiv(budget.to_i)*100).floor
+  end
 end

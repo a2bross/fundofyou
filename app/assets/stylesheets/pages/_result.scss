@@ -1,3 +1,49 @@
 .result-container {
-  min-height: 600px;
+  form {
+    margin-top: 10px;
+  }
+  .nav .fa-check-circle-o {
+    color: light-gray;
+    visibility: hidden;
+    &.checked {
+      color: green;
+      visibility: visible;
+    }
+  }
+  .tab-pane .fa-check-circle-o {
+    font-size: 40px;
+    color: light-gray;
+    opacity: 0.5;
+    &.checked {
+      color: green;
+      opacity: 1;
+    }
+  }
 }
+.result-tab {
+  border: 1px solid gray;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  height: 200px;
+  min-width: 250px;
+  border-radius: 5px;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+#donate-btn {
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+

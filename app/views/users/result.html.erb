@@ -22,41 +22,55 @@
     </div>
     <div class="result-container">
       <%= form_tag user_donations_path(current_user) do %>
-        <div>
-          <input name="Donner" type="submit" value="Donner" class="btn btn-primary"/>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="flex-between">
+              <h3>Je donne </h3>
+              <input id="contribution" type="number" placeholder="10">
+              <h3> euros</h3>
+              <div id="donate-btn">
+                <input name="Contribuer" type="submit" value="Contribuer" class="btn btn-primary"/>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <% @recommendations.each do |recommendation|%>
-            <% project = Project.find(recommendation[:project_id]) %>
-            <% project_categories = [] %>
-            <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
-              <% project_categories << criterium if project[criterium] == 1 %>
+          <ul class="nav nav-pillss nav-justified" role="tablist">
+            <% @recommendations.each do |recommendation|%>
+              <!-- define project, categories, and hidden field -->
+              <% project = Project.find(recommendation[:project_id]) %>
+              <% project_categories = [] %>
+              <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+                <% project_categories << criterium if project[criterium] == 1 %>
+              <% end %>
+              <li role="presentation">
+                <a href=<%= "##{project.id}" %> aria-controls=<%= "#{project.id}" %> role="tab" data-toggle="tab">
+                  <%= project.name %>
+                  <i class="fa fa-check-circle-o checked" aria-hidden="true" data-tab-check="<%= project.id %>"></i>
+                </a>
+              </li>
             <% end %>
-            <%= hidden_field_tag project.id, project.id %>
-            <div id="<%= project.id %>" class="user-selected">
-                <div class="col-xs-12 col-sm-4" >
-                  <div class="card home-project">
-
-                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
-
-                    <div class="card-category">
-                      <% project_categories.each do |category| %>
-                        <%= "#{category} " %>
-                      <% end %>
-                    </div>
-
-                    <div class="card-description">
-                      <h2><%= "#{project.name} - (#{project.id})" %></h2>
-                    </div>
-
-                    <!-- checkmark with toggled visibility -->
-                    <i class="card-checkmark fa fa-check-circle-o" aria-hidden="true"></i>
-
-                  </div>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <% div_counter = 0 %>
+            <% @recommendations.each do |recommendation|%>
+              <!-- define project, categories -->
+              <% div_counter += 1 %>
+              <% project = Project.find(recommendation[:project_id]) %>
+              <% project_categories = [] %>
+              <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+                <% project_categories << criterium if project[criterium] == 1 %>
+              <% end %>
+                <div role="tabpanel" class="tab-pane" id=<%= "#{project.id}" %>>
+                  <h2><%= "#{project.name} - (#{project.id})" %></h2>
+                  <p><%= project_categories.join(" - ") %></p>
+                  <p><%= project.description %></p>
+                  <i class="fa fa-check-circle-o checked" aria-hidden="true" data-content-check="<%= project.id %>"><%= hidden_field_tag "project_#{div_counter}", project.id %></i>
+                  <div id="amount"></div>
                 </div>
-              </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

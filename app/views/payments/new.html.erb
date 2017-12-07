@@ -9,8 +9,12 @@
 <div class="main-container">
   <div class="main-header">
     <div class="causes-resume">
-      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
-      <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
+      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les projets qui m'importent</h6>
+      <p><em>Les projets que vous avez sélectionné parmi vos recommandations.</em></p>
+      <p id="project-selected">
+        <% @donations.each do |donation| %>
+          <span class="bullet"><%= donation.project.name.capitalize %></span>
+        <% end %></p>
     </div>
     <div class="causes-buttons">
       <%= link_to "Retourner aux projets", result_path, class: "btn button-reset" %>
@@ -21,27 +25,36 @@
     <div class="choose-criteria-item" >
       <h3>Confirmez votre donation</h3>
     </div>
-    <ul>
-      <% @order.donations.each do |donation| %>
-        <li><%= donation.project.name %> (<%= humanized_money_with_symbol(donation.amount) %>)</li>
+    <div class="cause-container">
+      <% if @donations.size == 1 %>
+        Le projet que vous souhaitez soutenir :
+      <% else %>
+        Le projet que vous souhaitez soutenir :
       <% end %>
-    </ul>
-    <%= form_tag order_payments_path(@order) do %>
-      <article>
-        <label class="amount">
-          <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-        </label>
-      </article>
+      <h4>Choisir le périmètre d'action :</h4>
+        <ul>
+          <% @order.donations.each do |donation| %>
+            <li><%= donation.project.name %> (<%= humanized_money_with_symbol(donation.amount) %>)</li>
+          <% end %>
+        </ul>
+        <%= form_tag order_payments_path(@order) do %>
+          <article>
+            <label class="amount">
+              <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+            </label>
+          </article>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Fund of You"
+          data-email="<%= current_user.email %>"
+          data-description="Nombre de donations: <%= @order.donations.size %>"
+          data-amount="<%= @order.amount_cents %>"
+          data-currency="<%= @order.amount.currency %>"></script>
+        <% end %>
+    </div>
+
+
   </div>
 </div>
 
 
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Fund of You"
-    data-email="<%= current_user.email %>"
-    data-description="Nombre de donations: <%= @order.donations.size %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
-<% end %>

@@ -1,4 +1,5 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "mains_3.jpg" %>');">
+<div class="total">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "mains_3.jpg" %>');">
   <div class="banner-content">
     <h1>Fund Of You</h1>
     <p><span id="banner-typed-text"></span></p>
@@ -47,59 +48,110 @@
 <div class="presentation container">
   <div class="row">
     <div class="project">
-      <h2> Nos projets en cours </h2>
-      <%= link_to project_path(@project1) do %>
-          <div class="col-xs-12 col-sm-4" >
-            <div class="card home-project" >
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-               url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
-               <div class="card-category">Humanitaire</div>
-               <div class="card-description">
-                 <h2><%= @project1.name %></h2>
-                  <p><%= @project1.start_date.strftime("%d/%m/%Y") %></p>
-                  <p><%= @project1.end_date.strftime("%d/%m/%Y")  %></p>
-               </div>
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            </div>
-          </div>
-        <% end %>
 
-          <div class="col-xs-12 col-sm-4" >
-            <div class="card home-project" >
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-               url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
-               <div class="card-category">Humanitaire</div>
-               <div class="card-description">
-                 <h2>SOS Enfant</h2>
-                  <p>date de début</p>
-                  <p>date de fin</p>
-               </div>
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            </div>
-          </div>
+      <div class="container onglet">
+        <ul class="nav nav-pills nav-justified ">
+          <li class="active"><a href="#en-cours" data-toggle="tab">Projets en cours</a></li>
+          <li><a href="#done" data-toggle="tab">Projets terminés</a></li>
+        </ul>
+      </div>
 
-          <div class="col-xs-12 col-sm-4" >
-            <div class="card home-project" >
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-               url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
-               <div class="card-category">Humanitaire</div>
-               <div class="card-description">
-                 <h2>SOS Enfant</h2>
-                  <p>date de début</p>
-                  <p>date de fin</p>
+      <div class= "tab-content">
+        <div class="tab-pane fade in active" id="en-cours">
+          <%= link_to project_path(@project1) do %>
+              <div class="col-xs-12 col-sm-4" >
+                <div class="card home-project" >
+                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                   url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+                   <div class="card-category">Humanitaire</div>
+                   <div class="card-description">
+                     <h2><%= @project1.name %></h2>
+                      <p><%= @project1.start_date.strftime("%d/%m/%Y") %></p>
+                      <p><%= @project1.end_date.strftime("%d/%m/%Y")  %></p>
+                   </div>
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                </div>
+              </div>
+            <% end %>
+            <div class="col-xs-12 col-sm-4" >
+              <div class="card home-project" >
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+                </div>
+                 <div class="card-category">Humanitaire</div>
+                   <div class="card-description">
+                     <h2>SOS Enfant</h2>
+                      <p>date de début</p>
+                      <p>date de fin</p>
+                   </div>
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                </div>
-                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
             </div>
-          </div>
+
+            <div class="col-xs-12 col-sm-4" >
+              <div class="card home-project" >
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+                </div>
+                 <div class="card-category">Humanitaire</div>
+                   <div class="card-description">
+                     <h2>SOS Enfant</h2>
+                      <p>date de début</p>
+                      <p>date de fin</p>
+                   </div>
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+               </div>
+            </div>
         </div>
+
+        <div class="tab-pane fade" id="done">
+          <%= link_to project_path(@project1) do %>
+              <div class="col-xs-12 col-sm-4" >
+                <div class="card home-project" >
+                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');"></div>
+                   <div class="card-category">Humanitaire</div>
+                   <div class="card-description">
+                     <h2><%= @project1.name %></h2>
+                      <p><%= @project1.start_date.strftime("%d/%m/%Y") %></p>
+                      <p><%= @project1.end_date.strftime("%d/%m/%Y")  %></p>
+                   </div>
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                </div>
+              </div>
+            <% end %>
+            <div class="col-xs-12 col-sm-4" >
+              <div class="card home-project" >
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');">
+                </div>
+                 <div class="card-category">Humanitaire></div>
+                   <div class="card-description">
+                     <h2>SOS Enfant</h2>
+                      <p>date de début</p>
+                      <p>date de fin</p>
+                   </div>
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+               </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4" >
+              <div class="card home-project" >
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');">
+                </div>
+                 <div class="card-category">Humanitaire></div>
+                   <div class="card-description">
+                     <h2>SOS Enfant</h2>
+                      <p>date de début</p>
+                      <p>date de fin</p>
+                   </div>
+                    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+               </div>
+            </div>
+        </div>
+
+      </div>
     </div>
   </div>
+</div>
 
-
-
-
-
-
+</div>
 
 
 

@@ -1,3 +1,8 @@
+.total {
+  position: relative;
+  height: calc(100vh - 140px);
+}
+
 .banner {
   color: white;
   text-align: center;
@@ -32,9 +37,9 @@
 .presentation {
   text-align: center;
   padding-bottom: 80px;
-  height: 400px;
+  height: 30%;
   padding-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 .temoignage {
   background-color: white;
@@ -61,11 +66,20 @@
   padding: 15px;
 }
 
-.suceess p {
+.success p {
   font-size: 15px;
   font-style: italic;
   padding: 5px;
   }
+
+.onglet {
+  padding-bottom: 18px;
+  padding-top: 30px;
+  width: 600px;
+  border-radius: 4px;
+  font-family: $headers-font;
+  font-size: 25px;
+}
 
 .home-project {
   border-radius: 4px;

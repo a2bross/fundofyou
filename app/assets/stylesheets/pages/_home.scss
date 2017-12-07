@@ -3,6 +3,10 @@
   height: calc(100vh - 140px);
 }
 
+.banner-photo {
+  padding: 0;
+}
+
 .photo-banner {
   width: 100vw;
   padding: 0;
@@ -81,7 +85,7 @@
   }
 
 .onglet {
-  padding-bottom: 18px;
+  padding-bottom: 30px;
   padding-top: 30px;
   width: 600px;
   border-radius: 4px;

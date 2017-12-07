@@ -81,6 +81,17 @@ Project.create(name: "Let's build a school",
   education: 1,
   )
 
+Project.create(name: "Let's go to school Again",
+  description: "Again this is another educational_project",
+  contact_name: "Léon Pistache",
+  address: "23 rue de l'Université",
+  start_date: Date.new(2017,11,1),
+  end_date: Date.new(2017,12,06),
+  charity_id: 2,
+  budget_cents: 87000,
+  education: 1,
+  )
+
 puts "created project"
 
 
@@ -103,6 +114,11 @@ Donation.create(amount_cents: 23000,
   subscription_id: 1,
   user_id: 1)
 
+Donation.create(amount_cents: 23000,
+  execution_date: Date.new(2017,11,22),
+  project_id: 5,
+  user_id: 1,
+  )
 
 
 puts "created donation"

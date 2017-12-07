@@ -58,9 +58,15 @@
     </div>
 
     <div  class="tab-pane fade" id="mes_donations">
+      <div class="pull-right">
+        <button class=" btn btn-primary" data-toggle="portfilter" data-target="all"> Tout </button>
+        <button class=" btn btn-primary" data-toggle="portfilter" data-target="ongoing-project"> En cours </button>
+        <button class=" btn btn-primary" data-toggle="portfilter" data-target="terminated-project"> Terminé </button>
+      </div>
       <ul class="project-history">
         <% @user.donations.each do |donation| %>
-        <li>
+          <% if donation.project.end_date > Date.today %>
+          <li data-tag="ongoing-project">
             <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
             </div>
             <div class="project-history-amount"><p> <%= donation.amount_cents / 100 %> €</p></div>
@@ -68,7 +74,18 @@
             <div class="project-history-date"><p> date du versement : <%= donation.execution_date %> </p></div>
             <div class="project-end_date"><p> J - <%= (donation.project.end_date - Date.today).to_i %></p></div>
             <div class="status"><p> En cours </p></div>
-        </li>
+          </li>
+          <% else %>
+          <li data-tag="terminated-project">
+            <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
+            </div>
+            <div class="project-history-amount"><p> <%= donation.amount_cents / 100 %> €</p></div>
+            <div class="project-history-name"> <%= donation.project.name %></div>
+            <div class="project-history-date"><p> date du versement : <%= donation.execution_date %> </p></div>
+            <div class="project-end_date"><p> clôturé le: <%= donation.project.end_date%></p></div>
+            <div class="status"><p> Terminé </p></div>
+          </li>
+          <% end %>
         <% end %>
       </ul>
     </div>

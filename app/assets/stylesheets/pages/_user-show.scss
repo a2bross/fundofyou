@@ -1,82 +1,218 @@
-/////////////////TABS/////////////////////////
+.welcome {
+  margin: 20px;
+}
 
+.tableau {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40% 60%;
+}
 
-.tabs {
-  display: flex;
-  padding: 10px;
-  margin-left: -13px;
-  a {
-    text-decoration: none;
+@media(min-width: 992px) {
+  .tableau {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40% 60%;
   }
 }
 
-.tab {
-  flex: 1, 1, 33.333333333%;
-  padding: 10px;
-  margin-left: none;
-  background-color: white;
-  // text-decoration: none;
-}
-
-.tab.active {
-  flex: 1, 1, 33.333333333%;
-  background-color: $yellow;
-  padding: 10px;
-  a {
-  color: white;
+@media(max-width: 720px) {
+  .tableau {
+  grid-template-columns: 1fr;
+  grid-template-rows: 15% 15% 15% 55%;
+  grid-template-columns: 20% auto;
   }
 }
-
-/////////////////TABS/////////////////////////
-
-.show-header {
-  display: flex;
-}
-
 
 
 #dashboard {
-  height: 100px;
-  h4 {
-    text-align: left;
-    padding: 20px;
-  }
+  // height: calc(100vh - 208px);
+  padding: 20px;
+  padding-top: 0px;
+
 }
 
-
-.indicators {
-  align-items: center;
+.total_dons {
+    margin: 10px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    h6 {
+      position: absolute;
+      top: 55px;
+      right: 10px;
+      font-size: 18px;
+    }
+    p {
+      margin-top: 55px;
+    }
 }
 
 .total_projets {
-  flex: 1 0 33.333333333%;
+  display: flex;
+  margin: 10px;
   background-color: $blue;
   padding: 20px;
   color: white;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
 }
+
 
 .repartition_cause {
-  flex: 1, 0, 33.333333333%;
+  margin: 10px;
   background-color: white;
   padding: 20px;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  grid-row: 1 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.current-projects {
+  border-radius: 5px;
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 3;
+  margin: 10px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  h6 {
+    position: absolute;
+    font-size: 20px;
+    top: 140px;
+    color: white;
+    z-index: 2;
+    left: 49px
+  }
+  .photo {
+    background-size: cover;
+    text-align: center;
+
+    border-radius: 3px;
+    margin: 10px;
+    width: 285px;
+    height: 180px;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    li {
+      list-style-type: none;
+      position: relative;
+      text-align: center;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}
+
+.project-name {
+  position: absolute;
+  left: 25px;
+  bottom: 65px;
+  color: white;
+}
+
+.asso-name {
+  position: absolute;
+  left: 25px;
+  bottom: 35px;
+  color: white;
+  p {
+    font-size: 15px;
+  }
+}
+
+.project-amount {
+  position: absolute;
+  right: 25px;
+  top: 35px;
+  color: $yellow;
+}
+
+h5 {
+  text-align: center;
 }
 
 
 
+.proj-encours {
+  display: flex;
+}
 
+.project-history {
+  padding: 20px;
+  margin-right: 30px;
+  li {
+    display: flex;
+    border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
+    align-items: center;
+    position: relative;
+  }
+  .photo {
+    background-size: cover;
+    text-align: center;
+    border-radius: 3px;
+    margin: 10px;
+    width: 120px;
+    height: 80px
+  }
+}
+
+.project-history-name {
+  margin-top: 5px;
+  position: absolute;
+  left: 285px;
+  top: 10px;
+}
+
+.project-history-date {
+  margin-top: 5px;
+  position: absolute;
+  bottom: -5px;
+  left: 285px;
+  font-size: 13px;
+}
+
+.project-history-amount {
+  margin-top: 5px;
+  position: absolute;
+  bottom: 30px;
+  left: 195px;
+  padding: 0px 10px;
+}
+
+.status {
+  transform: rotate(-90deg);
+  margin-top: 5px;
+}
+
+.tab-content {
+  h4{
+    margin: 30px;
+  }
+}
+
+.project-end_date {
+  position: absolute;
+  bottom: 30px;
+  right: 25px;
+  padding: 0px 10px;
+}
 
 ///////////////////////////barre de progression///////////////////////
-.total_dons {
-    flex: 1, 0, 33.333333333%;
-    margin: auto;
-    background-color: white;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    height: 100%;
-}
+
 
 // .percent-count {
 //   width: 450px;
@@ -105,41 +241,6 @@
 }
 
 ///////////////////////////current projects///////////////////////
-
-
-.current-projects {
-  border: 1px solid grey;
-
-  margin-top: 10px;
-  ul {
-    display: flex;
-    li {
-      list-style-type: none;
-      text-align: center;
-      align-items: center;
-      justify-content: space-around;
-    }
-  }
-  h6 {
-    position: absolute;
-    font-size: 20px;
-    top: 140px;
-    color: white;
-    z-index: 2;
-    left: 49px
-  }
-}
-
-
-
-.photo {
-  height: 200px;
-  width: 346px;
-  background-size: cover;
-  text-align: center;
-  position: relative;
-
-}
 
 
 

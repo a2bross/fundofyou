@@ -2,6 +2,7 @@ class PaymentsController < ApplicationController
   before_action :set_order, :set_user
 
   def new
+    @donations = @order.donations
   end
 
   def create
@@ -36,7 +37,6 @@ class PaymentsController < ApplicationController
   end
 
   def set_order
-    # @order = Order.where(status: 1).find(params[:order_id])
-    @order = Order.find(params[:order_id])
+    @order = Order.where(status: 1).find(params[:order_id])
   end
 end

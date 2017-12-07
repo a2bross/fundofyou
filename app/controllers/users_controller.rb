@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 
   def update_criteria
     @user.reset_criteria
-    @user.update(params[:scope] => 1) unless params[:scope] == "no-scope"
+    if params[:scope]
+      @user.update(params[:scope] => 1) unless (params[:scope] == "no-scope")
+    end
     if @user.update(criteria_params)
       redirect_to :result
     else

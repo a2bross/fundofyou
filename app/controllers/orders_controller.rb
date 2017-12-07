@@ -3,18 +3,21 @@ class OrdersController < ApplicationController
   def create
     @user = current_user
     @recommendations = Project.recommendation(@user, 3) # for redirection purpose only
-    project_ids = [27, 2, nil]
+    @selected_projects = []
+    @selected_projects << Project.find(params[:project_1]) unless params[:project_1] == ""
+    @selected_projects << Project.find(params[:project_2]) unless params[:project_2] == ""
+    @selected_projects << Project.find(params[:project_3]) unless params[:project_3] == ""
     total_amount = 20
-    @project_nb = 2
+    project_nb = @selected_projects.size
     @order = Order.new(amount: 20, status: 1)
-    # TO DO add condition on number of selected project
     if @order.save
-      @donation1 = Donation.new(project: Project.new, user: @user, order: @order, amount: @order.amount.div(@project_nb), status: 1)
-      @donation2 = Donation.new(project: Project.new, user: @user, order: @order, amount: @order.amount.div(@project_nb), status: 1)
-      if @donation1.save && @donation2.save
+      @selected_projects.each do |project|
+        Donation.create!(project: project, user: @user, order: @order, amount: @order.amount.div(project_nb), status: 1)
+      end
+      if @order.donations.size == project_nb
         redirect_to new_order_payment_path(@order)
       else
-        flash[:alert] = "Error when saving new donations"
+        flash[:alert] = "Error when creating new donations"
         render 'users/result'
       end
     else

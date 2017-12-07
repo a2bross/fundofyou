@@ -1,4 +1,5 @@
 import "bootstrap";
 import "../components/form";
-import "../components/tabs";
-import "../components/progress-bar";
+
+import { loadDynamicBannerText } from '../components/banner';
+loadDynamicBannerText();

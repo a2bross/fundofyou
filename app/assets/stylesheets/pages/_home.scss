@@ -1,3 +1,8 @@
+.total {
+  position: relative;
+  height: calc(100vh - 140px);
+}
+
 .banner {
   color: white;
   text-align: center;
@@ -12,7 +17,9 @@
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  padding: 15px;
 }
+
 .banner p {
   font-size: 25px;
   font-weight: lighter;
@@ -30,9 +37,9 @@
 .presentation {
   text-align: center;
   padding-bottom: 80px;
-  height: 400px;
+  height: 30%;
   padding-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 .temoignage {
   background-color: white;
@@ -59,19 +66,28 @@
   padding: 15px;
 }
 
-.suceess p {
+.success p {
   font-size: 15px;
   font-style: italic;
   padding: 5px;
   }
 
+.onglet {
+  padding-bottom: 18px;
+  padding-top: 30px;
+  width: 600px;
+  border-radius: 4px;
+  font-family: $headers-font;
+  font-size: 25px;
+}
+
 .home-project {
-  border: 1px solid gray;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0 ,0 , 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   background-color: white;
   height: 300px;
   width: 350px;
-  border-radius: 5px;
   &:hover {
     margin-top: -10px;
     transition: 0.5s;

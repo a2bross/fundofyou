@@ -1,8 +1,64 @@
-As the user <%= @user.first_name %>, I want to see my recommanded projects:
-<p>Name of the projet: <%= @project.name %></p>
+<div class="criteria-breadcrumb-container text-center">
+  <div class="criteria-breadcrumb">
+    <div class="criteria-breadcrumb-item"><span>1</span>Mes causes</div>
+    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
+    <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+  </div>
+</div>
 
-<form action="/users/<%= @user.id %>/donations" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <input name="project_id" type="hidden" value="<%= @project.id %>">
-  <input type="submit" value="Make a donation">
-</form>
+<div class="main-container">
+  <div class="main-header">
+    <div class="causes-resume">
+      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
+      <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
+    </div>
+    <div class="causes-buttons">
+      <%= link_to "Réinitialiser", edit_criteria_path, class: "btn button-reset", id: "criteria-reset" %>
+    </div>
+  </div>
+  <div class="content-container choose-criteria text-center">
+    <div class="choose-criteria-item">
+      <h3>Mes Recommandations</h3>
+    </div>
+    <div class="result-container">
+      <%= form_tag user_donations_path(current_user) do %>
+        <div>
+          <input name="Donner" type="submit" value="Donner" class="btn btn-primary"/>
+        </div>
+        <div>
+          <% @recommendations.each do |recommendation|%>
+            <% project = Project.find(recommendation[:project_id]) %>
+            <% project_categories = [] %>
+            <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+              <% project_categories << criterium if project[criterium] == 1 %>
+            <% end %>
+            <%= hidden_field_tag project.id, project.id %>
+            <div id="<%= project.id %>" class="user-selected">
+                <div class="col-xs-12 col-sm-4" >
+                  <div class="card home-project">
+
+                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
+
+                    <div class="card-category">
+                      <% project_categories.each do |category| %>
+                        <%= "#{category} " %>
+                      <% end %>
+                    </div>
+
+                    <div class="card-description">
+                      <h2><%= "#{project.name} - (#{project.id})" %></h2>
+                    </div>
+
+                    <!-- checkmark with toggled visibility -->
+                    <i class="card-checkmark fa fa-check-circle-o" aria-hidden="true"></i>
+
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

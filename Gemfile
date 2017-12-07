@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'stripe'
 gem 'money-rails'
 gem 'devise'
 gem 'figaro'
@@ -9,6 +10,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
+# gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

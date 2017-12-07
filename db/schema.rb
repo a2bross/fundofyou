@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206111806) do
+ActiveRecord::Schema.define(version: 20171207102914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,23 @@ ActiveRecord::Schema.define(version: 20171206111806) do
     t.bigint "project_id"
     t.bigint "subscription_id"
     t.bigint "user_id"
-    t.integer "status"
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "amount_cents", default: 0, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_donations_on_order_id"
     t.index ["project_id"], name: "index_donations_on_project_id"
     t.index ["subscription_id"], name: "index_donations_on_subscription_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -63,7 +73,7 @@ ActiveRecord::Schema.define(version: 20171206111806) do
     t.integer "abroad"
     t.integer "urgency"
     t.integer "education"
-    t.integer "completion_rate"
+    t.integer "completion_rate", default: 0
     t.string "photo"
     t.index ["charity_id"], name: "index_projects_on_charity_id"
   end
@@ -116,6 +126,7 @@ ActiveRecord::Schema.define(version: 20171206111806) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "donations", "orders"
   add_foreign_key "donations", "projects"
   add_foreign_key "donations", "subscriptions"
   add_foreign_key "donations", "users"

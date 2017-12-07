@@ -30,7 +30,7 @@ class Project < ApplicationRecord
     sorted_valid_projects = valid_projects.sort_by{ |project| [project.score(user), project[:completion_rate]] }
 
     sorted_valid_projects.last(number_of_recommendations).each do |project|
-      recommendations << { project_id: project[:id], score: project.score(user) }
+      recommendations << { project_id: project[:id], score: project.score(user), selected: true }
     end
 
     return recommendations
@@ -44,5 +44,13 @@ class Project < ApplicationRecord
       score += 1 if self[:urgency] == 1
     end
     return score
+  end
+
+  def update_completion_rate
+    @collected = 0
+    self.donations.each do |donation|
+      @collected << donation.amount.to_i
+    end
+    completion_rate = (@collected.fdiv(budget.to_i)*100).floor
   end
 end

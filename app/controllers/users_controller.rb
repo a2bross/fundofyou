@@ -8,22 +8,24 @@ class UsersController < ApplicationController
   end
 
   def update_criteria
+    @user.reset_criteria
+    @user.update(params[:scope] => 1) unless params[:scope] == "no-scope"
     if @user.update(criteria_params)
       redirect_to :result
     else
-      render :edit_criteria
+      redirect_to :edit_criteria
     end
   end
 
   def result
     # methode qui calcule les projets reco de current_user
-    @project = Project.new(name: "Super projet")
+    @recommendations = Project.recommendation(current_user, 3)
   end
 
   private
 
   def criteria_params
-    params.require(:user).permit(:first_name)
+    params.permit(:environment, :humanitarian, :social, :preservation, :education, :research, :local, :abroad)
   end
 
   # def projects_params

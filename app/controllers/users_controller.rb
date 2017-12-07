@@ -8,10 +8,14 @@ class UsersController < ApplicationController
   end
 
   def update_criteria
+    @user.reset_criteria
+    if params[:scope]
+      @user.update(params[:scope] => 1) unless (params[:scope] == "no-scope")
+    end
     if @user.update(criteria_params)
       redirect_to :result
     else
-      render :edit_criteria
+      redirect_to :edit_criteria
     end
   end
 
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
   private
 
   def criteria_params
-    params.require(:user).permit(:first_name)
+    params.permit(:environment, :humanitarian, :social, :preservation, :education, :research, :local, :abroad)
   end
 
   # def projects_params

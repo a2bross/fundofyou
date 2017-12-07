@@ -39,4 +39,6 @@ function progress() {
   }
 }
 
-progress();
+if (document.getElementById('progress')) {
+  progress();
+}

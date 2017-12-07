@@ -1,0 +1,26 @@
+
+.tabs {
+  display: flex;
+  padding: 10px;
+  margin-left: -13px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.tab {
+  flex: 1, 1, 33.333333333%;
+  padding: 10px;
+  margin-left: none;
+  background-color: white;
+  // text-decoration: none;
+}
+
+.tab.active {
+  flex: 1, 1, 33.333333333%;
+  background-color: $yellow;
+  padding: 10px;
+  a {
+  color: white;
+  }
+}

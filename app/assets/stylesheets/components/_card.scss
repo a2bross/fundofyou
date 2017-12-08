@@ -58,8 +58,6 @@
   opacity: 0.1;
 }
 
-
-
 .card-home {
   height: 175px;
   background-size: cover !important;
@@ -85,19 +83,34 @@
 .card-description-home {
   position: absolute;
   color: black;
-  top: 155px;
-  left: 80px;
-
+  top: 152px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  min-width: 100%;
 }
 .card-description-home h2 {
   font-size: 24px;
   font-weight: solid;
   font-family: $headers-font;
+  text-align: center;
+  // top: 152px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  // white-space: nowrap;
 }
 
-.card-description-home p {
-  font-size: 14px;
+.card-description-home-title h2 {
+  padding-top: 15px;
 }
+
+.card-description-home-description {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
 .card-link-home {
   position: absolute;
   top: 0;

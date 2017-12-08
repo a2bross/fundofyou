@@ -1,3 +1,4 @@
+
 .welcome {
   margin: 20px;
 }
@@ -31,6 +32,7 @@
   // height: calc(100vh - 208px);
   padding: 20px;
   padding-top: 0px;
+  color: rgb(190, 190, 190)
 
 }
 
@@ -119,6 +121,9 @@
     color: white;
     z-index: 2;
     left: 49px
+  }
+  h5 {
+    margin-top: 20px;
   }
   .photo {
     background-size: cover;

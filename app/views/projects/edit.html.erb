@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <%= link_to "Tous les projects", projects_path %>
-    <div class="text-center"><h2>Créer un project</h2></div>
+    <div class="text-center"><h2>Editer <%= @project.name %></h2></div>
     <div class="col-xs-12 col-sm-offset-4 col-sm-4">
 
       <%= simple_form_for(@project) do |f| %>

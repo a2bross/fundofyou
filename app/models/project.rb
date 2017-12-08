@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   has_many :donations, dependent: :destroy
   has_many :users, through: :donations
   monetize :budget_cents
-  validates :name, :budget_cents, :start_date, :end_date, :charity, presence: true
+  validates :name, :budget, :description, :start_date, :end_date, :charity, presence: true
   mount_uploader :photo, ProjectUploader
 
 

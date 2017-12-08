@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   has_many :users, through: :donations
   monetize :budget_cents
   validates :name, :budget_cents, :start_date, :end_date, :charity, presence: true
-
+  mount_uploader :photo, ProjectUploader
 
 
   # after_create :define_photo_number

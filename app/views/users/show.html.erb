@@ -16,13 +16,15 @@
       <div class="tableau">
         <div class="total_dons">
           <h5>Mes dons</h5>
-          <% sum = 0 %>
-          <% @user.donations.each do |donation| %>
-          <% sum += donation.amount_cents.to_i %>
-          <% end %>
-          <h6> <%= total_donations = sum / 100  %> € </h6>
-          <p> <%= (deductible_donations = total_donations * 0.66).truncate %> € déductibles</p>
-          <%= render 'shared/progressbar' %>
+          <div class="figures-dons">
+            <% sum = 0 %>
+            <% @user.donations.each do |donation| %>
+            <% sum += donation.amount_cents.to_i %>
+            <% end %>
+            <h6> <%= total_donations = sum / 100  %> € </h6>
+            <p> <%= (deductible_donations = total_donations * 0.66).truncate %> € déductibles</p>
+            <%= render 'shared/progressbar' %>
+          </div>
         </div>
 
         <div class=total_projets>
@@ -32,13 +34,13 @@
         </div>
 
         <div class="repartition_cause">
-          <h5>Répartition de vos dons par cause</h5>
+          <h5>Répartition de vos mes par cause</h5>
           <%= render 'shared/causes-indicator' %>
         </div>
 
         <div class="current-projects">
           <div class="rubrique-title">
-            <h5>Vos projets en cours</h5>
+            <h5>Mes projets en cours</h5>
           </div>
 
           <%= render 'shared/carousel' %>

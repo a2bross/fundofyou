@@ -11,7 +11,7 @@
 
     <div class="carousel-inner" id="project-carousel">
       <div class="item active">
-        <%=cl_image_tag("soupe_populaire_n7yxxn.jpg", width: 1000, height: 300, crop: :fill) %>
+         <%=cl_image_tag("soupe_populaire_n7yxxn.jpg", width: 1000, height: 300, crop: :fill, :background=>"#101818", :color=>"#ffffff", :opacity=>49) %>
       </div>
       <% @user.donations.each do |donation| %>
         <% if donation.project.end_date > Date.today %>
@@ -23,6 +23,3 @@
     </div>
   </div>
 </div>
-
-
-

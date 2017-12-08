@@ -1,7 +1,7 @@
 function updatePrices(){
-  // dynamically update prices - DOES NOT WORK YET
+  // dynamically update prices
   document.getElementById("contribution").addEventListener("change", (event) => {
-    document.querySelectorAll("amount").forEach((amount) => {
+    document.querySelectorAll(".amount").forEach((amount) => {
       amount.innerText = Math.round(document.getElementById("contribution").value / document.querySelectorAll(".tab-pane .checked").length)
     });
   });
@@ -11,13 +11,25 @@ function updatePrices(){
 function checked() {
   // dynamically update the checked class
   document.querySelectorAll(".tab-pane .fa-check-circle-o").forEach((element) => {
+    // show element as clickable
+    element.classList.add("clickable");
+    //add event listener for clicks
     element.addEventListener("click", (event) => {
+      // toggle the "checked" class
       event.currentTarget.classList.toggle("checked");
       const projectId = event.currentTarget.dataset.contentCheck;
       const searchString = `[data-tab-check='${projectId}']`;
       const tabObject = document.querySelector(searchString);
       tabObject.classList.toggle("checked");
-      // still need to update hidden field value
+      // update all amounts accordingly
+      document.querySelectorAll(".amount").forEach((amount) => {
+        amount.innerText = Math.round(document.getElementById("contribution").value / document.querySelectorAll(".tab-pane .checked").length);
+      });
+      // toggle hidden class on contribution message of the current target
+      event.currentTarget.parentNode.querySelectorAll(".contribution-amount").forEach((message) => {
+        message.classList.toggle("hidden");
+      });
+      // still need to update hidden field value project ids
     });
   });
 }

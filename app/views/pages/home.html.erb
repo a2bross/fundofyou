@@ -131,9 +131,13 @@
                      url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
                      <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2><%= @project1.name %></h2>
-                        <p><%= @project1.start_date.strftime("%d/%m/%Y") %></p>
-                        <p><%= @project1.end_date.strftime("%d/%m/%Y")  %></p>
+                        <div class="card-description-home-title">
+                          <h2><%= @project1.name %></h2>
+                        </div>
+                        <div class="card-description-home-description">
+                          <p>Objectif</p>
+                          <p>Montant collecté</p>
+                        </div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                   </div>
@@ -145,9 +149,13 @@
                   </div>
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2>Voyage humanitaire en Inde</h2>
-                        <p>Objectif: 1 200€</p>
-                        <p>Montant collecté: 800€</p>
+                      <div class="card-description-home-title">
+                        <h2>Voyage humanitaire en Inde</h2>
+                       </div>
+                       <div class="card-description-home-description">
+                          <p>Objectif</p>
+                          <p>Montant collecté</p>
+                        </div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                  </div>
@@ -159,9 +167,13 @@
                   </div>
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2>SOS Enfant</h2>
-                        <p>date de début</p>
-                        <p>date de fin</p>
+                        <div class="card-description-home-title">
+                           <h2>SOS Pepito</h2>
+                        </div>
+                        <div class="card-description-home-description">
+                          <p>Objectif</p>
+                          <p>Montant collecté</p>
+                        </div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                  </div>
@@ -176,8 +188,7 @@
                      <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
                        <h2><%= @project1.name %></h2>
-                        <p><%= @project1.start_date.strftime("%d/%m/%Y") %></p>
-                        <p><%= @project1.end_date.strftime("%d/%m/%Y")  %></p>
+                        <div class="obtenu">Montant collecté</div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                   </div>
@@ -190,8 +201,7 @@
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
                        <h2>SOS Enfant</h2>
-                        <p>date de début</p>
-                        <p>date de fin</p>
+                        <div class="obtenu">Montant collecté</div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                  </div>
@@ -204,8 +214,7 @@
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
                        <h2>SOS Enfant</h2>
-                        <p>date de début</p>
-                        <p>date de fin</p>
+                        <div class="obtenu">Montant collecté</div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                  </div>

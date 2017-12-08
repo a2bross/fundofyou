@@ -9,6 +9,16 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.navbar-title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.navbar-title:hover {
+  font-size: $headers-font;
+}
+
 .navbar-home {
   position: absolute;
   width: 100%;
@@ -24,6 +34,10 @@
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+}
+
+.navbar-wagon-brand:hover {
+  text-decoration: none;
 }
 
 /* User Avatar */

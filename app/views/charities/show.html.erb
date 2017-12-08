@@ -1,25 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <p>Nom : @charity.name</p>
-      <p>Immatriculation : @charity.immatriculation</p>
-      <p>Adresse : @charity.address</p>
-      <p>Numéro de téléphone : @charity.phone_number</p>
-      <p>Email : @charity.email</p>
-      <p>Contact : @charity.contact_name</p>
-      <p>Description : @charity.description</p>
+      <p>Nom : <%= @charity.name %></p>
+    <p>Immatriculation : <%= @charity.immatriculation %></p>
+    <p>Adresse : <%= @charity.address %></p>
+    <p>Numéro de téléphone : <%=  @charity.phone_number%></p>
+    <p>Email : <%= @charity.email %></p>
+    <p>Contact : <%= @charity.contact_name %></p>
+    <p>Description : <%= @charity.description %> </p>
+    <%= link_to "Toutes les assos", charities_path %>
       </p>
     </div>
     <div class="col-xs-12 col-sm-6">
       <% if @charity.photo %>
-        <%= cl_image_tag(@charity.photo) %>
+        <%= cl_image_tag(@charity.photo, width: 500, height: 500, crop: :fill,) %>
       <% else %>
         <p>Pas de photo</p>
       <% end %>
     </div>
     <div class="col-xs-12 text-center">
       <%= link_to 'Editer', edit_charity_path(@charity), class: "btn btn-primary" %>
-      <%= link_to 'Supprimer', charity_path(@charity), class: "btn btn-danger" %>
+      <%= link_to 'Supprimer', charity_path(@charity),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

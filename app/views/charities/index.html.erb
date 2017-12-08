@@ -3,6 +3,8 @@
 
 <ul>
   <% @charities.each do |charity| %>
-  <li> <%= link_to charity.name, charity_path(charity) %> (<%= link_to 'Editer', edit_charity_path(charity) %>, <%= link_to 'Supprimer', charity_path(charity) %>)</li>
+  <li> <%= link_to charity.name, charity_path(charity) %> (<%= link_to 'Editer', edit_charity_path(charity) %>, <%= link_to 'Supprimer', charity_path(charity),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>)</li>
   <% end %>
 </ul>

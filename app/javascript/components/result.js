@@ -29,7 +29,10 @@ function checked() {
       event.currentTarget.parentNode.querySelectorAll(".contribution-amount").forEach((message) => {
         message.classList.toggle("hidden");
       });
-      // still need to update hidden field value project ids
+      // update hidden field value project ids
+      const hiddenFieldValue = event.currentTarget.firstChild.value;
+      console.log(hiddenFieldValue);
+      event.currentTarget.firstChild.value = hiddenFieldValue === projectId ? "" : projectId;
     });
   });
 }

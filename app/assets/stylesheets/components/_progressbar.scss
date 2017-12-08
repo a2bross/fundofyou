@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  grid-row: 2 / span 1;
+  grid-column: 1/ span 3;
 }
 
 .progressbar-bordures {

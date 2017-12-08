@@ -34,26 +34,41 @@
 
 }
 
+
+.figures-dons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  h6 {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+  }
+  p {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 2;
+  }
+}
+
 .total_dons {
+
     margin: 10px;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 20px;
     border-radius: 5px;
-    position: relative;
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
     h6 {
       font-size: 18px;
       color: $yellow;
       font-weight: bold;
-      display: flex;
       justify-content: center;
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 1;
     }
 
     p {
-      display: flex;
       margin-top: 15px;
       color: $green;
     }

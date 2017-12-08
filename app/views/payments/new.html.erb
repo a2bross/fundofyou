@@ -21,39 +21,76 @@
       <%= link_to "Changer mes causes", edit_criteria_path, class: "btn button-reset" %>
     </div>
   </div>
-  <div class="content-container choose-criteria">
+  <div class="content-container choose-criteria payment-global-container">
     <div class="choose-criteria-item" >
       <h3>Confirmez votre donation</h3>
     </div>
     <div class="cause-container">
       <% if @donations.size == 1 %>
-        Le projet que vous souhaitez soutenir :
+        <h4>Le projet que vous souhaitez soutenir :</h4>
       <% else %>
-        Le projet que vous souhaitez soutenir :
+       <h4> Les projets que vous souhaitez soutenir :</h4>
       <% end %>
-      <h4>Choisir le périmètre d'action :</h4>
-        <ul>
-          <% @order.donations.each do |donation| %>
-            <li><%= donation.project.name %> (<%= humanized_money_with_symbol(donation.amount) %>)</li>
-          <% end %>
-        </ul>
-        <%= form_tag order_payments_path(@order) do %>
-          <article>
-            <label class="amount">
-              <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+      <div class="selected-projects text-center">
+        <% @order.donations.each do |donation| %>
+          <div class="selected-projects-item">
+            <p class="badge badge-primary badge-pill"><%= donation.amount.to_i %>€</p>
+            <p><%= donation.project.name %></p>
+          </div>
+       <% end %>
+     </div>
+      <%= form_tag order_payments_path(@order) do %>
+      <h4>La formule de don que vous préférez :</h4>
+      <div class="container-fluid">
+        <div class="row text-center">
+          <div class="col-xs-12 col-sm-6">
+            <input type="checkbox" class="hidden" value=1 name="subscription" id="subscription">
+            <label for="subscription" class="subscription-choice">
+              <div>
+                <h5>Abonnement</h5>
+                <p>Je m'abonne pour soutenir chaque mois les causes qui me tiennent à coeur</p>
+              </div>
             </label>
-          </article>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Fund of You"
-          data-email="<%= current_user.email %>"
-          data-description="Nombre de donations: <%= @order.donations.size %>"
-          data-amount="<%= @order.amount_cents %>"
-          data-currency="<%= @order.amount.currency %>"></script>
-        <% end %>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
+            <label for="one-shot" class="subscription-choice">
+              <h5>Don ponctuel</h5>
+              <p>Je contribue aujourd'hui pour <%= pluralize @donations.size, "projet" %> </p>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h4>Vos coordonnées</h4>
+      <div class="form-row contact-form">
+        <div class="form-group col-md-6">
+          <%= label_tag 'first_name', "Prénom" %>
+          <%= text_field_tag 'first_name', @user.first_name, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= label_tag 'last_name', "Nom" %>
+          <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-12 contact-form-last">
+          <%= label_tag 'address', "Adresse" %>
+          <%= text_field_tag 'address', @user.address, class: "form-control", id: "user-address" %>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3>Montant total de votre donation : <span id="payment-final-amount"><%= @order.amount.to_i %>€ TTC</span></h3>
+      </div>
     </div>
-
-
+    <div class="text-center">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Fund of You"
+        data-email="<%= current_user.email %>"
+        data-description="Nombre de donations: <%= @order.donations.size %>"
+        data-amount="<%= @order.amount_cents %>"
+        data-currency="<%= @order.amount.currency %>"></script>
+      <% end %>
+    </div>
   </div>
 </div>
 

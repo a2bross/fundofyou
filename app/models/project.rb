@@ -41,8 +41,8 @@ class Project < ApplicationRecord
     criteria = [:environment, :humanitarian, :social, :research, :preservation, :education]
     criteria.each do |criterium|
       score += 1 if (user[criterium] == 1) && (self[criterium] == 1)
-      score += 1 if self[:urgency] == 1
     end
+    score += 1 if self[:urgency] == 1
     return score
   end
 

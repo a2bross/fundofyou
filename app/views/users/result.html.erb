@@ -26,7 +26,7 @@
           <div class="col-xs-12 col-sm-6 col-sm-offset-3">
             <div class="flex-between">
               <h3>Je donne </h3>
-              <input id="contribution" type="number" placeholder="10">
+              <input id="contribution" type="number" value="10">
               <h3> euros</h3>
               <div id="donate-btn">
                 <input name="Contribuer" type="submit" value="Contribuer" class="btn btn-primary"/>
@@ -67,7 +67,7 @@
                   <p><%= project_categories.join(" - ") %></p>
                   <p><%= project.description %></p>
                   <i class="fa fa-check-circle-o checked" aria-hidden="true" data-content-check="<%= project.id %>"><%= hidden_field_tag "project_#{div_counter}", project.id %></i>
-                  <div id="amount"></div>
+                  <div class="contribution-amount">Ma contribution a ce project: <span class="amount">3</span> euros</div>
                 </div>
             <% end %>
           </div>

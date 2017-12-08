@@ -14,7 +14,7 @@ autocomplete();
 
 // load the following only for the result page
 import { checked, updatePrices, updateAmount } from "../components/result";
-if document.getElementById("result-page") {
+if (document.getElementById("result-page")) {
   updateAmount();
   checked();
   updatePrices();

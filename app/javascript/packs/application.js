@@ -11,6 +11,7 @@ autocomplete();
 // import "../components/tabs";
 // import "../components/progress-bar";
 
-import { checked, updatePrices } from "../components/result";
+import { checked, updatePrices, updateAmount } from "../components/result";
+updateAmount();
 checked();
 updatePrices();

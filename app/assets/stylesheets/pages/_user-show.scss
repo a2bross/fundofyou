@@ -6,6 +6,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 40% 60%;
+  h5 {
+      font-size: 23px;
+    }
 }
 
 @media(min-width: 992px) {
@@ -42,18 +45,21 @@
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
     h6 {
-      position: absolute;
-      top: 55px;
-      right: 10px;
       font-size: 18px;
+      color: $yellow;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
     }
+
     p {
-      margin-top: 55px;
+      display: flex;
+      margin-top: 15px;
+      color: $green;
     }
 }
 
 .total_projets {
-  display: flex;
   margin: 10px;
   background-color: $blue;
   padding: 20px;
@@ -67,6 +73,11 @@
   grid-column: 2 / span 1;
 }
 
+.donations-count {
+    color: white;
+    opacity: 0.5;
+    font-size: 550%;
+    }
 
 .repartition_cause {
   margin: 10px;

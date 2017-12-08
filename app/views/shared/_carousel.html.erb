@@ -1,0 +1,26 @@
+<div class="container asso-banner">
+  <div class="carousel slide" data-ride="carousel" id="carousel-ex">
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-ex" data-slide-to="0" class="active"></li>
+      <% @user.donations.each do |donation| %>
+        <% if donation.project.end_date > Date.today %>
+        <li data-target="#carousel-ex" data-slide-to="#{+=1}" ></li>
+        <% end %>
+      <% end %>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag "humanitaire.jpg" %>
+      </div>
+      <% @user.donations.each do |donation| %>
+        <% if donation.project.end_date > Date.today %>
+          <div class="item">
+            <%= image_tag "humanitaire.jpg" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

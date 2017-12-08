@@ -7,9 +7,8 @@ class OrdersController < ApplicationController
     @selected_projects << Project.find(params[:project_1]) unless params[:project_1] == ""
     @selected_projects << Project.find(params[:project_2]) unless params[:project_2] == ""
     @selected_projects << Project.find(params[:project_3]) unless params[:project_3] == ""
-    total_amount = 20
     project_nb = @selected_projects.size
-    @order = Order.new(amount: 20, status: 1)
+    @order = Order.new(amount: params[:contribution], status: 1)
     if @order.save
       @selected_projects.each do |project|
         Donation.create!(project: project, user: @user, order: @order, amount: @order.amount.div(project_nb), status: 1)

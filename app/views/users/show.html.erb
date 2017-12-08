@@ -1,5 +1,5 @@
 
-<div class="main-container">
+<div class="main-container #container-dashboard">
   <div class="welcome">
     <h1>  Bienvenue <%= @user.first_name  %></h1>
   </div>
@@ -29,7 +29,7 @@
 
         <div class=total_projets>
           <div class="donations-count"> <%= @user.donations.count %></div>
-          <h5>Vous avez financé <%= @user.donations.count %> projets</h5>
+          <h5>Vous avez financé <%= pluralize @user.donations.count, "projet" %></h5>
           <!-- add condition where status == 20 -->
         </div>
 

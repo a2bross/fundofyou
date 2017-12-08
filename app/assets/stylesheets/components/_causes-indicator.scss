@@ -1,0 +1,109 @@
+.cadre-causes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.ecologie-case {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+
+  p {
+    margin: 0px;
+    padding: 10px;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+
+.education-case {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+  p {
+    margin: 0px;
+    padding: 10px;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+
+.actionsociale-case {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+  p {
+    margin: 0px;
+    padding: 10px;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+
+.humanitaire-case {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+  p {
+    margin: 0px;
+    padding: 10px;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+
+.patrimoine-case {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+  p {
+    margin: 0px;
+    padding: 10px;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+
+.recherche-case {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: white;
+  p {
+    margin: 0px;
+    padding: 10px;
+  }
+  i {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+

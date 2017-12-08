@@ -1,0 +1,29 @@
+.jauge {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.progressbar-bordures {
+  display: flex;
+  background-color: $yellow;
+  justify-content: space-between;
+  height: 26px;
+  width: 70%;
+  border: solid 2px rgba(200, 200, 200, 1);
+  border-radius: 5px;
+
+}
+
+.progressbar-fond {
+  background-color: $green;
+  width: 67%;
+  height: 22px;
+  border-radius: 4px;
+
+}
+.progressbar {
+  background-color: $yellow;
+  height: 22px;
+  width: 34%;
+}

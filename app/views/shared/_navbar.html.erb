@@ -11,7 +11,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "Explorer", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Mon compte", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Mon compte", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_out", default: "Déconnexion"), destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% else %>

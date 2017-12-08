@@ -1,9 +1,68 @@
 <div class="home-global-container">
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "mains_3.jpg" %>');">
-    <div class="banner-content">
-      <h1>Fund Of You</h1>
-      <p><span id="banner-typed-text"></span></p>
-      <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project" %>
+  <div class="container-fluid banner-photo">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="my-slider" class="carousel slide" data-ride="carousel">
+         <!-- indicators do not nov -->
+<!--           <ol class="carousel-indicators">
+             <li data-target="#my-slider" data-slide-to="0" class="active "></li>
+             <li data-target="#my-slider" data-slide-to="1"></li>
+          </ol> -->
+          <!-- wrapper for slides -->
+           <div class="carousel-inner" role="listbox">
+             <div class="item active">
+              <%= image_tag "love.jpg", class: "photo-banner" %>
+               <div class="carousel-caption">
+                  <h1>Fund Of You</h1>
+                  <p><span id="banner-typed-text"></span></p>
+                  <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
+               </div>
+             </div>
+
+             <div class="item">
+              <%= image_tag "environnement.jpg", class: "photo-banner" %>
+               <div class="carousel-caption">
+                <h1>Fund Of You</h1>
+                <p><span id="banner-typed-text"></span></p>
+               </div>
+             </div>
+
+             <div class="item">
+              <%= image_tag "humanitaire.jpg", class: "photo-banner" %>
+               <div class="carousel-caption">
+                <h1>Fund Of You</h1>
+                <p><span id="banner-typed-text"></span></p>
+               </div>
+             </div>
+
+             <div class="item">
+              <%= image_tag "education.jpg", class: "photo-banner" %>
+               <div class="carousel-caption">
+                <h1>Fund Of You</h1>
+                <p><span id="banner-typed-text"></span></p>
+               </div>
+             </div>
+
+             <div class="item">
+              <%= image_tag "eiffel.jpg", class: "photo-banner" %>
+               <div class="carousel-caption">
+                <h1>Fund Of You</h1>
+                <p><span id="banner-typed-text"></span></p>
+               </div>
+             </div>
+
+           </div>
+           <!-- controls or next and prev buttons -->
+           <a class="left carousel-control" href="#my-slider" role="button" data-slide="prev">
+             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+             <span class="sr-only">Previous</span>
+           </a>
+           <a class="right carousel-control" href="#my-slider" role="button" data-slide="next">
+             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+             <span class="sr-only">Previous</span>
+           </a>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -124,7 +124,7 @@
 
         <div class= "tab-content">
           <div class="tab-pane fade in active" id="en-cours">
-            <%= link_to project_path(@project1) do %>
+<!--             <%=# link_to project_path(@project1) do %> -->
                 <div class="col-xs-12 col-sm-4" >
                   <div class="card-home home-project" >
                     <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -132,7 +132,7 @@
                      <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
                         <div class="card-description-home-title">
-                          <h2><%= @project1.name %></h2>
+                          <h2>Test</h2>
                         </div>
                         <div class="card-description-home-description">
                           <p>Objectif</p>
@@ -181,13 +181,13 @@
           </div>
 
           <div class="tab-pane fade" id="done">
-            <%= link_to project_path(@project1) do %>
+
                 <div class="col-xs-12 col-sm-4" >
                   <div class="card-home home-project" >
                     <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');"></div>
                      <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2><%= @project1.name %></h2>
+                       <h2>Coucou></h2>
                         <div class="obtenu">Montant collecté</div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">

@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    @user.update(first_name: params[:first_name], last_name: params[:last_name], address: params[:address])
     customer = Stripe::Customer.create(
         source: params[:stripeToken],
         email:  params[:stripeEmail]
@@ -20,7 +21,6 @@ class PaymentsController < ApplicationController
 
       @order.update(payment: charge.to_json, status: 20)
       @order.donations.each do |donation|
-        raise
         donation.update(status: 20, execution_date: Date.today)
         donation.project.update_completion_rate
       end
@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
     rescue Stripe::CardError => e
       flash[:alert] = e.message
       redirect_to new_order_payment_path(@order)
-    end
+  end
 
   private
 

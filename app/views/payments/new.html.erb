@@ -22,6 +22,7 @@
     </div>
   </div>
   <div class="content-container choose-criteria payment-global-container">
+    <%= form_tag order_payments_path(@order) do %>
     <div class="choose-criteria-item" >
       <h3>Confirmez votre donation</h3>
     </div>
@@ -39,7 +40,6 @@
           </div>
        <% end %>
      </div>
-      <%= form_tag order_payments_path(@order) do %>
       <h4>La formule de don que vous préférez :</h4>
       <div class="container-fluid">
         <div class="row text-center">
@@ -62,6 +62,7 @@
         </div>
       </div>
 
+
       <h4>Vos coordonnées</h4>
       <div class="form-row contact-form">
         <div class="form-group col-md-6">
@@ -81,16 +82,16 @@
         <h3>Montant total de votre donation : <span id="payment-final-amount"><%= @order.amount.to_i %>€ TTC</span></h3>
       </div>
     </div>
-    <div class="text-center">
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-name="Fund of You"
-        data-email="<%= current_user.email %>"
-        data-description="Nombre de donations: <%= @order.donations.size %>"
-        data-amount="<%= @order.amount_cents %>"
-        data-currency="<%= @order.amount.currency %>"></script>
-      <% end %>
-    </div>
+      <div class="text-center">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Fund of You"
+          data-email="<%= current_user.email %>"
+          data-description="Nombre de donations: <%= @order.donations.size %>"
+          data-amount="<%= @order.amount_cents %>"
+          data-currency="<%= @order.amount.currency %>"></script>
+      </div>
+    <% end %>
   </div>
 </div>
 

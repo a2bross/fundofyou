@@ -58,3 +58,58 @@
   opacity: 0.1;
 }
 
+
+
+.card-home {
+  height: 175px;
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.card-user-home {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category-home {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description-home {
+  position: absolute;
+  color: black;
+  top: 155px;
+  left: 80px;
+
+}
+.card-description-home h2 {
+  font-size: 24px;
+  font-weight: solid;
+  font-family: $headers-font;
+}
+
+.card-description-home p {
+  font-size: 14px;
+}
+.card-link-home {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link-home:hover {
+  opacity: 0.1;
+}
+
+

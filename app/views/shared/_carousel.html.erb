@@ -9,18 +9,20 @@
       <% end %>
     </ol>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" id="project-carousel">
       <div class="item active">
-        <%= image_tag "humanitaire.jpg" %>
+        <%=cl_image_tag("soupe_populaire_n7yxxn.jpg", width: 1000, height: 300, crop: :fill) %>
       </div>
       <% @user.donations.each do |donation| %>
         <% if donation.project.end_date > Date.today %>
           <div class="item">
-            <%= image_tag "humanitaire.jpg" %>
+            <%= cl_image_tag("Rohingyas_mpclrd.jpg", width: 1000, height: 300, crop: :fill) %>
           </div>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
+
 

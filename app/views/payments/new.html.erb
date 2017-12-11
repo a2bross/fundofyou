@@ -1,97 +1,89 @@
-<div class="criteria-breadcrumb-container text-center">
-  <div class="criteria-breadcrumb">
-    <div class="criteria-breadcrumb-item"><span>1</span>Mes causes</div>
-    <div class="criteria-breadcrumb-item"><span>2</span>Mes projets</div>
-    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>3</span>Contribuer</div>
-  </div>
-</div>
+<%= content_for(:navbar_class, "navbar-static") %>
 
-<div class="main-container">
-  <div class="main-header">
-    <div class="causes-resume">
-      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les projets qui m'importent</h6>
-      <p><em>Les projets que vous avez sélectionné parmi vos recommandations.</em></p>
-      <p id="project-selected">
-        <% @donations.each do |donation| %>
-          <span class="bullet"><%= donation.project.name.capitalize %></span>
-        <% end %></p>
-    </div>
-    <div class="causes-buttons">
-      <%= link_to "Retourner aux projets", result_path, class: "btn button-reset" %>
-      <%= link_to "Changer mes causes", edit_criteria_path, class: "btn button-reset" %>
-    </div>
-  </div>
-  <div class="content-container choose-criteria payment-global-container">
-    <%= form_tag order_payments_path(@order) do %>
-    <div class="choose-criteria-item" >
-      <h3>Confirmez votre donation</h3>
-    </div>
-    <div class="cause-container">
-      <% if @donations.size == 1 %>
-        <h4>Le projet que vous souhaitez soutenir :</h4>
-      <% else %>
-       <h4> Les projets que vous souhaitez soutenir :</h4>
-      <% end %>
-      <div class="selected-projects text-center">
-        <% @order.donations.each do |donation| %>
-          <div class="selected-projects-item">
-            <p class="badge badge-primary badge-pill"><%= donation.amount.to_i %>€</p>
-            <p><%= donation.project.name %></p>
-          </div>
-       <% end %>
-     </div>
-      <h4>La formule de don que vous préférez :</h4>
-      <div class="container-fluid">
-        <div class="row text-center">
-          <div class="col-xs-12 col-sm-6">
-            <input type="checkbox" class="hidden" value=1 name="subscription" id="subscription">
-            <label for="subscription" class="subscription-choice">
-              <div>
-                <h5>Abonnement</h5>
-                <p>Je m'abonne pour soutenir chaque mois les causes qui me tiennent à coeur</p>
-              </div>
-            </label>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
-            <label for="one-shot" class="subscription-choice">
-              <h5>Don ponctuel</h5>
-              <p>Je contribue aujourd'hui pour <%= pluralize @donations.size, "projet" %> </p>
-            </label>
-          </div>
-        </div>
-      </div>
+<div class="template-container">
 
-
-      <h4>Vos coordonnées</h4>
-      <div class="form-row contact-form">
-        <div class="form-group col-md-6">
-          <%= label_tag 'first_name', "Prénom" %>
-          <%= text_field_tag 'first_name', @user.first_name, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-6">
-          <%= label_tag 'last_name', "Nom" %>
-          <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-12 contact-form-last">
-          <%= label_tag 'address', "Adresse" %>
-          <%= text_field_tag 'address', @user.address, class: "form-control", id: "user-address" %>
-        </div>
-      </div>
-      <div class="text-center">
-        <h3>Montant total de votre donation : <span id="payment-final-amount"><%= @order.amount.to_i %>€ TTC</span></h3>
-      </div>
-    </div>
-      <div class="text-center">
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Fund of You"
-          data-email="<%= current_user.email %>"
-          data-description="Nombre de donations: <%= @order.donations.size %>"
-          data-amount="<%= @order.amount_cents %>"
-          data-currency="<%= @order.amount.currency %>"></script>
+  <div class="fixed-background-divided">
+    <% @donations.each do |donation| %>
+      <div class="fixed-background-divided-item flex-center" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path donation.project.photo %>);">
+          <h2><%= donation.project.name.capitalize %></h2>
       </div>
     <% end %>
+  </div>
+
+
+
+
+  <div class="scrollable-content">
+      <div class="breadcrumb-centerer">
+        <div class="breadcrumb-container text-center">
+          <div class="breadcrumb-line"></div>
+          <div class="criteria-breadcrumb">
+            <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
+            <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
+            <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>3</span>Contribuer</div>
+          </div>
+        </div>
+      </div>
+
+    <div class="funnel-main-content payment-step">
+      <div class="center-and-underline-title" >
+         <h3>Confirmez votre donation</h3>
+      </div>
+      <%= form_tag order_payments_path(@order) do %>
+        <h4>La formule de don que vous préférez :</h4>
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-xs-12 col-sm-6">
+              <input type="checkbox" class="hidden" value=1 name="subscription" id="subscription">
+              <label for="subscription" class="subscription-choice flex-center hvr-grow">
+                <div>
+                  <h5>Abonnement</h5>
+                  <p>Je m'abonne pour soutenir chaque mois les causes qui me tiennent à coeur</p>
+                </div>
+              </label>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
+              <label for="one-shot" class="subscription-choice flex-center hvr-grow">
+                <div>
+                  <h5>Don ponctuel</h5>
+                  <p>Je contribue aujourd'hui pour <%= pluralize @donations.size, "projet" %> </p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <h4>Vos coordonnées</h4>
+        <div class="form-row contact-form">
+          <div class="form-group col-md-6">
+            <%= label_tag 'first_name', "Prénom" %>
+            <%= text_field_tag 'first_name', @user.first_name, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= label_tag 'last_name', "Nom" %>
+            <%= text_field_tag 'last_name', @user.last_name, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-md-12 contact-form-last">
+            <%= label_tag 'address', "Adresse" %>
+            <%= text_field_tag 'address', @user.address, class: "form-control", id: "user-address", required: true %>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h3>Montant total de votre donation : <span id="payment-final-amount"><%= @order.amount.to_i %>€ TTC</span></h3>
+        </div>
+        <div class="text-center">
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Fund of You"
+            data-email="<%= current_user.email %>"
+            data-description="Nombre de donations: <%= @order.donations.size %>"
+            data-amount="<%= @order.amount_cents %>"
+            data-currency="<%= @order.amount.currency %>"></script>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

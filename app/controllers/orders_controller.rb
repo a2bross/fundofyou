@@ -4,9 +4,9 @@ class OrdersController < ApplicationController
     @user = current_user
     @recommendations = Project.recommendation(@user, 3) # for redirection purpose only
     @selected_projects = []
-    @selected_projects << Project.find(params[:project_1]) unless params[:project_1] == ""
-    @selected_projects << Project.find(params[:project_2]) unless params[:project_2] == ""
-    @selected_projects << Project.find(params[:project_3]) unless params[:project_3] == ""
+    @selected_projects << Project.find(params[:project_1]) unless params[:project_1].nil?
+    @selected_projects << Project.find(params[:project_2]) unless params[:project_2].nil?
+    @selected_projects << Project.find(params[:project_3]) unless params[:project_3].nil?
     project_nb = @selected_projects.size
     @order = Order.new(amount: params[:contribution], status: 1)
     if @order.save

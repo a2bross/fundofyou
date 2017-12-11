@@ -43,6 +43,7 @@
 
 .navbar-wagon-brand:hover, .navbar-wagon-brand:active {
   text-decoration: none;
+  color: $brand-primary;
 }
 
 /* User Avatar */
@@ -73,7 +74,7 @@
 
 
 .navbar-wagon-link:hover {
-  color: $gray;
+  color: $brand-primary;
   text-decoration: none;
 }
 

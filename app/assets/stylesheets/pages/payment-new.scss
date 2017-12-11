@@ -1,45 +1,22 @@
-.payment-global-container {
-  padding-bottom: 70px;
-}
-
-.selected-projects {
-  display: flex;
-  justify-content: center;
-}
-
-.selected-projects-item {
-  background: $light-gray;
-  border: 1px solid $yellow;
-  padding: 30px;
-  border-radius: 5px;
-  width: 200px;
-  margin: 10px 20px;
-  .badge {
-    background-color: $yellow;
+.payment-step {
+  form {
+    margin: 30px;
   }
 }
 
 .subscription-choice {
-  background: $light-gray;
-  border: 1px solid rgba(0, 0 ,0 , 0.1);
-  padding: 30px;
-  border-radius: 5px;
-  opacity: .4;
-  min-height: 160px;
+  background: $medium-gray;
+  padding: 20px;
+  min-height: 200px;
   margin-bottom: 30px;
+  width: 100%;
+  display: flex;
   &:hover {
-    opacity: 1;
     cursor: pointer;
-    h5 {
-      color: $brand-primary;
-    }
   }
   &.active {
-    border-color: $brand-primary;
-    opacity: 1;
-    h5 {
-      color: $brand-primary;
-    }
+    background-color: $brand-success;
+    color: white;
   }
   p {
     font-size: 14px;

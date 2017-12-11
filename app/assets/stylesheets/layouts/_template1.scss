@@ -18,9 +18,9 @@
   background-color: white;
   width: 50vw;
   overflow-y: scroll;
-  height: 100vh;
+  height: calc(100vh - 70px);
   color: $gray;
-  padding-top: 70px;
+  margin-top: 70px;
 }
 
 // Content on the picture side

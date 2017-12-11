@@ -1,3 +1,23 @@
+#carousel-actualite {
+  height: 5vh !important;
+}
+
+#carousel-dashboard {
+  height: calc(100vh - 70px) !important;
+}
+
+.carousel-item {
+  height: calc(100vh - 70px) !important;
+}
+
+.carousel-current-projects {
+  position: relative;
+}
+
+
+.photo-projects {
+}
+
 .carousel-control.left {
     background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.0001)));
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
@@ -24,18 +44,3 @@
     padding: 40px;
 }
 
-.carousel-current-projects {
-  position: relative;
-}
-
-#carousel-dashboard {
-  height: calc(100vh - 70px);
-  position: sticky !important;
-}
-
-
-// carousel actualité
-
-#carousel-actualite {
-  height: 5vh !important;
-}

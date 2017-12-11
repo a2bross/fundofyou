@@ -3,7 +3,7 @@
   <div class="row no_margin">
     <div class="col-xs-12 col-sm-2 no_padding">
 
-<%= content_for(:navbar_class, "navbar-dashboard") %>
+      <%= content_for(:navbar_class, "navbar-dashboard") %>
 
 
       <div class="welcome">
@@ -16,8 +16,7 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active" id="dashboard">
 
-          <div class="col-xs-12 col-sm-6 no_padding">
-
+          <div class="col-xs-12 col-sm-8 no_padding info-container">
 
             <div class="col-xs-12 col-sm-6 no_padding">
               <div class="notifications">
@@ -36,10 +35,9 @@
               <%= link_to "Découvrez de nouveaux projets", "#", class: "btn decouvrez" %>
             </div>
 
-
-
-            <div class="col-xs-12 col-sm-6 no_padding">
+            <div class="col-xs-12 no_padding">
               <div class="total_dons">
+                <div>vous avez donné</div>
                 <div class="donations-count">
                   <% sum = 0 %>
                   <% @user.donations.each do |donation| %>
@@ -50,8 +48,9 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 no_padding">
+            <div class="col-xs-12 no_padding">
               <div class=total_projets>
+                <div>pour soutenir</div>
                 <% if  @user.donations.count > 0  %>
                   <div class="donations-count"> <%= pluralize @user.donations.count, "projet" %></div>
                 <% else %>
@@ -60,23 +59,22 @@
                     <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
                   </div>
                 <% end %>
-                <!-- add condition where status == 20 -->
+                  <!-- add condition where status == 20 -->
               </div>
             </div>
-            <div class="col-xs-12 col-sm-12 no_padding" id="mes_causes">
 
-              <div class="repartition_cause">
+
+            <div class="col-xs-12 no_padding">
+              <div class="total-critere">
+                <div class="col-xs-6 no_padding">vos causes</div>
                 <%= render 'shared/causes-indicator' %>
               </div>
             </div>
 
-
           </div>
 
-          <div class="col-xs-12 col-sm-6 no_padding">
-            <div id="carousel-dashboard">
-              <%= render 'shared/carousel' %>
-            </div>
+          <div class="col-xs-12 col-sm-4 no_padding">
+            <%= render 'shared/carousel' %>
           </div>
         </div>
 

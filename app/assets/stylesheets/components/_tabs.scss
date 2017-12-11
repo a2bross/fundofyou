@@ -34,4 +34,14 @@
 
 .nav > li > a {
   color: white;
+  border-bottom: white solid 1px;
+}
+
+.nav > li > a:hover {
+  color: $yellow;
+
+}
+
+.nav > li.active {
+  color: $yellow;
 }

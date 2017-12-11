@@ -1,21 +1,33 @@
-<div class="cadre-causes">
+<div class="cadre-causes col-xs-12">
   <% if @user.environment > 0 %>
-    <div class="ecologie-case bullet"><i class="fa fa-leaf"></i><p>|</p><p>Ecologie</p></div>
+    <div class="ecologie-case bullet col-xs-4 col-sm-3"><i class="fa fa-leaf"></i><p>|</p><p>Ecologie</p></div>
+  <% else %>
+    <div class="ecologie-case disabled-criteria col-xs-4 col-sm-3"><i class="fa fa-leaf"></i><p>|</p><p>Ecologie</p></div>
   <% end %>
   <% if @user.education > 0 %>
-    <div class="education-case bullet"><i class="fa fa-graduation-cap"></i><p>|</p><p>Education</p></div>
+    <div class="education-case bullet col-xs-4 col-sm-3"><i class="fa fa-graduation-cap"></i><p>|</p><p>Education</p></div>
+  <% else %>
+    <div class="education-case disabled-criteria col-xs-4 col-sm-3"><i class="fa fa-graduation-cap"></i><p>|</p><p>Education</p></div>
   <% end %>
   <% if @user.social > 0 %>
-    <div class="actionsociale-case bullet"><i class="fa fa-handshake-o"></i><p>|</p><p>Social</p></div>
+    <div class="actionsociale-case bullet col-xs-4 col-sm-3"><i class="fa fa-handshake-o"></i><p>|</p><p>Social</p></div>
+    <% else %>
+    <div class="actionsociale-case disabled-criteria col-xs-4 col-sm-3"><i class="fa fa-handshake-o"></i><p>|</p><p>Social</p></div>
   <% end %>
   <% if @user.humanitarian > 0 %>
-    <div class="humanitaire-case bullet"><i class="fa fa-life-ring"></i><p>|</p><p>Humanitaire</p></div>
+    <div class="humanitaire-case bullet col-xs-4 col-sm-3"><i class="fa fa-life-ring"></i><p>|</p><p>Humanitaire</p></div>
+    <% else %>
+    <div class="humanitaire-case disabled-criteria col-xs-4 col-sm-3"><i class="fa fa-life-ring"></i><p>|</p><p>Humanitaire</p></div>
   <% end %>
-  <% if @user.preservation %>
-    <div class="patrimoine-case bullet"><i class="fa fa-institution"></i><p>|</p><p>Patrimoine</p></div>
+  <% if @user.preservation > 0 %>
+    <div class="patrimoine-case bullet col-xs-4 col-sm-3"><i class="fa fa-institution"></i><p>|</p><p>Patrimoine</p></div>
+  <% else %>
+    <div class="patrimoine-case disabled-criteria col-xs-4 col-sm-3"><i class="fa fa-institution"></i><p>|</p><p>Patrimoine</p></div>
   <% end %>
   <% if @user.research > 0 %>
-  <div class="recherche-case bullet"><i class="fa fa-flask"></i><p>|</p><p>Recherche</p></div>
+    <div class="recherche-case bullet col-xs-4 col-sm-3"><i class="fa fa-flask"></i><p>|</p><p>Recherche</p></div>
+  <% else %>
+    <div class="recherche-case disabled-criteria col-xs-4 col-sm-3"><i class="fa fa-flask"></i><p>|</p><p>Recherche</p></div>
   <% end %>
 </div>
 

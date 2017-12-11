@@ -64,7 +64,11 @@
 
       <h2 class="template-title"><%= project.name.capitalize %></h2>
       <div class="template-text template-text-long">
-        <p>Porté par l'association <%= project.charity.name %></p>
+        <div class="project-focus-data">
+            <p>Objectif : <%= project.budget.to_i %>€</p>
+            <p><%= project.completion_rate %>% récoltés</p>
+        </div>
+        <p>Par l'association <%= project.charity.name %></p>
         <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
         <%= link_to 'En savoir plus', project_path(project), target: '_blank' %>
 
@@ -76,7 +80,6 @@
           <% end %>
         </div>
         <!--  selected or not -->
-        </p>
       </div>
 
     </div>

@@ -1,8 +1,23 @@
 <div class="cadre-causes">
-  <div class="ecologie-case"><i class="fa fa-leaf"></i><p>Ecologie</p></div>
-  <div class="education-case"><i class="fa fa-graduation-cap"></i><p>Education</p></div>
-  <div class="actionsociale-case"><i class="fa fa-handshake-o"></i><p>Social</p></div>
-  <div class="humanitaire-case"><i class="fa fa-life-ring"></i><p>Humanitaire</p></div>
-  <div class="patrimoine-case"><i class="fa fa-institution"></i><p>Patrimoine</p></div>
-  <div class="recherche-case"><i class="fa fa-flask"></i><p>Recherche</p></div>
+  <% if @user.environment > 0 %>
+    <div class="ecologie-case bullet"><i class="fa fa-leaf"></i><p>|</p><p>Ecologie</p></div>
+  <% end %>
+  <% if @user.education > 0 %>
+    <div class="education-case bullet"><i class="fa fa-graduation-cap"></i><p>|</p><p>Education</p></div>
+  <% end %>
+  <% if @user.social > 0 %>
+    <div class="actionsociale-case bullet"><i class="fa fa-handshake-o"></i><p>|</p><p>Social</p></div>
+  <% end %>
+  <% if @user.humanitarian > 0 %>
+    <div class="humanitaire-case bullet"><i class="fa fa-life-ring"></i><p>|</p><p>Humanitaire</p></div>
+  <% end %>
+  <% if @user.preservation %>
+    <div class="patrimoine-case bullet"><i class="fa fa-institution"></i><p>|</p><p>Patrimoine</p></div>
+  <% end %>
+  <% if @user.research > 0 %>
+  <div class="recherche-case bullet"><i class="fa fa-flask"></i><p>|</p><p>Recherche</p></div>
+  <% end %>
 </div>
+
+
+

@@ -1,7 +1,10 @@
 .cadre-causes {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-rows: 1fr 1fr;
 }
 
 .ecologie-case {
@@ -74,7 +77,9 @@
 }
 
 .patrimoine-case {
+  display: flex;
   text-align: center;
+  align-items: center;
   font-size: 14px;
   margin: 10px;
   border-radius: 4px;
@@ -82,11 +87,11 @@
   color: white;
   p {
     margin: 0px;
-    padding: 10px;
+    padding: 7px;
   }
   i {
-    margin-top: 10px;
-    font-size: 20px;
+    padding: 7px;
+    font-size: 15px;
   }
 }
 

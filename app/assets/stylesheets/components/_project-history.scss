@@ -1,0 +1,128 @@
+.project-history {
+  flex: 0 0 70%;
+  padding: 0px !important;
+  ul {
+    padding: 0px;
+    height: calc(100vh - 150px);
+    overflow: auto;
+  }
+  li {
+    display: flex;
+    background-color: white;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
+    align-items: center;
+    position: relative;
+    p {
+      font-size: 13px;
+    }
+  }
+  .photo {
+    background-size: cover;
+    text-align: center;
+    margin: 10px;
+    margin-left: 0px;
+    width: 120px;
+    height: 80px
+  }
+}
+
+.project-history {
+  li:hover {
+  background-color: rgba(230, 230, 230, 0.1);
+  }
+}
+
+.project-name {
+  position: absolute;
+  left: 25px;
+  bottom: 65px;
+  color: white;
+}
+
+.asso-name {
+  position: absolute;
+  left: 25px;
+  bottom: 35px;
+  color: white;
+}
+
+h5 {
+  text-align: center;
+}
+
+.project-history-name {
+  margin-top: 5px;
+  position: absolute;
+  left: 220px;
+  top: 10px;
+}
+
+.project-history-charity {
+  margin-top: 5px;
+  position: absolute;
+  left: 220px;
+  top: 35px;
+  font-size: 12px;
+}
+
+.project-history-date {
+  margin-top: 5px;
+  position: absolute;
+  bottom: -5px;
+  left: 220px;
+  font-size: 13px;
+}
+
+.project-history-amount {
+  position: absolute;
+  bottom: 30px;
+  left: 150px;
+}
+
+.status {
+  margin-top: 5px;
+  position: absolute;
+  bottom: -5px;
+  right: 75px;
+
+}
+
+.project-end_date {
+  position: absolute;
+  bottom: -5px;
+  right: 25px;
+  padding: 0px 10px;
+}
+
+.project-progress {
+  position: absolute;
+  left: 50px;
+  bottom: 30px;
+  color: white;
+  h1 {
+  font-size: 13px;
+  }
+}
+
+.fa-clock-o {
+  position: absolute;
+  bottom: 12px;
+  right: -10px;
+}
+
+.fa-share {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  top: 30px;
+  right: 40px;
+}
+
+.fa-share:hover {
+  color: $yellow;
+}
+
+
+

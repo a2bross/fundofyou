@@ -1,10 +1,11 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Muli|Signika:300');
+@import url('https://fonts.googleapis.com/css?family=Amaranth|Titillium+Web');
 
 // Define fonts for body and headers
-$body-font: "Signika" , "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Muli", "Raleway", "Helvetica", "sans-serif";
+$body-font: "Titillium Web" , "Open Sans", "Helvetica", "sans-serif";
+$headers-font: "Amaranth", "Raleway", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

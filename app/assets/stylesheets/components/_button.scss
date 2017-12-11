@@ -15,12 +15,13 @@
 }
 
 .button-submit, .button-reset {
-  border: 1px solid rgba(0, 0 ,0 , 0.1);
+  margin: 5px;
+  width: 200px;
   text-transform: uppercase;
   font-size: 13px;
   font-weight: bold;
   padding: 15px 25px;
-  border-radius: 5px;
+  border-radius: 3px;
   transition: 0.5s background-color ease ;
   transition: 0.5s color ease ;
   transition: 0.5s border ease ;
@@ -32,11 +33,13 @@
 }
 
 .button-submit {
+  border: 1px solid $yellow;
   background-color: $yellow;
   color: white;
 }
 
 .button-reset {
+  border: 1px solid $medium-gray;
   background-color: $light-gray;
-  color: rgba(0, 0 ,0 , 0.1)
+  color: $gray;
 }

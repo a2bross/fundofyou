@@ -12,40 +12,21 @@
 }
 
 .bullet {
-  background-color: $yellow;
+  background-color: $brand-success;
   font-size: 12px;
-  border-radius: 5px;
   padding: 5px 10px;
   color: white;
 
 }
 
 #no-bullet {
-  color: #ffc23f;
+  color: $brand-primary;
 }
 
-.causes-buttons {
-  a {
-    display: block;
-    margin-bottom: 10px;
-  }
-}
-
-.choose-criteria-item {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-
-.choose-criteria {
-  h3 {
-    text-transform: uppercase;
-    font-size: 22px;
-    border-bottom: 1px solid rgba(0, 0 ,0 , 0.1);
-    padding-bottom: 15px;
-  }
+.funnel-main-content {
+  padding-top: 40px;
   form {
-    margin-top:50px;
+    margin:30px;
   }
   h4 {
     font-size: 18px;
@@ -53,39 +34,55 @@
   }
 }
 
-.cause-container {
-  margin: 0px 15%;
-}
-
-
 // Form design
 
-.cause-choice, .scope-choice {
-  background: $light-gray;
-  border: 1px solid rgba(0, 0 ,0 , 0.1);
-  padding: 30px;
-  border-radius: 5px;
-  opacity: .4;
-  width: 200px;
-  margin-bottom: 30px;
+.cause-choice {
+  background: $medium-gray;
+  padding: 30px 0px;
+  margin: 15px 0px;
+  width: 145px;
+  font-size: 16px;
   &:hover {
-    opacity: 1;
-    cursor: pointer;
+
   }
   &.active {
-    background: $brand-primary;
+    background: $brand-success;
     color: white;
     opacity: 1;
   }
 }
 
 input[type=radio]:checked + label {
-    background: $brand-primary;
+    background: $brand-success;
     color: white;
     opacity: 1;
 }
 
 .form-button {
-  text-align:right;
   margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+  .button-reset {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 1024px) {
+  .funnel-main-content {
+    padding-top: 20px;
+    form {
+      margin: 30px 0px 60px;
+    }
+  }
+  .cause-choice {
+    font-size: 16px;
+  }
+  .form-button {
+    display: block;
+    text-align: center;
+  }
+
 }

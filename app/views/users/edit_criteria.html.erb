@@ -1,14 +1,7 @@
-<div class="criteria-breadcrumb-container text-center">
-  <div class="criteria-breadcrumb">
-    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
-    <div class="criteria-breadcrumb-item"><span>2</span>Mes projets</div>
-    <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
-  </div>
-</div>
+<div class="template-container">
+  <div class="fixed-background-left" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
 
-<div class="main-container">
-  <div class="main-header">
-    <div class="causes-resume">
+    <div class="template-left-text causes-resume">
       <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
       <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
       <p id="causes-selected">
@@ -24,58 +17,71 @@
         <span id="bullet-no-scope" class="bullet hidden">Indifférent</span>
       </p>
     </div>
-    <div class="causes-buttons">
-      <a href="#" class="btn button-submit" id="criteria-submit">Découvrir les projets</a>
-      <a href="#" class="btn button-reset" id="criteria-reset">Réinitialiser</a>
-    </div>
   </div>
-  <div class="content-container choose-criteria">
-      <div class="choose-criteria-item" >
+
+  <div class="template-left-cta">
+    <a href="#" class="btn button-submit" id="criteria-submit">Découvrir les projets</a>
+  </div>
+
+  <div class="scrollable-content-right">
+    <div class="breadcrumb-centerer">
+      <div class="breadcrumb-container text-center">
+        <div class="breadcrumb-line"></div>
+        <div class="criteria-breadcrumb">
+          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
+          <div class="criteria-breadcrumb-item"><span>2</span>Mes projets</div>
+          <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+        </div>
+      </div>
+    </div>
+
+  <div class="funnel-main-content">
+      <div class="center-and-underline-title" >
         <h3>Choisir les causes qui m'importent</h3>
       </div>
-      <form action="/edit_criteria" method="post" class="cause-container">
+      <form action="/edit_criteria" method="post">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <input type="hidden" name="_method" value="patch">
         <div class="container-fluid">
           <div class="row text-center">
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="environment" id="environment">
-              <label for="environment" class="cause-choice">
+              <label for="environment" class="cause-choice hvr-grow">
                 <i class="fa fa-leaf"></i> <div>Ecologie</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="humanitarian" id="humanitarian">
-              <label for="humanitarian" class="cause-choice">
+              <label for="humanitarian" class="cause-choice hvr-grow">
                 <i class="fa fa-life-ring"></i> <div>Humanitaire</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="social" id="social">
-              <label for="social" class="cause-choice">
+              <label for="social" class="cause-choice hvr-grow">
                 <i class="fa fa-handshake-o"></i> <div>Action sociale</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="preservation" id="preservation">
-              <label for="preservation" class="cause-choice">
+              <label for="preservation" class="cause-choice hvr-grow">
                 <i class="fa fa-institution"></i> <div>Patrimoine</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="education" id="education">
-              <label for="education" class="cause-choice">
+              <label for="education" class="cause-choice hvr-grow">
                 <i class="fa fa-graduation-cap"></i> <div>Education</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="research" id="research">
-              <label for="research" class="cause-choice">
+              <label for="research" class="cause-choice hvr-grow">
                 <i class="fa fa-flask"></i> <div>Recherche</div>
                 <i class="fa fa-check hidden"></i>
               </label>
@@ -83,34 +89,42 @@
          </div>
           <h4>Choisir le périmètre d'action :</h4>
           <div class="row text-center">
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
 
               <input type="radio" class="hidden" value="local" name="scope" id="local" required>
-              <label for="local" class="scope-choice">
+              <label for="local" class="cause-choice hvr-grow">
                 <i class="fa fa-map-marker"></i> <div>Local</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="radio" class="hidden" value="abroad" name="scope" id="abroad" required>
-              <label for="abroad" class="scope-choice">
+              <label for="abroad" class="cause-choice hvr-grow">
                 <i class="fa fa-globe"></i> <div>International</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="radio" class="hidden" value="no-scope" name="scope" id="no-scope" required>
-              <label for="no-scope" class="scope-choice">
+              <label for="no-scope" class="cause-choice hvr-grow">
                 <i class="fa fa-question"></i> <div>Indifférent</div>
                 <i class="fa fa-check hidden"></i>
               </label>
             </div>
           </div>
         </div>
-      <div class="form-button">
-        <input type="reset" class="btn button-reset" value="Réinitialiser le formulaire">
+      <div class="form-button hidden-xs">
         <input type="submit" class="btn button-submit" value="Découvrir les projets">
+        <input type="reset" class="btn button-reset" value="Réinitialiser">
       </div>
     </form>
   </div>
+
+  </div>
 </div>
+
+
+
+
+
+

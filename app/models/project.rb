@@ -1,11 +1,11 @@
 class Project < ApplicationRecord
   belongs_to :charity
   has_many :rewards, dependent: :destroy
-  has_many :donations
+  has_many :donations, dependent: :destroy
   has_many :users, through: :donations
   monetize :budget_cents
-  validates :name, :budget_cents, :start_date, :end_date, :charity, presence: true
-
+  validates :name, :budget, :description, :start_date, :end_date, :charity, presence: true
+  mount_uploader :photo, ProjectUploader
 
 
   # after_create :define_photo_number
@@ -41,8 +41,8 @@ class Project < ApplicationRecord
     criteria = [:environment, :humanitarian, :social, :research, :preservation, :education]
     criteria.each do |criterium|
       score += 1 if (user[criterium] == 1) && (self[criterium] == 1)
-      score += 1 if self[:urgency] == 1
     end
+    score += 1 if self[:urgency] == 1
     return score
   end
 

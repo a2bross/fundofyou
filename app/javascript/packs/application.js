@@ -11,7 +11,11 @@ autocomplete();
 // import "../components/tabs";
 // import "../components/progress-bar";
 
+
+// load the following only for the result page
 import { checked, updatePrices, updateAmount } from "../components/result";
-updateAmount();
-checked();
-updatePrices();
+if (document.getElementById("result-page")) {
+  updateAmount();
+  checked();
+  updatePrices();
+};

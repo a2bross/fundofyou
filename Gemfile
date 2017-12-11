@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'carrierwave', '~> 1.2'
 gem 'stripe'
 gem 'money-rails'
 gem 'devise'

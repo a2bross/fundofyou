@@ -1,0 +1,10 @@
+<%= link_to "Créer une asso", new_charity_path, class: "btn btn-primary" %>
+<h2>Toutes les assos</h2>
+
+<ul>
+  <% @charities.each do |charity| %>
+  <li> <%= link_to charity.name, charity_path(charity) %> (<%= link_to 'Editer', edit_charity_path(charity) %>, <%= link_to 'Supprimer', charity_path(charity),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>)</li>
+  <% end %>
+</ul>

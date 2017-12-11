@@ -64,7 +64,7 @@
       <div class="template-text template-text-long">
         <p>Porté par l'association <%= project.charity.name %></p>
         <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
-        <%= link_to 'En savoir plus', project_path(project) %>
+        <%= link_to 'En savoir plus', project_path(project), target: '_blank' %>
 
         <div class="criterium-container">
           <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>

@@ -1,280 +1,172 @@
+////////////////GENERAL///////////////////
+
+.no_padding {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.height-container {
+  height: calc(100vh - 70px);
+  background-image: cover;
+}
+
+//////////////MENU GAUCHE//////////////////////////
 
 .welcome {
-  margin: 20px;
-}
-
-.tableau {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 40% 60%;
-  h5 {
-      font-size: 23px;
-    }
-}
-
-@media(min-width: 992px) {
-  .tableau {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 40% 60%;
+  margin: 0px;
+  align-self: flex-start;
+  height: calc(100vh - 70px);
+  position: sticky !important;
+  top: 0 !important;
+  padding: 15px !important;
+  background-color: $yellow;
+  h1 {
+    margin-top: 0px;
+    font-size: 27px;
+    color: white;
+    padding: 10px;
+    border-bottom: solid 1px white;
+  }
+  a {
+    color: white;
   }
 }
 
-@media(max-width: 720px) {
-  .tableau {
-  grid-template-columns: 1fr;
-  grid-template-rows: 15% 15% 15% 55%;
-  grid-template-columns: 20% auto;
+///////////////////////1ER ONGLET/////////////////////////
+
+#actualite {
+  padding: 10px;
+  background-color: white;
+  a {
+    background-color: $yellow;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
 }
 
-
-#dashboard {
-  // height: calc(100vh - 208px);
-  padding: 20px;
-  padding-top: 0px;
-  color: rgb(190, 190, 190)
-
-}
-
-
-.figures-dons {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  h6 {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
-  }
+.notifications {
+  height: 70px;
+  background-color: rgb(240, 240, 240);
+  justify-content: space-around;
+  position: relative;
+  margin: 5px;
   p {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
+    padding: 20px;
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+  }
+  i {
+    position: absolute;
+    color: rgb(180, 180, 180);
+    right: 9px;
+    top: 9px;
   }
 }
+
+.decouvrez {
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+
 
 .total_dons {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  color: #0881A3;
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
 
-    margin: 10px;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    padding: 20px;
-    border-radius: 5px;
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
-    h6 {
-      font-size: 18px;
-      color: $yellow;
-      font-weight: bold;
-      justify-content: center;
-      grid-row: 1 / span 1;
-      grid-column: 1 / span 1;
-    }
-
-    p {
-      margin-top: 15px;
-      color: $green;
-    }
 }
 
 .total_projets {
+  display: flex;
   margin: 10px;
-  background-color: $blue;
+  background-color: white;
   padding: 20px;
-  color: white;
+  color: #0881A3;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  border-radius: 5px;
   align-items: center;
   text-align: center;
   justify-content: space-around;
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 1;
+
 }
 
 .donations-count {
-    color: white;
-    opacity: 0.5;
-    font-size: 550%;
-    }
+  text-align: center;
+  align-items: center;
+  opacity: 0.5;
+  font-size: 250%;
+}
+
+.no-project {
+  .discover-project {
+    margin-top: 10px;
+    padding: 9px;
+    font-size: 17px;
+  }
+  h5 {
+    margin-bottom: 30px;
+  }
+}
+
+.current-projects {
+  display: flex;
+  margin-left: 10px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  background-color: white;
+  height: 80px;
+  color: $yellow;
+  font-size: 25px;
+}
+
+
+.container-projects {
+  display: flex;
+  justify-content: space-between;
+}
 
 .repartition_cause {
   margin: 10px;
   background-color: white;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  grid-row: 1 / span 1;
-  grid-column: 3 / span 1;
 }
 
-.current-projects {
-  border-radius: 5px;
-  grid-row: 2 / span 1;
-  grid-column: 1 / span 3;
-  margin: 10px;
+
+/////////////////2E ONGLET////////////////////
+
+#map {
   background-color: white;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  h6 {
-    position: absolute;
-    font-size: 20px;
-    top: 140px;
-    color: white;
-    z-index: 2;
-    left: 49px
-  }
-  h5 {
-    margin-top: 20px;
-  }
-  .photo {
-    background-size: cover;
-    text-align: center;
-
-    border-radius: 3px;
-    margin: 10px;
-    width: 285px;
-    height: 180px;
-  }
-  ul {
-    display: flex;
-    justify-content: space-around;
-    padding: 0px;
-    li {
-      list-style-type: none;
-      position: relative;
-      text-align: center;
-      align-items: center;
-      justify-content: space-around;
-    }
-  }
+  margin-left:10px;
+  flex: 0 0 30%;
+  height: 50vh;
+  position: sticky !important;
+  top: 0 !important;
 }
 
-.project-name {
-  position: absolute;
-  left: 25px;
-  bottom: 65px;
-  color: white;
-}
-
-.asso-name {
-  position: absolute;
-  left: 25px;
-  bottom: 35px;
-  color: white;
-  p {
-    font-size: 15px;
-  }
-}
-
-.project-amount {
-  position: absolute;
-  right: 25px;
-  top: 35px;
-  color: $yellow;
-}
-
-h5 {
-  text-align: center;
-}
-
-
-
-.proj-encours {
-  display: flex;
-}
-
-.project-history {
-  padding: 20px;
-  margin-right: 30px;
-  li {
-    display: flex;
-    border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
-    align-items: center;
-    position: relative;
-  }
-  .photo {
-    background-size: cover;
-    text-align: center;
-    border-radius: 3px;
-    margin: 10px;
-    width: 120px;
-    height: 80px
-  }
-}
-
-.project-history-name {
-  margin-top: 5px;
-  position: absolute;
-  left: 285px;
-  top: 10px;
-}
-
-.project-history-date {
-  margin-top: 5px;
-  position: absolute;
-  bottom: -5px;
-  left: 285px;
-  font-size: 13px;
-}
-
-.project-history-amount {
-  margin-top: 5px;
-  position: absolute;
-  bottom: 30px;
-  left: 195px;
-  padding: 0px 10px;
-}
-
-.status {
-  transform: rotate(-90deg);
-  margin-top: 5px;
-}
 
 .tab-content {
-  h4{
+  h4 {
     margin: 30px;
   }
 }
 
-.project-end_date {
-  position: absolute;
-  bottom: 30px;
-  right: 25px;
-  padding: 0px 10px;
+////// ONGLET IMPOT/////////////
+#declaration-impot {
+  display: flex;
+  justify-content: space-around;
 }
-
-///////////////////////////barre de progression///////////////////////
-
-
-// .percent-count {
-//   width: 450px;
-//   height: 50px;
-//   margin: 100px auto;
-//   font-size: 50px;
-//   text-align: center;
-//   color: #fff;
-// }
-
-.progress-bar {
-  width: 506px;
-  height: 26px;
-  background-color: rgb(230, 230, 230);
-  border-radius: 5px;
-  padding: 3px;
-  // margin: 50px auto;
-}
-
-.progress {
-  width: 25px;
-  height: 20px;
-  border-radius: 5px;
-  background-color: #259F6C;
-
-}
-
-///////////////////////////current projects///////////////////////
-
-
-
 
 
 

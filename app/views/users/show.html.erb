@@ -1,101 +1,110 @@
+
+<div class="height-dashboard">
+  <div class="row">
+    <div class="col-xs-12 col-sm-2 no_padding">
+
 <%= content_for(:navbar_class, "navbar-dashboard") %>
 
-<div class="main-container #container-dashboard">
-  <div class="welcome">
-    <h1>  Bienvenue <%= @user.first_name  %></h1>
-  </div>
 
-  <ul class="nav nav-pills">
-    <li class="active"> <a href="#dashboard" data-toggle="tab">Mon tableau de bord</a> </li>
-    <li> <a href="#mes_donations" data-toggle="tab">Mes donations</a> </li>
-    <li> <a href="#recu_fiscaux" data-toggle="tab">Mes reçus fiscaux</a> </li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="dashboard" class="tab-pane fade in active">
-      <h4>Mon tableau de bord</h4>
-      <div class="tableau">
-        <div class="total_dons">
-          <h5>Mes dons</h5>
-          <div class="figures-dons">
-            <% sum = 0 %>
-            <% @user.donations.each do |donation| %>
-            <% sum += donation.amount_cents.to_i %>
-            <% end %>
-            <h6> <%= total_donations = sum / 100  %> € </h6>
-            <p> <%= (deductible_donations = total_donations * 0.66).truncate %> € déductibles</p>
-            <%= render 'shared/progressbar' %>
-          </div>
-        </div>
-
-        <div class=total_projets>
-          <div class="donations-count"> <%= @user.donations.count %></div>
-          <h5>Vous avez financé <%= pluralize @user.donations.count, "projet" %></h5>
-          <!-- add condition where status == 20 -->
-        </div>
-
-        <div class="repartition_cause">
-          <h5>Répartition de vos mes par cause</h5>
-          <%= render 'shared/causes-indicator' %>
-        </div>
-
-        <div class="current-projects">
-          <div class="rubrique-title">
-            <h5>Mes projets en cours</h5>
-          </div>
-
-          <%= render 'shared/carousel' %>
-
-        </div>
+      <div class="welcome">
+        <h1>  Bienvenue <%= @user.first_name  %></h1>
+        <%= render 'shared/tabs' %>
       </div>
     </div>
 
-    <div  class="tab-pane fade" id="mes_donations">
-      <div class="pull-right">
-        <button class=" btn btn-primary" data-toggle="portfilter" data-target="all"> Tout </button>
-        <button class=" btn btn-primary" data-toggle="portfilter" data-target="ongoing-project"> En cours </button>
-        <button class=" btn btn-primary" data-toggle="portfilter" data-target="terminated-project"> Terminé </button>
-      </div>
-      <div>
-        <ul class="project-history">
+    <div class="col-xs-12 col-sm-10 no_padding">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="dashboard">
 
-          <% @user.donations.each do |donation| %>
-            <% if donation.project.end_date > Date.today %>
-            <li data-tag="ongoing-project">
-              <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
+          <div class="col-xs-12 col-sm-6 no_padding">
+
+
+            <div class="col-xs-12 col-sm-6 no_padding">
+              <div class="notifications">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <p>Vous avez attribué votre abonnement pour le mois en cours</p>
               </div>
-              <div class="project-history-amount"><p> <%= donation.amount_cents / 100 %> €</p></div>
-              <div class="project-history-name"> <%= donation.project.name %></div>
-              <div class="project-history-date"><p> date du versement : <%= donation.execution_date %> </p></div>
-              <div class="project-end_date"><p> J - <%= (donation.project.end_date - Date.today).to_i %></p></div>
-              <div class="status"><p> En cours </p></div>
-            </li>
-            <% else %>
-            <li data-tag="terminated-project">
-              <div class="photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "humanitaire.jpg" %>');">
+            </div>
+
+            <div class="col-xs-12 col-sm-6 no_padding">
+              <div class="notifications">
+                <%= render 'shared/widget-actualite' %>
               </div>
-              <div class="project-history-amount"><p> <%= donation.amount_cents / 100 %> €</p></div>
-              <div class="project-history-name"> <%= donation.project.name %></div>
-              <div class="project-history-date"><p> date du versement : <%= donation.execution_date %> </p></div>
-              <div class="project-end_date"><p> clôturé le: <%= donation.project.end_date%></p></div>
-              <div class="status"><p> Terminé </p></div>
-            </li>
-            <% end %>
-          <% end %>
-        </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-offset-3 col-sm-6 no_padding">
+              <%= link_to "Découvrez de nouveaux projets", "#", class: "btn decouvrez" %>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-6 no_padding">
+              <div class="total_dons">
+                <div class="donations-count">
+                  <% sum = 0 %>
+                  <% @user.donations.each do |donation| %>
+                  <% sum += donation.amount_cents.to_i %>
+                  <% end %>
+                  <%= total_donations = sum / 100  %> €
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 no_padding">
+              <div class=total_projets>
+                <% if  @user.donations.count > 0  %>
+                  <div class="donations-count"> <%= pluralize @user.donations.count, "projet" %></div>
+                <% else %>
+                  <div class="no-project">
+                    <h5>Vous n'avez pas encore financé de projet</h5>
+                    <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
+                  </div>
+                <% end %>
+                <!-- add condition where status == 20 -->
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 no_padding" id="mes_causes">
+
+              <div class="repartition_cause">
+                <%= render 'shared/causes-indicator' %>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="col-xs-12 col-sm-6 no_padding">
+            <div id="carousel-dashboard">
+              <%= render 'shared/carousel' %>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="mes_donations">
+          <div class="container-projects">
+            <div class="col-xs-12 col-sm-8 no_padding list-of-projects">
+              <div class="current-projects">
+                Redécouvrez les <%= pluralize @user.donations.count, "projet" %> que vous avez soutenus
+              </div>
+              <%= render 'shared/project-history' %>
+            </div>
+            <div class="col-xs-12 col-sm-4 no_padding">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="recu_fiscaux">
+            Reçus fiscaux
+          <div class="col-xs-12 col-sm-12 no_padding" id="declaration-impot">
+            <%= cl_image_tag("Exemple_de_déclaration_d_impot_ybxf2h.png", :width=>454, :crop=>"scale") %>
+          </div>
+          <div class="col-xs-12 col-sm-12 no_padding">
+            <%= link_to "Télécharger le formulaire en pdf", url_for('https://www.impots.gouv.fr/portail/files/formulaires/2042/2017/2042_1914.pdf') %>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div  class="tab-pane fade" id="recu_fiscaux">
-      <h4>Mes reçus fiscaux</h4>
-      <!-- <object data="data/test.pdf" type="application/pdf" width="300" height="200">
-      <a href="data/test.pdf">test.pdf</a>
-      </object> -->
-
     </div>
   </div>
 </div>
-
-
-
 

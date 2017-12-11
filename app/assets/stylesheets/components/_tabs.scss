@@ -5,6 +5,7 @@
   margin-left: -13px;
   a {
     text-decoration: none;
+    color: white;
   }
 }
 
@@ -16,11 +17,21 @@
   // text-decoration: none;
 }
 
-.tab.active {
-  flex: 1, 1, 33.333333333%;
-  background-color: $yellow;
-  padding: 10px;
-  a {
+//.tab.active {
+//  flex: 1, 1, 33.333333333%;
+//  background-color: $yellow;
+//  padding: 10px;
+//  a {
+//  color: white;
+//  }
+//}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: $yellow;
+  background-color: white;
+  border-bottom: $yellow solid 2px;
+}
+
+.nav > li > a {
   color: white;
-  }
 }

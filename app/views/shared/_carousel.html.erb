@@ -1,45 +1,38 @@
 
 
-<div class="container asso-banner">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- <div class="container asso-banner"> -->
+  <div id="carousel-current-projects" class="carousel-current-projects" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <% @user.donations.each do |donation| %>
-        <% if donation.project.end_date > Date.today %>
-        <li data-target="#carousel-example-generic" data-slide-to="#{+=1}" ></li>
-        <% end %>
-      <% end %>
-    </ol>
+
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-         <%=cl_image_tag("soupe_populaire_n7yxxn.jpg", width: 1000, height: 300, crop: :fill, :background=>"#101818", :color=>"#ffffff", :opacity=>49) %>
+    <div class="carousel-inner" id="carousel-dashboard" role="listbox">
+      <div class="item active">
+       <%=cl_image_tag("soupe_populaire_n7yxxn.jpg", width: 700, height: 1200, crop: :fill, :background=>"#101818", :color=>"#ffffff", :opacity=>49) %>
+        <div class="carousel-caption">
+        FundOfYou
+        </div>
+      </div>
+      <% @user.donations.each do |donation| %>
+      <% if donation.project.end_date > Date.today %>
+        <div class="item">
+          <%= cl_image_tag("Rohingyas_mpclrd.jpg", width: 700, height: 1200, crop: :fill) %>
           <div class="carousel-caption">
-          FundOfYou
+            <%= donation.project.name %>
           </div>
         </div>
-        <% @user.donations.each do |donation| %>
-        <% if donation.project.end_date > Date.today %>
-          <div class="item">
-            <%= cl_image_tag("Rohingyas_mpclrd.jpg", width: 1000, height: 300, crop: :fill) %>
-            <div class="carousel-caption">
-              <%= donation.project.name %>
-            </div>
-          </div>
         <% end %>
       <% end %>
     </div>
 
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#carousel-current-projects" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <a class="right carousel-control" href="#carousel-current-projects" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+<!-- </div> -->

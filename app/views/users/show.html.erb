@@ -1,6 +1,6 @@
 
 <div class="height-dashboard">
-  <div class="row">
+  <div class="row no_margin">
     <div class="col-xs-12 col-sm-2 no_padding">
 
 <%= content_for(:navbar_class, "navbar-dashboard") %>
@@ -89,7 +89,14 @@
               <%= render 'shared/project-history' %>
             </div>
             <div class="col-xs-12 col-sm-4 no_padding">
-              <div id="map"></div>
+              <div class="map-container">
+                <div
+                  id="map"
+                  style="max-width: 100%;
+                  height: 400px;
+                  data-markers="<%= @markers.to_json %>"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
@@ -107,4 +114,9 @@
     </div>
   </div>
 </div>
+
+
+<!-- Javascript required for Google Maps API -->
+<%= javascript_include_tag "https://maps.google.com/maps/api/js" %>
+<%= javascript_pack_tag "map" %>
 

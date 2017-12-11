@@ -14,7 +14,7 @@
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <%= yield %>
-    <% unless action_name == "edit_criteria" %>
+    <% if action_name == "home" %>
       <%= render 'shared/footer' %>
     <% end %>
     <%= javascript_include_tag 'application' %>

@@ -19,8 +19,12 @@
 
 }
 
-#no-bullet {
+#no-bullet, #no-bullet-mobile, #no-project {
   color: $brand-primary;
+}
+
+#no-bullet-mobile {
+  font-size: 16px;
 }
 
 .funnel-main-content {

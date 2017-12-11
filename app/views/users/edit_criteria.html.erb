@@ -1,7 +1,7 @@
 <div class="template-container">
-  <div class="fixed-background-left" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
+  <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
 
-    <div class="template-left-text causes-resume">
+    <div class="template-text causes-resume">
       <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
       <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
       <p id="causes-selected">
@@ -23,7 +23,7 @@
     <a href="#" class="btn button-submit" id="criteria-submit">Découvrir les projets</a>
   </div>
 
-  <div class="scrollable-content-right">
+  <div class="scrollable-content">
     <div class="breadcrumb-centerer">
       <div class="breadcrumb-container text-center">
         <div class="breadcrumb-line"></div>
@@ -44,6 +44,7 @@
         <input type="hidden" name="_method" value="patch">
         <div class="container-fluid">
           <div class="row text-center">
+          <span id="no-bullet-mobile" class="hidden hidden-sm hidden-md hidden-lg">Veuillez sélectionner au moins un critère.</span>
             <div class="col-xs-6 col-sm-6 col-md-4">
               <input type="checkbox" class="hidden" value=1 name="environment" id="environment">
               <label for="environment" class="cause-choice hvr-grow">

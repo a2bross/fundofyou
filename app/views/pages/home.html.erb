@@ -135,8 +135,8 @@
                           <h2><%= @project1.name %></h2>
                         </div>
                         <div class="card-description-home-description">
-                          <p>Objectif</p>
-                          <p>Montant collecté</p>
+                          <p>Objectif: <%= @project1.budget.to_i %>€</p>
+                          <p>Montant collecté: 750€</p>
                         </div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -150,11 +150,11 @@
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
                       <div class="card-description-home-title">
-                        <h2>Voyage humanitaire en Inde</h2>
+                        <h2><%= @project2.name %></h2>
                        </div>
                        <div class="card-description-home-description">
-                          <p>Objectif</p>
-                          <p>Montant collecté</p>
+                          <p>Objectif: <%= @project2.budget.to_i %>€</p>
+                          <p>Montant collecté: 800€</p>
                         </div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -168,11 +168,11 @@
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
                         <div class="card-description-home-title">
-                           <h2>SOS Pepito</h2>
+                           <h2><%= @project3.name %></h2>
                         </div>
                         <div class="card-description-home-description">
-                          <p>Objectif</p>
-                          <p>Montant collecté</p>
+                          <p>Objectif: <%= @project3.budget.to_i %>€</p>
+                          <p>Montant collecté: 900€</p>
                         </div>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -187,8 +187,8 @@
                     <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');"></div>
                      <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2><%= @project1.name %></h2>
-                        <div class="obtenu">Montant collecté</div>
+                       <h2><%= @project4.name %></h2>
+                        <p>Objectif: <%= @project4.budget.to_i %>€</p>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                   </div>
@@ -200,8 +200,8 @@
                   </div>
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2>SOS Enfant</h2>
-                        <div class="obtenu">Montant collecté</div>
+                       <h2><%= @project5.name %></h2>
+                        <p>Objectif: <%= @project5.budget.to_i %>€</p>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                  </div>
@@ -213,8 +213,8 @@
                   </div>
                    <div class="card-category-home">Humanitaire</div>
                      <div class="card-description-home">
-                       <h2>SOS Enfant</h2>
-                        <div class="obtenu">Montant collecté</div>
+                       <h2><%= @project6.name %></h2>
+                        <p>Objectif: <%= @project6.budget.to_i %>€</p>
                      </div>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                  </div>

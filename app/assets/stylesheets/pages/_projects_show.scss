@@ -1,48 +1,99 @@
-.project-cover {
-  height: 70vh;
-  width: 100vw;
-  background-size: cover !important;
+.details {
+  padding: 0px 25px;
+}
+
+.association-presentation {
+  margin: 20px;
+}
+
+.association-identity {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid $medium-gray;
+  padding: 30px;
+  margin: 10px 80px;
+  background-color: $light-gray;
+}
+
+.association-name li {
+  list-decoration: none;
+  display: inline;
+}
+
+.association-info li {
+  list-style-type: none;
+  padding: 5px;
+  color: #5C636E;
+  font-size: 15px;
+}
+
+
+.progress-bar {
+  height: 25px;
+  width: 500px;
+  background-color: $light-gray;
+  border-radius: 10px;
+  border: 1px solid $medium-gray;
+}
+
+.indicator-bar {
+  height: 100%;
+  background-color: $blue;
+  transition-duration: 1s;
+  border-radius: 10px;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 50px; /* To center it vertically */
+}
+
+.progress-bar p {
+  color: black;
+  font-weight: bold;
+  color: black;
+  padding: 4px;
+  font-size: 15px;
+}
+
+.project-presentation {
+  // margin: 50px 40px;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.budget-details {
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-position: center;
-  text-align: center;
-  opacity: 0.8;
-  display: flex;
-}
-.project-cover h1 {
-  color:white;
-}
-.details {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 200px;
-}
 
-.details-complete {
-  background-color: white;
-  width: 500px;
-  flex: 1 0 65%;
-  margin-top: -70px;
-  margin-bottom: -20px;
-  z-index: 2;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0 ,0 , 0.1);
 }
+ @media (max-width: 1200px) {
+  .progress-bar {
+    // display: none;
+    width: 400px;
+  }
+  }
 
-.donation {
-  background-color: white;
-  flex: 0 0 30%;
-  margin: -70px 10px;
-  height: 150px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0 ,0 , 0.1);
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-}
+   @media (max-width: 900px) {
+  .progress-bar {
+    // display: none;
+    width: 300px;
+  }
+  }
 
-.action {
-  margin: 30px 30px;
-}
+   @media (max-width: 768px) {
+  .progress-bar {
+    // display: none;
+    width: 450px;
+  }
+  }
+
+   @media (max-width: 525px) {
+  .progress-bar {
+    // display: none;
+    width: 350px;
+  }
+  }
+
+
+

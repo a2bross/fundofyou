@@ -1,78 +1,87 @@
-<div class="criteria-breadcrumb-container text-center">
-  <div class="criteria-breadcrumb">
-    <div class="criteria-breadcrumb-item"><span>1</span>Mes causes</div>
-    <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
-    <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
-  </div>
-</div>
+<div class="template-container">
 
-<div class="main-container" id="result-page">
-  <div class="main-header">
-    <div class="causes-resume">
-      <h6><i class="fa fa-heart" aria-hidden="true"></i> Les causes que je soutiens</h6>
-      <p><em>Sélectionnez les causes qui vous tiennent à coeur pour trouver les projets qui vous ressemblent.</em></p>
+  <div class="scrollable-content">
+    <div class="breadcrumb-centerer">
+      <div class="breadcrumb-container text-center">
+        <div class="breadcrumb-line"></div>
+        <div class="criteria-breadcrumb">
+          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
+          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
+          <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+        </div>
+      </div>
     </div>
-    <div class="causes-buttons">
-      <%= link_to "Réinitialiser", edit_criteria_path, class: "btn button-reset", id: "criteria-reset" %>
-    </div>
-  </div>
-  <div class="content-container choose-criteria text-center">
-    <div class="choose-criteria-item">
-      <h3>Mes Recommandations</h3>
-    </div>
-    <div class="result-container">
-      <%= form_tag orders_path do %>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-            <div class="flex-between">
-              <h3>Je donne </h3>
-              <input name="contribution" id="contribution" type="number" value="10">
-              <h3> euros</h3>
-              <div id="donate-btn">
-                <input type="submit" value="Contribuer" class="btn btn-primary"/>
-              </div>
-            </div>
+
+    <div class="funnel-main-content">
+      <div class="center-and-underline-title" >
+        <h3>Les projets recommandés pour vous</h3>
+      </div>
+      <form action="/orders" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="form-contribution-container">
+          <h4>Je souhaite contribuer à hauteur de :</h4>
+          <div class="form-contribution">
+            <label for="contribution">€ </label>
+            <input name="contribution" id="contribution" type="number" value="30" class="form-control form-contribution-input">
+            <input type="submit" value="Contribuer" class="btn button-submit button-small">
           </div>
         </div>
-        <div>
-          <ul class="nav nav-pillss nav-justified" role="tablist">
-            <% @recommendations.each do |recommendation|%>
-              <!-- define project, categories, and hidden field -->
-              <% project = Project.find(recommendation[:project_id]) %>
-              <% project_categories = [] %>
-              <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
-                <% project_categories << criterium if project[criterium] == 1 %>
-              <% end %>
-              <li role="presentation">
-                <a href=<%= "##{project.id}" %> aria-controls=<%= "#{project.id}" %> role="tab" data-toggle="tab">
-                  <%= project.name %>
-                  <i class="fa fa-check-circle-o checked" aria-hidden="true" data-tab-check="<%= project.id %>"></i>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
+
+        <div class="container-fluid">
+          <div class="row text-center">
             <% div_counter = 0 %>
-            <% @recommendations.each do |recommendation|%>
-              <!-- define project, categories -->
-              <% div_counter += 1 %>
-              <% project = Project.find(recommendation[:project_id]) %>
-              <% project_categories = [] %>
-              <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
-                <% project_categories << criterium if project[criterium] == 1 %>
-              <% end %>
-                <div role="tabpanel" class="tab-pane" id=<%= "#{project.id}" %>>
-                  <h2><%= "#{project.name} - (#{project.id})" %></h2>
-                  <p><%= project_categories.join(" - ") %></p>
-                  <p><%= project.description %></p>
-                  <i class="fa fa-check-circle-o checked" aria-hidden="true" data-content-check="<%= project.id %>"><%= hidden_field_tag "project_#{div_counter}", project.id %></i>
-                  <div class="contribution-amount">Ma contribution a ce project: <span class="amount">3</span> euros</div>
+            <% @projects.each do |project|%>
+            <% div_counter += 1 %>
+              <p id="no-project" class="hidden">Veuillez sélectionner au moins un projet.</p>
+              <div class="col-xs-12 col-md-6">
+                <input type="checkbox" class="hidden" value="<%= project.id %>" name="project_<%= div_counter %>" id="project_<%= div_counter %>" checked >
+                <div class="result-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
+                  <label for="project_<%= div_counter %>" class="result-choice result-checked clickable">
+                    <%= hidden_field_tag :project_key, project.id %>
+                    <i class="fa fa-check-circle-o"></i>
+                  </label>
+                  <h5><%= project.name.capitalize %></h5>
+                  <p><%= project.charity.name.capitalize %></p>
+                  <p class="bullet bullet-contribution"><span class="result-contribution"></span> €</p>
                 </div>
+              </div>
             <% end %>
           </div>
         </div>
-      <% end %>
+
+        <div class="form-button hidden-xs">
+          <input type="submit" class="btn button-submit" value="Contribuer">
+        </div>
+      </form>
     </div>
+
   </div>
+  <% @projects.each do |project|%>
+    <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
+
+      <h2 class="template-title"><%= project.name.capitalize %></h2>
+      <div class="template-text template-text-long">
+        <p>Porté par l'association <%= project.charity.name %></p>
+        <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
+        <%= link_to 'En savoir plus', project_path(project) %>
+
+        <div class="criterium-container">
+          <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+              <% if project[criterium] == 1 %>
+                <span class="bullet bullet-criterium"><%= criterium %></span>
+              <% end %>
+          <% end %>
+        </div>
+        <!--  selected or not -->
+        </p>
+      </div>
+
+    </div>
+  <% end %>
+
+  <div class="template-right-cta">
+    <a href="#" class="btn button-submit" id="contribution-submit">Contribuer</a>
+  </div>
+
 </div>

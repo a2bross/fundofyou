@@ -38,6 +38,7 @@ if (document.getElementById("causes-selected")) {
       }
       else {
         document.getElementById('no-bullet').classList.remove("hidden");
+        document.getElementById('no-bullet-mobile').classList.remove("hidden");
       }
     })
 

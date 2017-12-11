@@ -1,42 +1,60 @@
+function updateAmount() {
+  document.querySelectorAll(".result-contribution").forEach((amount) => {
+    const donation = document.getElementById("contribution").value / document.querySelectorAll(".result-checked").length
+    amount.innerText = Math.round(donation * 100) / 100;
+  });
+}
+
 function updatePrices(){
   // dynamically update prices
   document.getElementById("contribution").addEventListener("change", (event) => {
     updateAmount();
   });
-}
+};
 
-function checked() {
-  // dynamically update the checked class
-  document.querySelectorAll(".tab-pane .fa-check-circle-o").forEach((element) => {
-    // show element as clickable
-    element.classList.add("clickable");
-    //add event listener for clicks
-    element.addEventListener("click", (event) => {
-      // toggle the "checked" class on the tab content
-      event.currentTarget.classList.toggle("checked");
-      // toggle the "checked" class on the corresponding tab
-      const projectId = event.currentTarget.dataset.contentCheck;
-      const searchString = `[data-tab-check='${projectId}']`;
-      const tabObject = document.querySelector(searchString);
-      tabObject.classList.toggle("checked");
-      // update amounts of all tab contents accordingly
-      updateAmount();
-      // toggle hidden class on contribution message of the current target
-      event.currentTarget.parentNode.querySelectorAll(".contribution-amount").forEach((message) => {
-        message.classList.toggle("hidden");
-      });
-      // update hidden field value project ids
-      const hiddenFieldValue = event.currentTarget.firstChild.value;
-      event.currentTarget.firstChild.value = hiddenFieldValue === projectId ? "" : projectId;
+// Initialize the focus
+const resultCards = document.querySelectorAll(".result-card");
+const projectFocus = document.querySelectorAll(".fixed-background");
+const resultChoices = document.querySelectorAll(".result-choice");
+const noProject = document.getElementById('no-project');
+if (resultCards[0]) {
+  updateAmount();
+  updatePrices();
+  resultCards[0].classList.add("card-focus");
+  projectFocus[0].classList.remove("hidden");
+  resultCards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      resultCards.forEach((card) => { card.classList.remove("card-focus") });
+      event.currentTarget.classList.add("card-focus");
+      projectFocus.forEach((focus) => { focus.classList.add("hidden") });
+      const id = document.querySelector(".card-focus input").value;
+      document.getElementById(id).classList.remove("hidden");
     });
   });
-}
+  resultChoices.forEach((result) => {
+    result.addEventListener("click", (event) => {
+      noProject.classList.add("hidden");
+      event.currentTarget.classList.toggle("result-checked")
+      event.currentTarget.parentElement.querySelector(".bullet").classList.toggle("hidden");
+      updateAmount();
+    })
+  })
 
-function updateAmount() {
-  document.querySelectorAll(".amount").forEach((amount) => {
-    const donation = document.getElementById("contribution").value / document.querySelectorAll(".tab-pane .checked").length
-    amount.innerText = Math.round(donation * 100) / 100;
-  });
-}
+  document.querySelectorAll("input[type=submit]").forEach((submit) => {
+    submit.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (document.querySelector(".result-checked") != null) {
+        document.forms[0].submit();
+      }
+      else {
+        noProject.classList.remove("hidden");
+      }
+    })
+  })
 
-export { updatePrices, checked, updateAmount };
+  const submitButtonRight = document.getElementById('contribution-submit');
+    submitButtonRight.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.querySelector("input[type=submit]").click();
+    });
+}

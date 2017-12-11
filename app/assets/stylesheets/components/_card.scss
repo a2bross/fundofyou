@@ -1,63 +1,3 @@
-.card {
-  height: 100%;
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-}
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-.card-checkmark {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 60px;
-  color: $green;
-  &:hover {
-    font-weight: bolder;
-  }
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-.card-description {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%)
-}
-.card-description h2 {
-  font-size: 24px;
-  font-weight: solid;
-  font-family: $headers-font;
-}
-.card-description p {
-  font-size: 14px;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
-
 .card-home {
   height: 175px;
   background-size: cover !important;
@@ -111,18 +51,43 @@
 }
 
 
-.card-link-home {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
+
+
+.result-card, .index-card {
+  background-size: cover !important;
+  margin: 15px 0px;
+  height: 200px;
   width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link-home:hover {
-  opacity: 0.1;
+  color: white;
+  font-size: 16px;
+  h5 {
+    font-size: 20px;
+    margin-top: 40px;
+  }
 }
 
+.index-card-asso {
+  width: 40px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-left: 80%;
+}
+
+.index-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 10px 10px;
+  font-size:16px;
+  p {
+    margin: 0px;
+  }
+  .index-card-footer-legend {
+    font-size: 12px;
+  }
+}
+
+.card-focus {
+  border: 4px solid $blue;
+}
 

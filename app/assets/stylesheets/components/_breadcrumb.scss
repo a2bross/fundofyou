@@ -1,24 +1,30 @@
+.breadcrumb-centerer {
+  display: flex;
+  justify-content: center;
+}
+
 .breadcrumb-container {
+  display: block;
 }
 
 .criteria-breadcrumb {
-  width:400px;
   margin: 20px auto;
   display: flex;
 }
 
 .criteria-breadcrumb-item {
-  margin-left: 50px;
-  color:#d8d8d8;
-  font-size: 14px;
+  margin: 0px 25px;
+  color:$medium-gray;
+  font-size: 12px;
+  z-index: 1;
   span {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
-    background-color: #d8d8d8;
+    background-color: $medium-gray;
     color: white;
     display: block;
-    margin: 0px auto 10px;
+    margin: 0px auto 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,4 +36,11 @@
   span {
     background-color: $yellow;
   }
+}
+
+.breadcrumb-line {
+  height: 1px;
+  background-color: #D8D8D8;
+  width: 200px;
+  margin: 35px auto -35px;
 }

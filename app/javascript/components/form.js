@@ -8,6 +8,11 @@ if (document.getElementById("causes-selected")) {
       }
       const bullet = document.getElementById(`bullet-${this.htmlFor}`);
       bullet.classList.toggle("hidden");
+      const consigne = document.querySelector(".causes-resume em");
+      consigne.classList.add("hidden");
+      if (!document.querySelector("#causes-selected span:not(.hidden)")) {
+        consigne.classList.remove("hidden");
+      };
     });
 
     $(".scope-choice").click(function(){
@@ -23,6 +28,7 @@ if (document.getElementById("causes-selected")) {
       bullets.forEach((bullet) => { bullet.classList.add("hidden")});
       const causes = document.querySelectorAll(".cause-choice");
       causes.forEach((cause) => { cause.classList.remove("active")});
+      document.querySelector(".causes-resume em").classList.remove("hidden");
     });
 
     document.querySelector("input[type=submit]").addEventListener('click', (event) => {
@@ -40,13 +46,5 @@ if (document.getElementById("causes-selected")) {
       event.preventDefault();
       document.querySelector("input[type=submit]").click();
     });
-
-    const resetButton = document.getElementById('criteria-reset');
-    resetButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      document.querySelector("input[type=reset]").click();
-    })
-
   });
 }
-

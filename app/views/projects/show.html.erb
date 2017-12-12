@@ -33,7 +33,13 @@
           <h3>À propos</h3>
         </div>
         <div class="contribution-info">
-          <p>nb de contributeur</p>
+          <div class="important-number"><%= @project.donations.size %> <br>
+            <% if @project.donations.size > 1 %>
+              <p><%= 'donation'.pluralize %></p>
+              <% else %>
+              <p>donation</p>
+              <% end  %>
+            </div>
             <% if @project.end_date < Time.now %>
               <div class="important-number"><%= (@project.end_date - @project.start_date).to_i %> J <br> <p>restants</p></div>
             <% else %>
@@ -49,8 +55,8 @@
           </div>
         </div>
         <div class="budget-evolution">
-          <div class="important-number"> <%= (@project.completion_rate.to_f / 100 * @project.budget_cents).to_i %> €<br><p>recoltés</p></div>
-          <div class="important-number"><%= (@project.budget_cents) %> € <br> <p>objectif</p></div>
+          <div class="important-number"> <%= number_with_delimiter((@project.completion_rate.to_f / 100 * @project.budget_cents).to_i, delimiter: " ") %> €<br><p>recoltés</p></div>
+          <div class="important-number"><%= number_with_delimiter(@project.budget_cents, delimiter: " ") %> € <br> <p>objectif</p></div>
         </div>
           <div class= "project-presentation">
           </div>

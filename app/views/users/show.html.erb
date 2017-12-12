@@ -20,20 +20,17 @@
 
             <div class="col-xs-12 col-sm-6 no_padding">
               <div class="notifications">
-                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                <p>Vous avez attribué votre abonnement pour le mois en cours</p>
+                <%= render 'shared/widget-actualite' %>
               </div>
             </div>
 
             <div class="col-xs-12 col-sm-6 no_padding">
               <div class="notifications">
-                <%= render 'shared/widget-actualite' %>
+                <%= link_to "Découvrez de nouveaux projets", "#", class: "btn decouvrez" %>
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-offset-3 col-sm-6 no_padding">
-              <%= link_to "Découvrez de nouveaux projets", "#", class: "btn decouvrez" %>
-            </div>
+
 
             <div class="col-xs-12 no_padding">
               <div class="total_dons">
@@ -101,7 +98,7 @@
                 <div
                   id="map"
                   style="max-width: 100%;
-                  height: 400px;
+                  height: calc(100vh - 75px);
                   data-markers="<%= @markers.to_json %>"
                 ></div>
               </div>
@@ -110,32 +107,37 @@
         </div>
 
         <div role="tabpanel" class="tab-pane fade" id="recu_fiscaux">
-          <div class="zone_de_texte col-xs-12 col-sm-9">
-            <h2>Mes reçus fiscaux</h2>
-            <h3>Vous pouvez déduire 66% de vos dons !</h3>
-            <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
-            <p> En apportant votre soutien aux <%= pluralize @user.donations.count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %> €.</strong></p>
-            <h3>Comment faire ?</h3>
+          <div class="container-zone_de_texte col-xs-12 col-sm-8 no_padding">
+            <div class="zone_de_texte ">
+              <h2>Mes reçus fiscaux</h2>
+              <h3>Vous pouvez déduire 66% de vos dons !</h3>
+              <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
+              <p> En apportant votre soutien aux <%= pluralize @user.donations.count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %> €.</strong></p>
+              <h3>Comment faire ?</h3>
 
-            <div class="tax-images col-xs-12 col-sm-12">
-              <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <p>Lors de votre déclaration d'impôts sur le revenu</p> <h5>Remplissez la rubrique "7UF" du formulaire 2042 <em> (téléchargeable ci-dessous)</em></h5> </div>
-              <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <p>Joignez les reçus fiscaux à votre déclaration</p> <h5> Ils sont transmis par les associations <em>(disponibles dans cette rubrique)</em> </h5></div>
-              <div class="tax-icon tax col-xs12 col-sm-4"> <%= image_tag 'tax.png' %> <p>Déduisez du paiement de vos impôts sur le revenu</p> <h5>le montant déductible inscrit sur cette page </h5></div>
+              <div class="tax-images col-xs-12 col-sm-12 ">
+                <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <p>Lors de votre déclaration d'impôts sur le revenu</p> <h5>Remplissez la rubrique "7UF" du formulaire 2042 <em> (téléchargeable ci-dessous)</em></h5> </div>
+                <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <p>Joignez les reçus fiscaux à votre déclaration</p> <h5> Ils sont transmis par les associations <em>(disponibles dans cette rubrique)</em> </h5></div>
+                <div class="tax-icon tax col-xs12 col-sm-4"> <%= image_tag 'tax.png' %> <p>Déduisez du paiement de vos impôts sur le revenu</p> <h5>le montant déductible inscrit sur cette page </h5></div>
+              </div>
+
+              <div class="tax-images col-xs-12 col-sm-12">
+
+              </div>
+              <div class="col-xs-12 col-sm-12 no_padding decouvrez formulaire_2042">
+                <%= link_to "Télécharger le formulaire en pdf", url_for('https://www.impots.gouv.fr/portail/files/formulaires/2042/2017/2042_1914.pdf') %>
+              </div>
+
             </div>
-
-            <div class="tax-images col-xs-12 col-sm-12">
-
-            </div>
-            <div class="col-xs-12 col-sm-12 no_padding decouvrez formulaire_2042">
-              <%= link_to "Télécharger le formulaire en pdf", url_for('https://www.impots.gouv.fr/portail/files/formulaires/2042/2017/2042_1914.pdf') %>
-            </div>
-
           </div>
-          <div class="zone_de_texte mes_recus col-xs-12 col-sm-3">
-            <h3>Télécharger mes reçus fiscaux</h3>
-            <%= link_to "Croix rouge", "#", class: 'decouvrez'%>
-            <%= link_to "Médecin sans Frontière", "#", class: 'decouvrez' %>
-            <%= link_to "Reporter sans Frontière", "#", class: 'decouvrez' %>
+
+          <div class="container-recus col-xs-12 col-sm-4 no_padding">
+            <div class="zone_de_texte mes_recus ">
+              <h3>Télécharger mes reçus fiscaux</h3>
+              <%= link_to "Croix rouge", "#", class: 'decouvrez'%>
+              <%= link_to "Médecin sans Frontière", "#", class: 'decouvrez' %>
+              <%= link_to "Reporter sans Frontière", "#", class: 'decouvrez' %>
+            </div>
           </div>
         </div>
       </div>

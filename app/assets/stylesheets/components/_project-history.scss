@@ -3,7 +3,7 @@
   padding: 0px !important;
   ul {
     padding: 0px;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 160px);
     overflow: auto;
   }
   li {
@@ -31,6 +31,7 @@
 .project-history {
   li:hover {
   background-color: rgba(230, 230, 230, 0.1);
+  color: white;
   }
 }
 

@@ -1,26 +1,27 @@
 .actualite1 {
-  display: flex;
   position: absolute;
-  height: 90px;
+  height: 110px;
   align-items: center;
+  width: 100%;
 }
 
 .actualite-title {
   background-color: $brand-success;
-  height: 100%;
+  height: 25%;
+  width: 100%;
   i {
-    margin-top: 15px;
+    margin-top: -3px;
     position: relative;
-    left: 30px;
-    top: 15px;
+    left: 17px;
+    top: 4px;
     color: white !important;
   }
   p {
     position: relative;
     margin: 0px;
     font-size: 10px;
-    left: 0px;
-    top: 28px;
+    left: 10px;
+    top: -17px;
     color: white !important;
   }
   a {
@@ -30,6 +31,14 @@
   }
 }
 
+.news-content {
+  position: relative;
+  top: -8px;
+  left: 10px;
+  p {
+    font-size: 10px;
+  }
+}
 
 .bouton-actualite {
     position: relative;
@@ -56,7 +65,7 @@
 
 .actualite-title2 {
   background-color: $red;
-  height: 100%;
+  height: 25%;
   i {
     margin-top: 15px;
     position: relative;

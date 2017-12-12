@@ -11,54 +11,32 @@
              <li data-target="#my-slider" data-slide-to="1"></li>
           </ol> -->
           <!-- wrapper for slides -->
-           <div class="carousel-inner" role="listbox">
-             <div class="item active">
-             <%= image_tag "love.jpg", class: "photo-banner" %>
-               <div class="carousel-caption">
-                  <h1>Fund Of You</h1>
-                  <h3>Le site de dons aux associations d'utilité publique</h3>
-                  <!-- <p><span id="banner-typed-text"></span></p> -->
-                  <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
-               </div>
-             </div>
 
-             <div class="item">
-              <%= image_tag "environnement.jpg", class: "photo-banner" %>
-               <div class="carousel-caption">
-                <h1>Fund Of You</h1>
-                <h3>Le site de dons aux associations environnementales</h3>
-                <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
-               </div>
-             </div>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <div class="photo-banner" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.8) 0%, rgba(0,0,0,0.8) 50%), url(<%= image_path "love.jpg" %>);">
+              </div>
+            </div>
 
-             <div class="item">
-              <%= image_tag "humanitaire.jpg", class: "photo-banner" %>
-               <div class="carousel-caption">
-                <h1>Fund Of You</h1>
-                <h3>Le site de dons aux associations humanitaires</h3>
-                <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
-               </div>
-             </div>
+            <div class="item">
+              <div class="photo-banner" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.8) 0%, rgba(0,0,0,0.8) 50%), url(<%= image_path "environnement.jpg" %>);">
+              </div>
+            </div>
 
-             <div class="item">
-              <%= image_tag "education.jpg", class: "photo-banner" %>
-               <div class="carousel-caption">
-                <h1>Fund Of You</h1>
-                <h3>Le site de dons aux associations éducatives</h3>
-                <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
-               </div>
-             </div>
+            <div class="item">
+              <div class="photo-banner" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.8) 0%, rgba(0,0,0,0.8) 50%), url(<%= image_path "humanitaire.jpg" %>);">
+              </div>
+            </div>
 
-             <div class="item">
-              <%= image_tag "eiffel.jpg", class: "photo-banner" %>
-               <div class="carousel-caption">
-                <h1>Fund Of You</h1>
-                <h3>Le site de dons aux associations de défense du patrimoine</h3>
-                <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
-               </div>
-             </div>
+            <div class="item">
+              <div class="photo-banner" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.8) 0%, rgba(0,0,0,0.8) 50%), url(<%= image_path "education.jpg" %>);">
+              </div>
+            </div>
 
-           </div>
+            <div class="item">
+              <div class="photo-banner" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.8) 0%, rgba(0,0,0,0.8) 50%), url(<%= image_path "eiffel.jpg" %>);">
+              </div>
+            </div>
            <!-- controls or next and prev buttons -->
            <a class="left carousel-control" href="#my-slider" role="button" data-slide="prev">
              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -70,25 +48,34 @@
            </a>
         </div>
       </div>
+
+        <div class="header-container">
+          <div class="homepage-header">
+            <h1>Fund Of You</h1>
+            <p>Le site de dons aux associations d'utilité publique</p>
+            <!-- <p><span id="banner-typed-text"></span></p> -->
+            <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "btn button-submit button-large" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="container explication">
+  <div class="container-fluid explication">
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <%= image_tag "search.png", id: "search" %>
-        <h4>RECOMMANDATIONS</h4>
-        <p>Un selector avec des recommandations personnalisées.</p>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <i class="fa fa-diamond" aria-hidden="true"></i>
+        <h4>QUALITÉ</h4>
+        <p>Les projets sont choisis avec soin auprès d'associations de confiance et offrent une grande transparence sur l'utilisation des fonds</p>
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <%= image_tag "growth.png", id: "growth" %>
-        <h4>ABONNEMENT</h4>
-        <p> Une formule sur mesure pour faciliter vos donations vers les projets qui vous tiennent à coeur.</p>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <i class="fa fa-cogs" aria-hidden="true"></i>
+        <h4>SUR-MESURE</h4>
+        <p>Dites nous les causes qui vous tiennent à coeur, nous vous trouvez les projets du moment qui sont le plus susceptibles de vous plaire</p>
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <%= image_tag "key.png", id: "growth" %>
-        <h4>SECURITE</h4>
-        <p>Un système sécurisé pour vos transactions.</p>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        <h4>SELON VOS ENVIES</h4>
+        <p>Envie de donner chaque mois ou juste une fois ? Avec l'abonnement, donnez chaque mois aux projets qui vous plaisent, sans complication ni obligation.</p>
       </div>
     </div>
   </div>
@@ -96,26 +83,35 @@
   <div class="container temoignage">
     <div class="row">
         <div class="success">
-          <h2>Ils parlent de nous ... </h2>
-          <div class="col-xs-12 col-sm-4 col-md-4">"Grâce au précieux accompagnement d'Augustin et de son équipe, nous avons pu financé notre projet et avons pu sauvé Pépito et ses amis ! Un grand merci à tous !" <br><p></p>
-            <i class="fa fa-paw" aria-hidden="true"></i> Pamela, association "Sauvons Pépito"
+          <h2>Ils parlent de nous... </h2>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <p>
+              "Grâce au précieux accompagnement d'Augustin et de son équipe, nous avons pu financé notre projet et avons pu sauvé Pépito et ses amis ! Un grand merci à tous !"
+            </p>
+            <span><i class="fa fa-paw" aria-hidden="true"></i> Pamela, association "Sauvons Pépito"</span>
           </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">"FundOfYou nous a permis de financer notre projet et de partir au Bénin dans un orphelinat. Sans leur aide, ce projet n'aurait pas pu se réaliser, Merci du fond du coeur !" <br><p></p>
-              <i class="fa fa-plane" aria-hidden="true"></i> Aude, "Action Bénin"
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <p>
+                "FundOfYou nous a permis de financer notre projet et de partir au Bénin dans un orphelinat. Sans leur aide, ce projet n'aurait pas pu se réaliser, Merci du fond du coeur !"
+              </p>
+              <span><i class="fa fa-plane" aria-hidden="true"></i> Aude, "Action Bénin"</span>
             </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">"Je souhaitais soutenir des associations depuis longtemps mais ne savais pas vers lesquelles me tourner. Grâce à FundOfYou, je soutiens régulièrement des projets divers et variés." <br><p></p>
-                <i class="fa fa-bath" aria-hidden="true"></i> Zac, plombier, 28 ans
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <p>
+                "Je souhaitais soutenir des associations depuis longtemps mais ne savais pas vers lesquelles me tourner. Grâce à FundOfYou, je soutiens régulièrement des projets divers et variés."
+              </p>
+              <span><i class="fa fa-bath" aria-hidden="true"></i> Zac, plombier, 28 ans</span>
             </div>
         </div>
     </div>
   </div>
 
 
-  <div class="presentation container">
+  <div class="presentation container-fluid">
     <div class="row">
       <div class="project">
 
-        <div class="container onglet">
+        <div class="onglet container">
           <ul class="nav nav-pills nav-justified ">
             <li class="active"><a href="#en-cours" data-toggle="tab">Projets en cours</a></li>
             <li><a href="#done" data-toggle="tab">Projets terminés</a></li>
@@ -124,110 +120,50 @@
 
         <div class= "tab-content">
           <div class="tab-pane fade in active" id="en-cours">
-                <div class="col-xs-12 col-sm-4" >
-                  <div class="card-home home-project" >
-                    <%= link_to project_path(@project1) do %>
-                    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
-                     <div class="card-category-home"> Humanitaire </div>
-                     <div class="card-description-home">
-                        <div class="card-description-home-title">
-                          <h2><%= @project2.name %></h2>
-                        </div>
-                        <div class="card-description-home-description">
-                          <p>Objectif: <%= @project1.budget.to_i %>€</p>
-                          <p>Montant collecté: 750€</p>
-                        </div>
-                     </div>
-                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                      <% end %>
-                  </div>
-                </div>
-              <div class="col-xs-12 col-sm-4" >
-                <div class="card-home home-project" >
-                  <%= link_to project_path(@project1) do %>
-                    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
-                    </div>
-                     <div class="card-category-home">Humanitaire</div>
-                       <div class="card-description-home">
-                        <div class="card-description-home-title">
-                          <h2><%= @project2.name %></h2>
-                         </div>
-                         <div class="card-description-home-description">
-                            <p>Objectif: <%= @project2.budget.to_i %>€</p>
-                            <p>Montant collecté: 800€</p>
-                          </div>
-                       </div>
-                        <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                  <% end %>
-                 </div>
+            <% @ongoing_projects.each do |project| %>
+              <div class="col-xs-12 col-sm-6 col-md-4" >
+                <%= render 'shared/home-card', project: project %>
               </div>
-
-              <div class="col-xs-12 col-sm-4" >
-                <div class="card-home home-project" >
-                  <%= link_to project_path(@project1) do %>
-                    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-                    </div>
-                     <div class="card-category-home">Humanitaire</div>
-                       <div class="card-description-home">
-                          <div class="card-description-home-title">
-                             <h2><%= @project3.name %></h2>
-                          </div>
-                          <div class="card-description-home-description">
-                            <p>Objectif: <%= @project3.budget.to_i %>€</p>
-                            <p>Montant collecté: 900€</p>
-                          </div>
-                       </div>
-                        <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                  <% end %>
-                 </div>
-              </div>
+            <% end %>
           </div>
 
           <div class="tab-pane fade" id="done">
-
-                <div class="col-xs-12 col-sm-4" >
-                  <div class="card-home home-project" >
-                   <%= link_to project_path(@project1) do %>
-                    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');"></div>
-                     <div class="card-category-home">Humanitaire</div>
-                     <div class="card-description-home">
-                       <h2><%= @project4.name %></h2>
-                        <p>Objectif atteint: <%= @project4.budget.to_i %>€</p>
-                     </div>
-                      <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                  <% end %>
-                  </div>
-                </div>
-              <div class="col-xs-12 col-sm-4" >
+            <% @completed_projects.each do |project| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card-home home-project" >
-                 <%= link_to project_path(@project1) do %>
-                    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');">
-                    </div>
-                     <div class="card-category-home">Humanitaire</div>
-                       <div class="card-description-home">
-                         <h2><%= @project5.name %></h2>
-                          <p>Objectif atteint: <%= @project5.budget.to_i %>€</p>
-                       </div>
-                        <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                  <% end %>
-                 </div>
-              </div>
-
-              <div class="col-xs-12 col-sm-4" >
-                <div class="card-home home-project" >
-                 <%= link_to project_path(@project1) do %>
-                  <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "champ.jpg" %>');">
-                  </div>
-                   <div class="card-category-home">Humanitaire</div>
-                     <div class="card-description-home">
-                       <h2><%= @project6.name %></h2>
-                        <p>Objectif atteint: <%= @project6.budget.to_i %>€</p>
-                     </div>
-                      <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                  <%= link_to project_path(project) do %>
+                    <% if project.photo.url %>
+                      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                       url(<%= image_path project.photo %>);"></div>
+                    <% else %>
+                      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                       url(<%= image_path "form-background.jpg" %>);"></div>
                     <% end %>
-                 </div>
+
+                    <div class="card-description-home">
+                      <div class="card-description-home-title">
+                        <h2> <%= truncate project.name.capitalize, length: 30, omission: '...' %></h2>
+                      </div>
+                      <div class="card-description-home-description">
+                        <div class="index-card-bugdet">
+                          <p><i class="fa fa-star" aria-hidden="true"></i> <%= project.budget.to_i %>€</p>
+                          <p class="index-card-footer-legend">Objectif atteint !</p>
+                        </div>
+                        <div class="index-card-completion">
+                          <p><%= project.completion_rate %>%</p>
+                          <p class="index-card-footer-legend">récoltés</p>
+                        </div>
+                      </div>
+                    </div>
+                    <% if project.charity %>
+                      <%= cl_image_tag project.charity.photo, class: "card-user-home" %>
+                    <% else %>
+                      <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/random">
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
+            <% end %>
           </div>
 
         </div>

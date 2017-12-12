@@ -16,7 +16,7 @@ if (document.getElementById("map")) {
         if (markers.length === 0) {
           // set the default to Paris coordinates
           map.setCenter(48.8566, 2.3522)
-          map.setZoom(2);
+          map.setZoom(8);
         } else if (markers.length === 1) {
           map.setCenter(markers[0].lat, markers[0].lng);
           map.setZoom(14);

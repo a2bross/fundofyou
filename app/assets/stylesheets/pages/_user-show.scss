@@ -13,6 +13,7 @@
 
 .tab-content {
   background-color: rgba(210, 210, 210, 0.2);
+  height: calc(100vh - 70px);
 }
 
 .height-dashboard {
@@ -20,7 +21,7 @@
 }
 .background-image {
   height: calc(100vh - 70px);
-  background: url('http://res.cloudinary.com/adb0wzhme6/image/upload/v1512987731/favela-1636534_1920_cya3tk.jpg') no-repeat center center fixed;
+  background: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://res.cloudinary.com/adb0wzhme6/image/upload/v1512987731/favela-1636534_1920_cya3tk.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -60,10 +61,11 @@
 ///////////////////////1ER ONGLET/////////////////////////
 
 .info-container {
-  padding: 0px 60px;
 }
 
-
+#mes_donations {
+  height: calc(100vh - 70px);
+}
 
 #actualite {
   padding: 10px;
@@ -76,11 +78,11 @@
 }
 
 .notifications {
-  height: 90px;
+  height: 110px;
   background-color: rgb(240, 240, 240);
   justify-content: space-around;
   position: relative;
-  margin: 5px;
+  margin: 5px 10px;
   p {
     padding: 20px;
     font-size: 14px;
@@ -97,7 +99,7 @@
 .decouvrez {
   background-color: $yellow;
   color: white;
-  margin: 10px;
+  margin: 5px 10px;
   margin-bottom: 60px;
   display: flex;
   justify-content: space-around;
@@ -114,7 +116,7 @@
 .total_dons {
   margin-top: 30px;
   display: flex;
-  margin: 10px;
+  margin: 5px 10px;
   align-items: center;
   color: #0881A3;
   justify-content: space-around;
@@ -125,7 +127,7 @@
 
 .total_projets {
   display: flex;
-  margin: 10px;
+  margin: 5px 10px;
   background-color: white;
   padding: 20px;
   color: #0881A3;
@@ -139,7 +141,7 @@
   display: flex;
   margin-top: 30px;
   text-align: center;
-  margin: 10px;
+  margin: 5px 10px;
   align-items: center;
   color: #0881A3;
   justify-content: space-around;
@@ -181,6 +183,7 @@
 .container-projects {
   display: flex;
   justify-content: space-between;
+  height: calc(100vh - 70px)
 }
 
 .repartition_cause {
@@ -209,6 +212,7 @@
   height: 50vh;
   position: sticky !important;
   top: 0 !important;
+  margin-top: 5px;
 }
 
 
@@ -219,14 +223,16 @@
 }
 
 ////// ONGLET IMPOT/////////////
-#declaration-impot {
+
+.container-recus {
 
 }
 
 .zone_de_texte {
   margin-top: 5px;
-  margin-left: 0px;
+  margin-left: 10px;
   background-color: white;
+  overflow: auto;
   height: calc(100vh - 75px);
   h3 {
   color: $brand-success;
@@ -280,6 +286,6 @@
 }
 
 .mes_recus {
-  border-left: solid rgb(230, 230, 230) 1px;
+  margin-left: 10px;
 }
 

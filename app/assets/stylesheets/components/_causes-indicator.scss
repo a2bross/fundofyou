@@ -1,5 +1,5 @@
 .disabled-criteria {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(180, 180, 180);
   font-size: 12px;
   padding: 5px 10px;
   color: white;
@@ -116,3 +116,34 @@
 .repartition_cause {
   display: flex;
 }
+
+
+////////////jauge///////////////
+
+
+
+.progress-bar-dashboard {
+  height: 25px;
+  width: 500px;
+  background-color: $light-gray;
+  border-radius: 10px;
+  border: 1px solid $medium-gray;
+}
+
+.indicator-bar-dashboard {
+  height: 100%;
+  background-color: $blue;
+  transition-duration: 1s;
+  border-radius: 10px;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 50px; /* To center it vertically */
+}
+
+.progress-bar-dashboard p {
+  color: black;
+  font-weight: bold;
+  color: black;
+  padding: 4px;
+  font-size: 15px;
+}
+

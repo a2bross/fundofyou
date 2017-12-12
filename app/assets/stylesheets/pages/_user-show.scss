@@ -61,7 +61,10 @@
 ///////////////////////1ER ONGLET/////////////////////////
 
 .info-container {
+  height: calc(100vh - 70px);
+  overflow: auto;
 }
+
 
 #mes_donations {
   height: calc(100vh - 70px);
@@ -79,7 +82,7 @@
 
 .notifications {
   height: 110px;
-  background-color: rgb(240, 240, 240);
+  background-color: white;
   justify-content: space-around;
   position: relative;
   margin: 5px 10px;
@@ -119,21 +122,21 @@
   margin: 5px 10px;
   align-items: center;
   color: #0881A3;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: white;
   padding: 20px;
-
 }
 
 .total_projets {
   display: flex;
+  margin-left: 0px;
   margin: 5px 10px;
   background-color: white;
   padding: 20px;
   color: #0881A3;
   align-items: center;
-  text-align: center;
-  justify-content: space-around;
+  text-align: left;
+  justify-content: space-between;
 
 }
 
@@ -142,7 +145,7 @@
   margin-top: 30px;
   text-align: center;
   margin: 5px 10px;
-  align-items: center;
+
   color: #0881A3;
   justify-content: space-around;
   background-color: white;
@@ -154,6 +157,7 @@
   text-align: center;
   align-items: center;
   font-size: 250%;
+  margin-right: 55px;
 }
 
 .no-project {
@@ -168,15 +172,18 @@
 }
 
 .current-projects {
-  display: flex;
   margin-left: 10px;
   justify-content: space-around;
+  padding: 20px;
   align-items: center;
   margin-top: 5px;
   background-color: white;
   height: 80px;
-  color: $brand-success;
   font-size: 25px;
+    h1 {
+    font-size: 33px;
+    margin-top: 0px;
+    }
 }
 
 
@@ -195,9 +202,11 @@
 
 .header-carousel {
   display: flex;
+  height: 110px;
   background-color: white;
   color: $brand-success;
   justify-content: space-around;
+  padding: 20px;
   margin-top: 5px;
 }
 
@@ -229,21 +238,32 @@
 }
 
 .zone_de_texte {
-  margin-top: 5px;
-  margin-left: 10px;
-  background-color: white;
   overflow: auto;
+  margin-left: 10px;
   height: calc(100vh - 75px);
   h3 {
-  color: $brand-success;
+    color: $brand-success;
+  }
+}
 
+
+.comment-faire {
+  background-color: white;
+  margin-top: 5px;
+}
+
+.introduction-tax {
+  background-color: white;
+  padding: 20px;
+  margin-top: 5px;
+  h2 {
+  margin-top: 5px
   }
 }
 
 .tax-images {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  background-color: white;
 }
 
 .tax-icon {
@@ -270,22 +290,62 @@
 
 .formulaire_2042 {
   text-align: center;
+  display: flex;
   background-color: $yellow;
   color: white !important;
   width: 30%;
-  a {
-    color: white;
-    text-decoration: none;
-    background-color: $yellow;
-  }
-  a:hover {
-    color: white !important;
-    text-decoration: none !important;
-    background-color: $yellow !important;
-  }
+
 }
 
 .mes_recus {
   margin-left: 10px;
+  background-color: white;
+  padding-left: 10px;
+  text-align: center;
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }
 
+.container-recus {
+  margin-top: 5px;
+
+}
+
+.formulaire-tax {
+  text-align: center;
+  img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+  }
+}
+
+.deductible-amount {
+  position: absolute;
+  top: 55px;
+  right: 120px;
+  font-size: 20px;
+  color: #333;
+}
+
+.fa-search {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 27px;
+  z-index: 2;
+}
+
+.fa-arrow-down {
+  position: absolute;
+  top: 13px;
+  left: 96px;
+  font-size: 27px;
+  z-index: 2;
+}
+
+.recus_telechargeables {
+  margin-top: 40px;
+}

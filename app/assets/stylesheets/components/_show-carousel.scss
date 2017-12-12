@@ -3,15 +3,24 @@
 // }
 
 #carousel-dashboard {
-  height: calc(100vh - 70px) !important;
+  height: calc(100vh - 185px) !important;
 }
 
 .carousel-item {
-  height: calc(100vh - 70px) !important;
+  height: calc(100vh - 185px) !important;
 }
 
 .carousel-current-projects {
   position: relative;
+
+}
+
+#project-caption {
+  background: none;
+  -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }
 
 

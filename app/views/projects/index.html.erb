@@ -16,7 +16,9 @@
               <div class="index-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
                 <%= hidden_field_tag :project_key, project.id %>
                 <% if project.charity %>
-                  <div class="index-card-asso" style="background-image: url(<%= cl_image_path(project.charity.photo)%>)"></div>
+
+                  <div class="index-card-asso" style="background-image: url(<%= image_path(project.charity.photo)%>)"></div>
+
                 <% else %>
                   <div class="index-card-asso" style="background-image: url('https://kitt.lewagon.com/placeholder/users/random')"></div>
                 <% end %>
@@ -37,7 +39,11 @@
           <% end %>
         </div>
       </div>
+    </div>
 
+    <div class="project-index-footer">
+      <p>Concerné par l'humanitaire ? Les actions locales ? Trouvez les projets qui correspondent avec notre moteur de recommandations personnalisées.</p>
+      <%= link_to "Découvrir par cause", edit_criteria_path, class: "btn button-submit" %>
     </div>
   </div>
 
@@ -56,13 +62,13 @@
         <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
 
         <div class="criterium-container">
-          <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+          <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
+          <% criteria.each_key do |criterium| %>
               <% if project[criterium] == 1 %>
-                <span class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criterium %></span>
+                <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
               <% end %>
           <% end %>
         </div>
-      </div>
-      <%= link_to "En savoir plus", project_path(project), target: "_blank", class: "btn button-submit" %>
     </div>
+    <%= link_to "En savoir plus", project_path(project), target: "_blank", class: "btn button-submit" %>
   <% end %>

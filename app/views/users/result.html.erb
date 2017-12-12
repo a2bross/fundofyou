@@ -73,9 +73,10 @@
         <%= link_to 'En savoir plus', project_path(project), target: '_blank' %>
 
         <div class="criterium-container">
-          <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+          <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
+          <% criteria.each_key do |criterium| %>
               <% if project[criterium] == 1 %>
-                <span class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criterium %></span>
+                <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
               <% end %>
           <% end %>
         </div>
@@ -84,9 +85,4 @@
 
     </div>
   <% end %>
-
-  <div class="template-right-cta">
-    <a href="#" class="btn button-submit" id="contribution-submit">Contribuer</a>
-  </div>
-
 </div>

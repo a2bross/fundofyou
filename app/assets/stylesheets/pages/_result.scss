@@ -10,6 +10,11 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+  label {
+    position: relative;
+    left: 98px;
+    padding-top: 5px;
+  }
 }
 
 .form-contribution-input {
@@ -40,10 +45,13 @@
 
 .criterium-container {
   margin-top: 10px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .bullet-criterium {
   width: fit-content;
+  margin: 5px 10px;
 }
 
 .project-focus-data {

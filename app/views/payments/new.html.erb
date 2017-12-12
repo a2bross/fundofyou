@@ -18,60 +18,18 @@
       <div class="center-and-underline-title" >
          <h3>Confirmez votre donation</h3>
       </div>
-      <%= form_tag order_payments_path(@order) do %>
-        <h4>La formule de don que vous préférez :</h4>
-        <div class="container-fluid">
-          <div class="row text-center">
-            <div class="col-xs-12 col-sm-6">
-              <input type="checkbox" class="hidden" value=1 name="subscription" id="subscription">
-              <label for="subscription" class="subscription-choice flex-center hvr-grow">
-                <div>
-                  <h5>Abonnement</h5>
-                  <p>Je m'abonne pour soutenir chaque mois les causes qui me tiennent à coeur</p>
-                </div>
-              </label>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-              <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
-              <label for="one-shot" class="subscription-choice flex-center hvr-grow">
-                <div>
-                  <h5>Don ponctuel</h5>
-                  <p>Je contribue aujourd'hui pour <%= pluralize @donations.size, "projet" %> </p>
-                </div>
-              </label>
-            </div>
-          </div>
-        </div>
 
-        <h4>Vos coordonnées</h4>
-        <div class="form-row contact-form">
-          <div class="form-group col-md-6">
-            <%= label_tag 'first_name', "Prénom" %>
-            <%= text_field_tag 'first_name', @user.first_name, class: "form-control", required: true %>
-          </div>
-          <div class="form-group col-md-6">
-            <%= label_tag 'last_name', "Nom" %>
-            <%= text_field_tag 'last_name', @user.last_name, class: "form-control", required: true %>
-          </div>
-          <div class="form-group col-md-12 contact-form-last">
-            <%= label_tag 'address', "Adresse" %>
-            <%= text_field_tag 'address', @user.address, class: "form-control autocomp", required: true %>
-          </div>
-        </div>
+      <div class="form-amount-update">
+        <h4>Je souhaite contribuer à hauteur de :</h4>
+        <%= simple_form_for(@order) do |form| %>
+          <label for="contribution" class="contribution-label">€ </label>
+          <%= form.input :amount, value: @order.amount.to_i, class: "form-contribution-input", label: false %>
+          <%= form.submit "Changer le montant", class: "btn button-submit button-small button-update" %>
+        <% end %>
+      </div>
 
-        <div class="text-center">
-          <h3>Montant total de votre donation : <span id="payment-final-amount"><%= @order.amount.to_i %>€ TTC</span></h3>
-        </div>
-        <div class="text-center">
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="Fund of You"
-            data-email="<%= current_user.email %>"
-            data-description="Nombre de donations: <%= @order.donations.size %>"
-            data-amount="<%= @order.amount_cents %>"
-            data-currency="<%= @order.amount.currency %>"></script>
-        </div>
-      <% end %>
+     <div id="render-payment-form"> <%= render "shared/payment-form", order: @order %></div>
+
     </div>
   </div>
 

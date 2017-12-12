@@ -4,6 +4,19 @@
   }
 }
 
+.form-amount-update {
+  margin: 0px 30px;
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-group {
+    margin-bottom: 0px;
+    max-width: 100px;
+  }
+}
+
 .subscription-choice {
   background: $medium-gray;
   padding: 20px;

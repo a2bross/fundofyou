@@ -1,4 +1,5 @@
 import GMaps from 'gmaps/gmaps.js';
+import { autocomplete } from '../components/autocomplete';
 
 // load the follwoing only if there are map divs in the page:
 if (document.getElementById("map")) {
@@ -28,3 +29,4 @@ if (document.getElementById("map")) {
   });
 }
 
+autocomplete();

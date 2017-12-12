@@ -1,5 +1,5 @@
 <div class="project-history">
-  <ul>
+  <ul class=".hvr-grow">
     <% @user.donations.each do |donation| %>
       <% if donation.project.end_date > Date.today %>
       <li data-tag="ongoing-project">

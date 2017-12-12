@@ -1,10 +1,68 @@
-<%= link_to "Créer un project", new_project_path, class: "btn btn-primary" %>
-<h2>Tous les projets</h2>
+<%= content_for(:navbar_class, "navbar-static") %>
 
-<ul>
-  <% @projects.each do |project| %>
-  <li> <%= link_to project.name, project_path(project) %> (<%= link_to 'Editer', edit_project_path(project) %>, <%= link_to 'Supprimer', project_path(project),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>)</li>
+<div class="template-container">
+
+  <div class="scrollable-content">
+    <div class="funnel-main-content">
+      <div class="center-and-underline-title" >
+        <h3>Tous les projets en cours</h3>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row text-center">
+          <% @projects.each do |project|%>
+            <div class="col-xs-12 col-md-6">
+
+              <div class="index-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
+                <%= hidden_field_tag :project_key, project.id %>
+                <% if project.charity %>
+                  <%= cl_image_tag(project.charity.photo, class: "index-card-asso") %>
+                <% else %>
+                  <img src="https://kitt.lewagon.com/placeholder/users/random" alt="" class="index-card-asso">
+                <% end %>
+                <h5><%= project.name.capitalize %></h5>
+                <div class="index-card-footer">
+                  <div class="index-card-bugdet">
+                    <p><%= project.budget.to_i %>€</p>
+                    <p class="index-card-footer-legend">objectif</p>
+                  </div>
+                  <div class="index-card-completion">
+                    <p><%= project.completion_rate %>%</p>
+                    <p class="index-card-footer-legend">récoltés</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+ <% @projects.each do |project|%>
+    <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
+
+      <h2 class="template-title"><%= project.name.capitalize %></h2>
+      <div class="template-text template-text-long">
+        <div class="project-focus-data">
+          <p>Objectif : <%= project.budget.to_i %>€</p>
+          <p><%= project.completion_rate %>% récoltés</p>
+        </div>
+        <% if project.charity %>
+          <p>Par l'association <%= project.charity.name %></p>
+        <% end %>
+        <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
+
+        <div class="criterium-container">
+          <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
+              <% if project[criterium] == 1 %>
+                <span class="bullet bullet-criterium"><%= criterium %></span>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to "En savoir plus", project_path(project), target: "_blank", class: "btn button-submit" %>
+    </div>
   <% end %>
-</ul>

@@ -1,0 +1,25 @@
+.fixed-background-divided {
+  height: 100vh;
+  width: 50vw;
+  background-color: $yellow;
+  position: sticky !important;
+  top: 0 !important;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-background-divided-item {
+  background-size: cover !important;
+  background-position: center;
+  flex: 1;
+  h2 {
+    margin: 0px;
+  }
+}
+
+ @media (max-width: 768px) {
+  .fixed-background-divided {
+    display: none;
+  }
+}

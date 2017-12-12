@@ -9,7 +9,7 @@ class Project < ApplicationRecord
   mount_uploader :photo, ProjectUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  after_save :check_if_started, :check_if_ended, :set_default_picture
+  after_save :check_if_started, :check_if_ended
 
 
   def self.recommendation (user, number_of_recommendations)

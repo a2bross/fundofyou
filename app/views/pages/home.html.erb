@@ -159,7 +159,7 @@
                       </div>
                     </div>
                     <% if project.charity %>
-                      <%= cl_image_tag project.charity.photo, class: "card-user-home" %>
+                      <%= cl_image_tag project.charity[:photo], class: "card-user-home" %>
                     <% else %>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/random">
 

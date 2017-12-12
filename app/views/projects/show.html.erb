@@ -12,7 +12,11 @@
     <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
       <div class="template-text">
      <!-- Encart noir à gauche -->
-        <h1 id="project-name"><%= @project.name %></h1>
+        <h1 class="ml15">
+          <span class="word"><%= @project.name %></span>
+        </h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
       </div>
     </div>
   <% end %>
@@ -28,19 +32,28 @@
         <div class="center-and-underline-title" >
           <h3>À propos</h3>
         </div>
+        <div class="contribution-info">
+          <p>nb de contributeur</p>
+            <% if @project.end_date < Time.now %>
+              <div class="important-number"><%= (@project.end_date - @project.start_date).to_i %> J <br> <p>restants</p></div>
+            <% else %>
+              <div class="important-number"> Collecte <br> terminée </div>
+            <% end %>
+        </div>
         <div class="budget-details">
            <div class="progress-bar">
             <div class="indicator-bar" role="progressbar" style="width:<%= [@project.completion_rate, 100].min %>%">
-              <p><%= @project.completion_rate %> % </p>
+              <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
+              <div class="progress-value"></div>
             </div>
           </div>
         </div>
+        <div class="budget-evolution">
+          <div class="important-number"> <%= (@project.completion_rate.to_f / 100 * @project.budget_cents).to_i %> €<br><p>recoltés</p></div>
+          <div class="important-number"><%= (@project.budget_cents) %> € <br> <p>objectif</p></div>
+        </div>
           <div class= "project-presentation">
-            <p>Objectif: @project.budget_cents</p>
-              <p><%= @project.description %></p>
-              <p>vbhfbgjfjgkjfgkjdfglkjdklgjfdklgjkldgjkdlgjdlg</p>
           </div>
-      </div>
 
 
           <div class="center-and-underline-title" >

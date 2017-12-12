@@ -17,7 +17,7 @@
       <% @user.donations.each do |donation| %>
       <% if donation.project.end_date > Date.today %>
         <div class="item photo-projects carousel-item">
-          <%= cl_image_tag("homeless-845709_1920_hell8j.jpg", width: 700, height:1200, crop: :fill)  %>
+          <%= cl_image_tag("asia-2929645_1920_h6trf8.jpg", width: 700, height:1200, crop: :fill, gravity: :face)  %>
           <div class="carousel-caption">
             <%= donation.project.name %>
           </div>

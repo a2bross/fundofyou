@@ -11,10 +11,18 @@
   margin: 0px;
 }
 
+.tab-content {
+  background-color: rgba(210, 210, 210, 0.2);
+  height: calc(100vh - 70px);
+}
+
 .height-dashboard {
   height: calc(100vh - 70px);
-  background: url('http://res.cloudinary.com/adb0wzhme6/image/upload/v1512987731/favela-1636534_1920_cya3tk.jpg') no-repeat center center fixed;
-  //background-color: white;
+}
+.background-image {
+  height: calc(100vh - 70px);
+  background: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://res.cloudinary.com/adb0wzhme6/image/upload/v1512987731/favela-1636534_1920_cya3tk.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 
@@ -27,7 +35,7 @@
   position: sticky !important;
   top: 0 !important;
   padding: 15px !important;
-  background-color: rgba(255, 198, 0, 0.3);
+  background-color: rgba(0, 196, 255, 0.3);
   h1 {
     margin-top: 0px;
     font-size: 27px;
@@ -40,13 +48,24 @@
   }
 }
 
+@media(max-width: 720px) {
+  .welcome {
+  height: 40vh;
+  position: sticky !important;
+  top: 0 !important;
+  }
+  .background-image {
+    height: calc(58vh - 70px);
+  }
+}
 ///////////////////////1ER ONGLET/////////////////////////
 
 .info-container {
-  padding: 0px 60px
 }
 
-
+#mes_donations {
+  height: calc(100vh - 70px);
+}
 
 #actualite {
   padding: 10px;
@@ -59,11 +78,11 @@
 }
 
 .notifications {
-  height: 90px;
+  height: 110px;
   background-color: rgb(240, 240, 240);
   justify-content: space-around;
   position: relative;
-  margin: 5px;
+  margin: 5px 10px;
   p {
     padding: 20px;
     font-size: 14px;
@@ -80,7 +99,7 @@
 .decouvrez {
   background-color: $yellow;
   color: white;
-  margin: 10px;
+  margin: 5px 10px;
   margin-bottom: 60px;
   display: flex;
   justify-content: space-around;
@@ -97,7 +116,7 @@
 .total_dons {
   margin-top: 30px;
   display: flex;
-  margin: 10px;
+  margin: 5px 10px;
   align-items: center;
   color: #0881A3;
   justify-content: space-around;
@@ -108,7 +127,7 @@
 
 .total_projets {
   display: flex;
-  margin: 10px;
+  margin: 5px 10px;
   background-color: white;
   padding: 20px;
   color: #0881A3;
@@ -119,8 +138,10 @@
 }
 
 .total-critere {
+  display: flex;
   margin-top: 30px;
-  margin: 10px;
+  text-align: center;
+  margin: 5px 10px;
   align-items: center;
   color: #0881A3;
   justify-content: space-around;
@@ -151,10 +172,10 @@
   margin-left: 10px;
   justify-content: space-around;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
   background-color: white;
   height: 80px;
-  color: $yellow;
+  color: $brand-success;
   font-size: 25px;
 }
 
@@ -162,12 +183,22 @@
 .container-projects {
   display: flex;
   justify-content: space-between;
+  height: calc(100vh - 70px)
 }
 
 .repartition_cause {
   margin: 10px;
   background-color: white;
   padding: 20px;
+}
+
+
+.header-carousel {
+  display: flex;
+  background-color: white;
+  color: $brand-success;
+  justify-content: space-around;
+  margin-top: 5px;
 }
 
 
@@ -181,6 +212,7 @@
   height: 50vh;
   position: sticky !important;
   top: 0 !important;
+  margin-top: 5px;
 }
 
 
@@ -191,10 +223,69 @@
 }
 
 ////// ONGLET IMPOT/////////////
-#declaration-impot {
-  display: flex;
-  justify-content: space-around;
+
+.container-recus {
+
 }
 
+.zone_de_texte {
+  margin-top: 5px;
+  margin-left: 10px;
+  background-color: white;
+  overflow: auto;
+  height: calc(100vh - 75px);
+  h3 {
+  color: $brand-success;
 
+  }
+}
+
+.tax-images {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.tax-icon {
+  img {
+  width: 65px;
+  height: 65px;
+  }
+  p {
+    margin-top: 10px;
+  }
+}
+
+.calendar {
+  text-align: center;
+}
+
+.attachments {
+  text-align: center;
+}
+
+.tax {
+  text-align: center;
+}
+
+.formulaire_2042 {
+  text-align: center;
+  background-color: $yellow;
+  color: white !important;
+  width: 30%;
+  a {
+    color: white;
+    text-decoration: none;
+    background-color: $yellow;
+  }
+  a:hover {
+    color: white !important;
+    text-decoration: none !important;
+    background-color: $yellow !important;
+  }
+}
+
+.mes_recus {
+  margin-left: 10px;
+}
 

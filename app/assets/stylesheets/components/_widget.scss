@@ -1,0 +1,92 @@
+.actualite1 {
+  position: absolute;
+  height: 110px;
+  align-items: center;
+  width: 100%;
+}
+
+.actualite-title {
+  background-color: $brand-success;
+  height: 25%;
+  width: 100%;
+  i {
+    margin-top: -3px;
+    position: relative;
+    left: 17px;
+    top: 4px;
+    color: white !important;
+  }
+  p {
+    position: relative;
+    margin: 0px;
+    font-size: 10px;
+    left: 10px;
+    top: -17px;
+    color: white !important;
+  }
+  a {
+    color: white;
+    background-color: $yellow;
+
+  }
+}
+
+.news-content {
+  position: relative;
+  top: -8px;
+  left: 10px;
+  p {
+    font-size: 10px;
+  }
+}
+
+.bouton-actualite {
+    position: relative;
+    right: -135px;
+    top: 46px;
+}
+
+.widget-actualite {
+  height: 100%;
+  background-color: white;
+}
+
+#carousel-actualite-container {
+  height: 100%;
+}
+
+#carousel-actualite {
+  height: 100%;
+}
+
+#carousel-actualite > .item {
+  height: 90px;
+}
+
+.actualite-title2 {
+  background-color: $red;
+  height: 25%;
+  i {
+    margin-top: 15px;
+    position: relative;
+    left: 30px;
+    top: 15px;
+    color: white !important;
+  }
+  p {
+    position: relative;
+    margin: 0px;
+    font-size: 10px;
+    left: 0px;
+    top: 28px;
+    color: white !important;
+  }
+  a {
+    color: white;
+    background-color: $yellow;
+
+  }
+}
+
+
+

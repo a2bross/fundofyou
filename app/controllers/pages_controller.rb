@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
+  skip_after_action :verify_authorized
 
   def home
     @ongoing_projects = Project.where(status: 10).order(end_date: :desc).first(3)

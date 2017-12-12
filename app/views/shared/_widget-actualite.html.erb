@@ -1,19 +1,23 @@
 <div class="widget-actualite">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div class="carousel slide" id="carousel-actualite-container" data-ride="carousel">
 
     <div class="carousel-inner" id="carousel-actualite" role="listbox">
 
       <div class="item active">
-        <div>
-          Actualité 1
+        <div class="actualite1">
+          <div class="actualite-title"><p>News</p><i class="fa fa-bolt" aria-hidden="true"></i></div>
+          <div class="news-content"><p>En décembre, c'est le mois de la lutte contre le cancer du sein</p></div>
         </div>
+          <div><p><%= link_to "En savoir plus", "#", class: "bouton-actualite" %></p></div>
       </div>
 
-      <div class="item">
-        <div>
-          Actualité 2
+      <!-- <div class="item">
+        <div class="actualite1">
+          <div class="actualite-title2"><p>News</p><i class="fa fa-bolt" aria-hidden="true"></i></div>
+          <div><p>Ouragan Irma, les sinistrés ont encore besoin de vous</p></div>
         </div>
-      </div>
+      <div><p><%= link_to "En savoir plus", "#", class: "bouton-actualite" %></p></div>
+      </div> -->
 
     </div>
   </div>

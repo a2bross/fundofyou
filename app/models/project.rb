@@ -9,6 +9,7 @@ class Project < ApplicationRecord
   mount_uploader :photo, ProjectUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  after_save :check_if_started, :check_if_ended, :set_default_picture
 
 
   def self.recommendation (user, number_of_recommendations)
@@ -50,5 +51,24 @@ class Project < ApplicationRecord
     completion_rate = (@collected.fdiv(budget.to_i)*100).floor
     rescue ZeroDivisionError
       0
+  end
+
+  def check_if_started
+    if self.status == 0 && self.start_date <= Date.today && self.start_date <= self.end_date
+      self.update(status:  10)
+    end
+  end
+
+  def check_if_ended
+    if (self.status == 0 || self.status == 10) && self.end_date < Date.today
+      self.update(status: 20)
+    end
+  end
+
+  def self.update_status
+    Project.all.each do |projet|
+      projet.check_if_started
+      projet.check_if_started
+    end
   end
 end

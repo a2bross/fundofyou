@@ -120,14 +120,17 @@
 
         <div class= "tab-content">
           <div class="tab-pane fade in active" id="en-cours">
+
             <% @ongoing_projects.each do |project| %>
               <div class="col-xs-12 col-sm-6 col-md-4" >
                 <%= render 'shared/home-card', project: project %>
+
               </div>
             <% end %>
           </div>
 
           <div class="tab-pane fade" id="done">
+
             <% @completed_projects.each do |project| %>
               <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card-home home-project" >
@@ -159,6 +162,7 @@
                       <%= cl_image_tag project.charity.photo, class: "card-user-home" %>
                     <% else %>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/random">
+
                     <% end %>
                   <% end %>
                 </div>

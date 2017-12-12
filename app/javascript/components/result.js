@@ -51,10 +51,4 @@ if (resultCards[0]) {
       }
     })
   })
-
-  const submitButtonRight = document.getElementById('contribution-submit');
-    submitButtonRight.addEventListener("click", (event) => {
-      event.preventDefault();
-      document.querySelector("input[type=submit]").click();
-    });
 }

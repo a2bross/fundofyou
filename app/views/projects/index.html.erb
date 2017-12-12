@@ -16,7 +16,9 @@
               <div class="index-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
                 <%= hidden_field_tag :project_key, project.id %>
                 <% if project.charity %>
+
                   <div class="index-card-asso" style="background-image: url(<%= image_path(project.charity.photo)%>)"></div>
+
                 <% else %>
                   <div class="index-card-asso" style="background-image: url('https://kitt.lewagon.com/placeholder/users/random')"></div>
                 <% end %>

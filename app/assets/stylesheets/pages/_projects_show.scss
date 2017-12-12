@@ -26,6 +26,7 @@
   justify-content: space-between;
   padding: 4px 130px;
   font-size: 15px;
+  margin-bottom: -3px;
 }
 
 .important-number {
@@ -33,7 +34,6 @@
   font-size: 20px;
   font-weight: bold;
   line-height: 1.2;
-
 }
 
 .important-number p {
@@ -104,8 +104,9 @@
 
 .project-presentation {
   // margin: 50px 40px;
-  margin-top: 45px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  margin-right: 40px;
   margin-left: 40px;
 }
 
@@ -123,15 +124,19 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid $medium-gray;
-  padding: 25px;
-  margin: 10px 150px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50px;
+  padding-left: 0px;
+  margin: auto;
+  max-width: 400px;
   background-color: $light-gray;
 }
 
 .association-name li {
   list-decoration: none;
-  display: inline;
+  display: block;
+  text-align: center;
 }
 
 .association-info li {

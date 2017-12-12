@@ -7,11 +7,12 @@
   padding: 0;
 }
 .carousel-inner {
-  height: 90vh;
+  height: 100vh;
 }
 
 .photo-banner {
   width: 100vw;
+  height: 100vh;
   padding: 0;
   background-size: cover !important;
   background-image: center !important;
@@ -19,23 +20,32 @@
   background-position: center center;
 }
 
-.carousel-caption {
-  opacity: 1;
-  color: white;
-  font-size: $headers-font;
-  background: rgba(0,0,0,0.3);
-  border-radius: 8px;
-  padding: 40px;
+.home-global-container .carousel-control {
+  top: 30%;
   text-shadow: none;
 }
 
-.carousel-caption h1 {
-  margin-top: -15px;
+.homepage-header {
+  padding: 40px;
+  bottom: 20vh;
+  position: absolute;
+  z-index: 1;
+  left: 20%;
+  right: 20%;
+  text-align: center;
+  color: white;
+  max-width: 100vw;
 }
 
-.carousel-caption h3 {
-  padding-top: 0px;
-  padding-bottom: 25px;
+.homepage-header h1 {
+  margin-top: 20px;
+  font-size: 62px;
+  margin-bottom: 30px;
+}
+
+.homepage-header p {
+  margin-bottom: 30px;
+  font-size: 25px;
 }
 
 .carousel-inner > .item {
@@ -49,29 +59,48 @@
   }
 
 .explication {
+  background-color: $light-gray;
   text-align: center;
-  height: 300px;
   padding: 70px;
+  padding-bottom: 50px;
+  font-size: 17px;
+  i {
+    font-size: 40px;
+    color: $brand-success;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 50px;
+  }
 }
 
-.presentation {
-  text-align: center;
-  padding-bottom: 80px;
-  height: 30%;
-  padding-top: 30px;
-  margin-bottom: 80px;
-}
 .temoignage {
-  background-color: white;
   border-radius: 5px;
   text-align: center;
   width: 100vw;
-  padding: 50px 90px;
+  padding: 70px 50px;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 17px;
+  h2 {
+  margin-top:0px;
+  }
+  p {
+    font-size: 15px;
+    font-style: italic;
+    padding: 5px 20px;
+    margin-top: 30px;
+  }
+  h5 {
+    padding: 15px;
+  }
 }
-.temoignage h2 {
-  padding-bottom: 30px;
+
+.presentation {
+  background-color: $light-gray;
+  text-align: center;
+  height: 30%;
+  padding: 40px 70px;
 }
 
 .project {
@@ -82,20 +111,9 @@
   padding-bottom: 15px;
 }
 
-.success h5 {
-  padding: 15px;
-}
-
-.success p {
-  font-size: 15px;
-  font-style: italic;
-  padding: 5px;
-  }
-
 .onglet {
-  padding-bottom: 30px;
-  padding-top: 30px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   border-radius: 4px;
   font-family: $headers-font;
   font-size: 25px;
@@ -105,12 +123,34 @@
   border-radius: 4px;
   border: 1px solid rgba(0, 0 ,0 , 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  background-color: white;
   height: 300px;
-  width: 350px;
+  margin: 30px 10px;
+  background-color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:hover {
-    margin-top: -10px;
+    margin-top: 10px;
     transition: 0.5s;
   }
 }
 
+@media (max-width: 768px) {
+  .home-global-container .carousel-control {
+   display: none;
+  }
+  .header-container {
+    max-width: 100%;
+  }
+  .homepage-header {
+    left: initial;
+    right: initial;
+    top: 15vh;
+  }
+  .temoignage p {
+    padding: 5px;
+  }
+  .presentation {
+    padding: 40px 10px;
+  }
+}

@@ -30,6 +30,9 @@
     color: $yellow;
     border: 1px solid $yellow;
   }
+  &:active {
+    color: white;
+  }
 }
 
 .button-submit {
@@ -47,4 +50,9 @@
 .button-small {
   padding: 10px;
   width: 150px;
+}
+
+.button-large {
+  width: 300px;
+  font-size: 18px;
 }

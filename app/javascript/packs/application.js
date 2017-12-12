@@ -3,6 +3,7 @@ import "../components/form";
 import "../components/payment-form";
 import "../components/result";
 import "../components/project-index";
+import "../components/title";
 import { hideFlashAfter5sec } from '../components/flashes';
 hideFlashAfter5sec();
 
@@ -11,8 +12,8 @@ if (document.querySelector(".autocomp")) {
   autocomplete();
 };
 
-// import { loadDynamicBannerText } from '../components/banner';
-// loadDynamicBannerText();
+import { loadDynamicBannerText } from '../components/banner';
+loadDynamicBannerText();
 
 // import "../components/tabs";
 // import "../components/progress-bar";

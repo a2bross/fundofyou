@@ -2,6 +2,10 @@ body {
   background: white;
 }
 
+a:hover, a:active {
+  text-decoration: none;
+}
+
 .main-container {
   background-color: white;
   margin: 40px 10%;

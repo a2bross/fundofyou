@@ -16,9 +16,9 @@
               <div class="index-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
                 <%= hidden_field_tag :project_key, project.id %>
                 <% if project.charity %>
-                  <%= cl_image_tag(project.charity.photo, class: "index-card-asso") %>
+                  <div class="index-card-asso" style="background-image: url(<%= cl_image_path(project.charity.photo)%>)"></div>
                 <% else %>
-                  <img src="https://kitt.lewagon.com/placeholder/users/random" alt="" class="index-card-asso">
+                  <div class="index-card-asso" style="background-image: url("https://kitt.lewagon.com/placeholder/users/random")"></div>
                 <% end %>
                 <h5><%= project.name.capitalize %></h5>
                 <div class="index-card-footer">
@@ -58,7 +58,7 @@
         <div class="criterium-container">
           <% [:environment, :humanitarian, :social, :research, :preservation, :education].each do |criterium| %>
               <% if project[criterium] == 1 %>
-                <span class="bullet bullet-criterium"><%= criterium %></span>
+                <span class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criterium %></span>
               <% end %>
           <% end %>
         </div>

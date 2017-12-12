@@ -11,6 +11,9 @@ class PagesController < ApplicationController
     # @project5 = Project.find(6)
     # @project6 = Project.find(9)
 
+
+    @ongoing_projects = Project.where(status: 10).order(end_date: :desc).first(3)
+    @completed_projects = Project.where("completion_rate >= 100").order(end_date: :desc).first(3)
   end
 
   def test

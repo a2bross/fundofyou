@@ -3,8 +3,9 @@ import "../components/form";
 import "../components/payment-form";
 import "../components/result-card";
 
-// import { autocomplete } from '../components/autocomplete';
-// autocomplete();
+import { autocomplete } from "../components/autocomplete";
+autocomplete();
+
 
 // import { loadDynamicBannerText } from '../components/banner';
 // loadDynamicBannerText();

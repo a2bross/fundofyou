@@ -16,6 +16,35 @@
   background-color: white;
 }
 
+//.tab.active {
+//  flex: 1, 1, 33.333333333%;
+//  background-color: $yellow;
+//  padding: 10px;
+//  a {
+//  color: white;
+//  }
+//}
+
+.onglet {
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: $yellow;
+    background-color: white;
+    border-bottom: $yellow solid 2px;
+  }
+  .nav > li > a {
+    color: #D8D8D8;
+    border-bottom: solid 2px #D8D8D8;
+  }
+  .nav > li > a:hover {
+    color: $yellow;
+    background: transparent;
+    border-bottom: solid 2px $yellow;
+  }
+  .nav > li.active {
+    color: $yellow;
+  }
+}
+
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: white;
   border-bottom: $yellow solid 2px;
@@ -29,7 +58,6 @@
 
 .nav > li > a:hover {
   color: $brand-success;
-
 }
 
 .nav > li.active > a {

@@ -5,17 +5,11 @@ class Project < ApplicationRecord
   has_many :users, through: :donations
   monetize :budget_cents
   validates :name, :budget, :description, :start_date, :end_date, :charity, presence: true
+  validates :budget, numericality: { greater_than: 0 }
   mount_uploader :photo, ProjectUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-
-  # after_create :define_photo_number
-
-  # def define_photo_number
-  #   self.photo = rand(1..5)
-  #   self.save
-  # end
 
   def self.recommendation (user, number_of_recommendations)
     recommendations = [
@@ -54,5 +48,7 @@ class Project < ApplicationRecord
       @collected << donation.amount.to_i
     end
     completion_rate = (@collected.fdiv(budget.to_i)*100).floor
+    rescue ZeroDivisionError
+      0
   end
 end

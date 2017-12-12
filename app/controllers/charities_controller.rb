@@ -2,15 +2,17 @@ class CharitiesController < ApplicationController
   before_action :set_charity, only: [:update, :edit, :show, :destroy]
 
   def index
-    @charities = Charity.all
+    @charities = policy_scope(Charity)
   end
 
   def new
     @charity = Charity.new
+    authorize @charity
   end
 
   def create
     @charity = Charity.new(charity_params)
+    authorize @charity
     if @charity.save
       redirect_to charity_path(@charity)
     else
@@ -41,6 +43,7 @@ class CharitiesController < ApplicationController
 
   def set_charity
     @charity = Charity.find(params[:id])
+    authorize @charity
   end
 
   def charity_params

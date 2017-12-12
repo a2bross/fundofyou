@@ -29,8 +29,8 @@
       <% if user_signed_in? %>
 
         <!-- Links when logged in -->
-        <li><%= link_to "Explorer", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to "Mon compte", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Explorer", projects_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Mon compte", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to t(".sign_out", default: "Déconnexion"), destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %></li>
 
       <% else %>

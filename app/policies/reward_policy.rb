@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class RewardPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -13,15 +13,15 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def edit_criteria?
+  def create?
     true
   end
 
-  def update_criteria?
+  def update?
     true
   end
 
-  def result?
+  def destroy?
     true
   end
 end

@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_order, :set_user
+  skip_after_action :verify_authorized
 
   def new
     @donations = @order.donations

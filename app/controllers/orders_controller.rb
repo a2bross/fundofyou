@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @selected_projects << Project.find(params[:project_3]) unless params[:project_3].nil?
     project_nb = @selected_projects.size
     @order = Order.new(amount: params[:contribution], status: 1)
+    authorize @order
     if @order.save
       @selected_projects.each do |project|
         Donation.create!(project: project, user: @user, order: @order, amount: @order.amount.div(project_nb), status: 1)

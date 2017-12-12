@@ -2,18 +2,20 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :show, :destroy]
 
   def index
-    # list all projects
-    @projects = Project.where(status: 10).order(end_date: :desc)
+    # list all active projects
+    @projects = policy_scope(Project).where(status: 10).order(end_date: :desc)
   end
 
   def new
     # new project
     @project = Project.new
+    authorize @project
   end
 
   def create
     # create a project
     @project = Project.new(project_params)
+    authorize @project
     if @project.save
       redirect_to project_path(@project)
     else
@@ -55,6 +57,7 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+    authorize @project
   end
 
 end

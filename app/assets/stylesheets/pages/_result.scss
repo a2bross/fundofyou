@@ -31,8 +31,11 @@
 }
 
 .bullet-contribution {
-  margin: 0 auto;
   width: fit-content;
+  position: fixed;
+  left: 50%;
+  margin-left: -21px;
+  bottom: 0;
 }
 
 .criterium-container {

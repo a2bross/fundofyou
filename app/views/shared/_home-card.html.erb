@@ -1,0 +1,32 @@
+<div class="card-home home-project" >
+  <%= link_to project_path(project) do %>
+    <% if project.photo.url %>
+      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+       url(<%= image_path project.photo %>);"></div>
+    <% else %>
+      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+       url(<%= image_path "form-background.jpg" %>);"></div>
+    <% end %>
+
+    <div class="card-description-home">
+      <div class="card-description-home-title">
+        <h2> <%= truncate project.name.capitalize, length: 30, omission: '...' %></h2>
+      </div>
+      <div class="card-description-home-description">
+        <div class="index-card-bugdet">
+          <p><%= project.budget.to_i %>€</p>
+          <p class="index-card-footer-legend">objectif</p>
+        </div>
+        <div class="index-card-completion">
+          <p><%= project.completion_rate %>%</p>
+          <p class="index-card-footer-legend">récoltés</p>
+        </div>
+      </div>
+    </div>
+    <% if project.charity %>
+      <%= cl_image_tag project.charity.photo, class: "card-user-home" %>
+    <% else %>
+      <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/random">
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,83 @@
+.actualite1 {
+  display: flex;
+  position: absolute;
+  height: 90px;
+  align-items: center;
+}
+
+.actualite-title {
+  background-color: $brand-success;
+  height: 100%;
+  i {
+    margin-top: 15px;
+    position: relative;
+    left: 30px;
+    top: 15px;
+    color: white !important;
+  }
+  p {
+    position: relative;
+    margin: 0px;
+    font-size: 10px;
+    left: 0px;
+    top: 28px;
+    color: white !important;
+  }
+  a {
+    color: white;
+    background-color: $yellow;
+
+  }
+}
+
+
+.bouton-actualite {
+    position: relative;
+    right: -135px;
+    top: 46px;
+}
+
+.widget-actualite {
+  height: 100%;
+  background-color: white;
+}
+
+#carousel-actualite-container {
+  height: 100%;
+}
+
+#carousel-actualite {
+  height: 100%;
+}
+
+#carousel-actualite > .item {
+  height: 90px;
+}
+
+.actualite-title2 {
+  background-color: $red;
+  height: 100%;
+  i {
+    margin-top: 15px;
+    position: relative;
+    left: 30px;
+    top: 15px;
+    color: white !important;
+  }
+  p {
+    position: relative;
+    margin: 0px;
+    font-size: 10px;
+    left: 0px;
+    top: 28px;
+    color: white !important;
+  }
+  a {
+    color: white;
+    background-color: $yellow;
+
+  }
+}
+
+
+

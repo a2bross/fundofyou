@@ -14,22 +14,12 @@
   padding: 10px;
   margin-left: none;
   background-color: white;
-  // text-decoration: none;
 }
 
-//.tab.active {
-//  flex: 1, 1, 33.333333333%;
-//  background-color: $yellow;
-//  padding: 10px;
-//  a {
-//  color: white;
-//  }
-//}
-
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-  color: $yellow;
   background-color: white;
   border-bottom: $yellow solid 2px;
+  color: $brand-success;
 }
 
 .nav > li > a {
@@ -38,10 +28,11 @@
 }
 
 .nav > li > a:hover {
-  color: $yellow;
+  color: $brand-success;
 
 }
 
-.nav > li.active {
-  color: $yellow;
+.nav > li.active > a {
+  color: $brand-success;
+  background-color: white;
 }

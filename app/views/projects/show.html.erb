@@ -1,7 +1,7 @@
 <% content_for :meta_title, "#{@project.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @project.description %>
 <% if @project.photo %>
-  <% content_for :meta_image, cl_image_path(@project.photo) %>
+  <% content_for :meta_image, image_path(@project.photo) %>
 <% end %>
 
 <div class="template-container">
@@ -27,14 +27,19 @@
               <div class="budget-details">
                  <div class="progress-bar">
                   <div class="indicator-bar" role="progressbar" style="width:<%= [@project.completion_rate, 100].min %>%">
-                    <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
-                    <div class="progress-value"></div>
+                    <% if @project.completion_rate > 0 %>
+                      <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
+                      <div class="progress-value"></div>
+                    <% end %>
                   </div>
                 </div>
               </div>
                 <div class="budget-evolution">
                   <div class="important-number"> <%= number_with_delimiter((@project.completion_rate.to_f / 100 * @project.budget).to_i, delimiter: " ") %> €<br><p>recoltés</p></div>
-                  <div class="important-number"><%= number_with_delimiter(money_without_cents(@project.budget), delimiter: " ") %> € <br> <p>objectif</p>
+                  <div class="important-number">
+                    <%= number_with_delimiter(@project.budget_cents / 100, delimiter: " ") %> €
+                    <br>
+                    <p>objectif</p>
                   </div>
                 </div>
             </div>

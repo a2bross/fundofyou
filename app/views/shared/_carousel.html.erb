@@ -1,25 +1,26 @@
 
 
 <!-- <div class="container asso-banner"> -->
-  <div id="carousel-current-projects" class="carousel-current-projects" data-ride="carousel">
+  <div id="carousel-current-projects" class="carousel slide carousel-current-projects" data-ride="carousel">
     <!-- Indicators -->
 
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" id="carousel-dashboard" role="listbox">
-      <div class="item active carousel-item">
-       <%= cl_image_tag("l5pb87f9ckhn4qggxchb.jpg", :effect=>"art:ukulele", width: 600, height: 1200, crop: :fill, :background=>"#101818", :color=>"#ffffff", :opacity=>49) %>
+
+      <div class="item active photo-projects carousel-item" style="background-image: url(<%= image_path @user.projects.first.photo %>);">
+       <!--  :effect=>"art:ukulele", width: 600, height:1200, crop: :fill, gravity: :face)  -->
         <div class="carousel-caption" id="project-caption">
-        FundOfYou
+          <%= @user.projects.first.name %>
         </div>
       </div>
 
-      <% @user.donations.each do |donation| %>
-      <% if donation.project.end_date > Date.today %>
-        <div class="item photo-projects carousel-item">
-          <%= cl_image_tag("asia-2929645_1920_h6trf8.jpg", :effect=>"art:ukulele", width: 600, height:1200, crop: :fill, gravity: :face)  %>
+      <% @user.projects.each do |project| %>
+      <% if project.end_date > Date.today && project != @user.projects.first %>
+        <div class="item photo-projects carousel-item" style="background-image: url(<%= image_path project.photo %>);">
+         <!--  :effect=>"art:ukulele", width: 600, height:1200, crop: :fill, gravity: :face)  -->
           <div class="carousel-caption" id="project-caption">
-            <%= donation.project.name %>
+            <%= project.name %>
           </div>
         </div>
         <% end %>

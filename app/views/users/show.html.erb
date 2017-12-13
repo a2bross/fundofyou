@@ -7,7 +7,7 @@
 
 
       <div class="welcome ">
-        <h1>  Bienvenue <%= @user.first_name  %></h1>
+        <h1>  Bienvenue <%= @user.first_name.capitalize  %></h1>
         <%= render 'shared/tabs' %>
       </div>
     </div>
@@ -79,21 +79,23 @@
         </div>
 
         <div role="tabpanel" class="tab-pane fade" id="mes_donations">
-          <div class="container-projects">
-            <div class="col-xs-12 col-sm-8 no_padding list-of-projects">
-              <div class="current-projects">
-                <h1>Redécouvrez les <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez soutenus</h1>
+          <div class="container-fluid container-projects">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 no_padding list-of-projects">
+                <div class="current-projects">
+                  <h1>Redécouvrez les <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez soutenus</h1>
+                </div>
+                <%= render 'shared/project-history' %>
               </div>
-              <%= render 'shared/project-history' %>
-            </div>
-            <div class="col-xs-12 col-sm-4 no_padding">
-              <div class="map-container">
-                <div
-                  id="map"
-                  style="max-width: 100%;
-                  height: calc(100vh - 75px);"
-                  data-markers="<%= @markers.to_json %>"
-                ></div>
+              <div class="col-xs-12 col-sm-4 no_padding">
+                <div class="map-container">
+                  <div
+                    id="map"
+                    style="max-width: 100%;
+                    height: calc(100vh - 75px);"
+                    data-markers="<%= @markers.to_json %>"
+                  ></div>
+                </div>
               </div>
             </div>
           </div>

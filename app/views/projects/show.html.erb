@@ -57,7 +57,7 @@
                         <div class="association-details">
                           <ul class="association-name">
                             <% if @project.charity %>
-                              <li><%= cl_image_tag @project.charity.photo, class: "avatar-charity" %></li>
+                              <li><%= image_tag @project.charity.photo, class: "avatar-charity" %></li>
                             <% else %>
                               <li> <%= image_tag "dog.jpg", class: "avatar-charity" %></li>
                             <% end %>

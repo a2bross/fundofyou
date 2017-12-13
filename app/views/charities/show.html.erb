@@ -19,8 +19,8 @@
         </p>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <% if @charity[:photo] %>
-        <%= cl_image_tag(@charity[:photo], width: 500, height: 500, crop: :fill,) %>
+      <% if @charity.photo %>
+        <%= cl_image_tag(@charity.photo, width: 500, height: 500, crop: :fill,) %>
       <% else %>
         <p>Pas de photo</p>
       <% end %>

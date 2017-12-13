@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   # route for order and payment
-  resources :orders, only: :create do
+  resources :orders, only: [:create, :update] do
       resources :payments, only: [:new, :create]
   end
 

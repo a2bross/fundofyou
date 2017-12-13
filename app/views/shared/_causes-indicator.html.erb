@@ -1,7 +1,7 @@
 <div class="cadre-causes col-xs-12">
   <div class="row full-width flex-between">
     <div class="user-show-slider-label">
-      <% if @user.environment > 0 %>
+      <% if true#@user.environment > 0 %>
         <div class="ecologie-case bullet col-xs-9 col-sm-9"><i class="fa fa-leaf"></i><p>|</p><p>Ecologie</p></div>
       <% else %>
         <div class="ecologie-case disabled-criteria col-xs-9 col-sm-9"><i class="fa fa-leaf"></i><p>|</p><p>Ecologie</p></div>
@@ -10,14 +10,16 @@
     <div>
       <div class="progress-bar">
         <div class="indicator-bar" role="progressbar" style="width:<%= [@user.share("environment"), 100].min %>%">
-          <div class="progress-value"></div>
+          <% if @user.share("environment") > 0 %>
+          <div class="share-allocation"><%= "#{@user.share("environment")} \%"%></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="row full-width flex-between">
     <div class="user-show-slider-label">
-      <% if @user.education > 0 %>
+      <% if true#@user.education > 0 %>
         <div class="education-case bullet col-xs-9 col-sm-9"><i class="fa fa-graduation-cap"></i><p>|</p><p>Education</p></div>
       <% else %>
         <div class="education-case disabled-criteria col-xs-9 col-sm-9"><i class="fa fa-graduation-cap"></i><p>|</p><p>Education</p></div>
@@ -26,14 +28,16 @@
     <div>
       <div class="progress-bar">
         <div class="indicator-bar" role="progressbar" style="width:<%= [@user.share("education"), 100].min %>%">
-          <div class="progress-value"></div>
+          <% if @user.share("education") > 0 %>
+          <div class="share-allocation"><%= "#{@user.share("education")} \%"%></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="row full-width flex-between">
     <div class="user-show-slider-label">
-      <% if @user.social > 0 %>
+      <% if true#@user.social > 0 %>
         <div class="actionsociale-case bullet col-xs-9 col-sm-9"><i class="fa fa-handshake-o"></i><p>|</p><p>Social</p></div>
         <% else %>
         <div class="actionsociale-case disabled-criteria col-xs-9 col-sm-9"><i class="fa fa-handshake-o"></i><p>|</p><p>Social</p></div>
@@ -42,14 +46,16 @@
     <div>
       <div class="progress-bar">
         <div class="indicator-bar" role="progressbar" style="width:<%= [@user.share("social"), 100].min %>%">
-          <div class="progress-value"></div>
+          <% if @user.share("social") > 0 %>
+          <div class="share-allocation"><%= "#{@user.share("social")} \%"%></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="row full-width flex-between">
     <div class="user-show-slider-label">
-      <% if @user.humanitarian > 0 %>
+      <% if true#@user.humanitarian > 0 %>
         <div class="humanitaire-case bullet col-xs-9 col-sm-9"><i class="fa fa-life-ring"></i><p>|</p><p>Humanitaire</p></div>
         <% else %>
         <div class="humanitaire-case disabled-criteria col-xs-9 col-sm-9"><i class="fa fa-life-ring"></i><p>|</p><p>Humanitaire</p></div>
@@ -58,14 +64,16 @@
     <div>
       <div class="progress-bar">
         <div class="indicator-bar" role="progressbar" style="width:<%= [@user.share("humanitarian"), 100].min %>%">
-          <div class="progress-value"></div>
+          <% if @user.share("humanitarian") > 0 %>
+          <div class="share-allocation"><%= "#{@user.share("humanitarian")} \%"%></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="row full-width flex-between">
     <div class="user-show-slider-label">
-      <% if @user.preservation > 0 %>
+      <% if true#@user.preservation > 0 %>
         <div class="patrimoine-case bullet col-xs-9 col-sm-9"><i class="fa fa-institution"></i><p>|</p><p>Patrimoine</p></div>
       <% else %>
         <div class="patrimoine-case disabled-criteria col-xs-9 col-sm-9"><i class="fa fa-institution"></i><p>|</p><p>Patrimoine</p></div>
@@ -74,14 +82,16 @@
     <div>
       <div class="progress-bar">
         <div class="indicator-bar" role="progressbar" style="width:<%= [@user.share("preservation"), 100].min %>%">
-          <div class="progress-value"></div>
+          <% if @user.share("preservation") > 0 %>
+          <div class="share-allocation"><%= "#{@user.share("preservation")} \%"%></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="row full-width flex-between">
     <div class="user-show-slider-label">
-      <% if @user.research > 0 %>
+      <% if true#@user.research > 0 %>
         <div class="recherche-case bullet col-xs-9 col-sm-9"><i class="fa fa-flask"></i><p>|</p><p>Recherche</p></div>
       <% else %>
         <div class="recherche-case disabled-criteria col-xs-9 col-sm-9"><i class="fa fa-flask"></i><p>|</p><p>Recherche</p></div>
@@ -90,7 +100,9 @@
     <div>
       <div class="progress-bar">
         <div class="indicator-bar" role="progressbar" style="width:<%= [@user.share("research"), 100].min %>%">
-          <div class="progress-value"></div>
+          <% if @user.share("research") > 0 %>
+          <div class="share-allocation"><%= "#{@user.share("research")} \%"%></div>
+          <% end %>
         </div>
       </div>
     </div>

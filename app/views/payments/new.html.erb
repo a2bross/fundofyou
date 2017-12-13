@@ -21,8 +21,7 @@
 
       <div class="form-amount-update">
         <h4>Je souhaite contribuer à hauteur de :</h4>
-        <%= simple_form_for(@order, remote: true, html: { id: "formAmount"}) do |form| %>
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= simple_form_for(@order, html: { id: "formAmount"}) do |form| %>
           <label for="contribution" class="contribution-label">€ </label>
           <%= form.input :amount, value: @order.amount.to_i, class: "form-contribution-input", label: false %>
           <%= form.submit "Changer le montant", class: "btn button-submit button-small button-update" %>

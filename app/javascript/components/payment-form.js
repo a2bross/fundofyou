@@ -9,7 +9,7 @@ if (subscription[0]) {
   const inputPrice = document.getElementById("order_amount");
   inputPrice.addEventListener("change", (event) => {
     if (!inputPrice.NaN) {
-      document.getElementById('formAmount').submit();
+      $('#formAmount input[type=submit]').click();
     }
   });
 }

@@ -16,14 +16,16 @@
               <div class="index-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
                 <%= hidden_field_tag :project_key, project.id %>
                 <% if project.charity %>
+
                   <div class="index-card-asso" style="background-image: url(<%= image_path(project.charity.photo)%>)"></div>
+
                 <% else %>
                   <div class="index-card-asso" style="background-image: url('https://kitt.lewagon.com/placeholder/users/random')"></div>
                 <% end %>
                 <h5><%= project.name.capitalize %></h5>
                 <div class="index-card-footer">
                   <div class="index-card-bugdet">
-                    <p><%= project.budget.to_i %>€</p>
+                    <p><%= number_with_delimiter(project.budget.to_i, delimiter: " ") %>€</p>
                     <p class="index-card-footer-legend">objectif</p>
                   </div>
                   <div class="index-card-completion">
@@ -32,7 +34,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           <% end %>
         </div>
@@ -45,7 +46,7 @@
     </div>
   </div>
 
- <% @projects.each do |project|%>
+  <% @projects.each do |project|%>
     <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
 
       <h2 class="template-title"><%= project.name.capitalize %></h2>
@@ -62,11 +63,13 @@
         <div class="criterium-container">
           <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
           <% criteria.each_key do |criterium| %>
-              <% if project[criterium] == 1 %>
-                <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
-              <% end %>
+            <% if project[criterium] == 1 %>
+              <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
+          <% end %>
           <% end %>
         </div>
+      </div>
+      <%= link_to "En savoir plus", project_path(project), class: "btn button-submit" %>
     </div>
-    <%= link_to "En savoir plus", project_path(project), target: "_blank", class: "btn button-submit" %>
   <% end %>
+</div>

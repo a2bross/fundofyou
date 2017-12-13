@@ -150,7 +150,7 @@
                       </div>
                       <div class="card-description-home-description">
                         <div class="index-card-bugdet">
-                          <p><i class="fa fa-star" aria-hidden="true"></i> <%= project.budget.to_i %>€</p>
+                          <p><i class="fa fa-star" aria-hidden="true"></i> <%= number_with_delimiter(project.budget.to_i, delimiter: " ") %> €</p>
                           <p class="index-card-footer-legend">Objectif atteint !</p>
                         </div>
                         <div class="index-card-completion">
@@ -160,7 +160,7 @@
                       </div>
                     </div>
                     <% if project.charity %>
-                      <%= cl_image_tag project.charity[:photo], class: "card-user-home" %>
+                      <%= image_tag project.charity.photo, class: "card-user-home" %>
                     <% else %>
                       <img class="card-user-home" src="https://kitt.lewagon.com/placeholder/users/random">
 
@@ -177,6 +177,5 @@
   </div>
 
 </div>
-
 
 

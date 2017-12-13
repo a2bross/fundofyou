@@ -13,7 +13,9 @@ if (document.querySelector(".autocomp")) {
 };
 
 import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
+if (document.getElementById("banner-typed-text")) {
+  loadDynamicBannerText();
+}
 
 // import "../components/tabs";
 // import "../components/progress-bar";

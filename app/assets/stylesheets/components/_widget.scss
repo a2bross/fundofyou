@@ -43,7 +43,7 @@
 .bouton-actualite {
     position: relative;
     right: -135px;
-    top: 46px;
+    top: 64px;
 }
 
 .widget-actualite {
@@ -67,18 +67,18 @@
   background-color: $red;
   height: 25%;
   i {
-    margin-top: 15px;
+    margin-top: -3px;
     position: relative;
-    left: 30px;
-    top: 15px;
+    left: 17px;
+    top: 4px;
     color: white !important;
   }
   p {
     position: relative;
     margin: 0px;
     font-size: 10px;
-    left: 0px;
-    top: 28px;
+    left: 10px;
+    top: -17px;
     color: white !important;
   }
   a {

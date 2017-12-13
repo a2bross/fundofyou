@@ -100,6 +100,7 @@
 }
 
 .decouvrez {
+  display: flex;
   background-color: $yellow;
   color: white;
   margin: 5px 10px;
@@ -108,11 +109,26 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  a {
+    color: white !important;
+  }
+  i {
+    align-items: center;
+    vertical-align: middle !important;
+    color: white;
+  }
 }
 
 .decouvrez:hover {
   background-color: white;
-  color: $yellow !important;
+  a {
+    color: $yellow !important;
+  }
+  i {
+    align-items: center;
+    vertical-align: middle !important;
+    color: $yellow;
+  }
 }
 
 
@@ -181,7 +197,7 @@
   height: 80px;
   font-size: 25px;
     h1 {
-    font-size: 33px;
+    font-size: 31px;
     margin-top: 0px;
     }
 }

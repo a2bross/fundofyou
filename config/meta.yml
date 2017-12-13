@@ -1,5 +1,5 @@
 meta_product_name: "FundOfYou"
 meta_title: "Donnez du sens à vos dons !"
 meta_description: "FundOfYou sélectionne des projets soutenus par des associations d'utilité publique à fort impact et vous permet de comprendre les causes défendues par chaque projet "
-meta_image: "form-background.jpg"                       # should exist in `app/assets/images/`
+meta_image: "form-background-meta.jpg"                       # should exist in `app/assets/images/`
 #twitter_account: "@product_twitter_account"   # required for Twitter Cards

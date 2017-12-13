@@ -74,15 +74,7 @@
           </div>
 
           <div class="col-xs-12 col-sm-4 no_padding">
-            <div class="header-carousel">
-              <% project_sum = 0  %>
-              <% @user.donations.each do |donation| %>
-              <% if donation.project.end_date > Date.today %>
-              <% project_sum += 1 %>
-              <% end %>
-              <% end %>
-              <h3> Vos <%= pluralize project_sum, "projet" %> en cours en images</h3>
-            </div>
+
             <%= render 'shared/carousel' %>
           </div>
         </div>

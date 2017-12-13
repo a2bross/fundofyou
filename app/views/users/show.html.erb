@@ -62,25 +62,18 @@
 
             <div class="col-xs-12 no_padding">
               <div class="total-critere">
-
-                <div class="col-xs-12 col-sm-2 no_padding"><h3>vos causes</h3></div>
-                <%= render 'shared/causes-indicator' %>
-                <div class="col-xs-12 col-sm-6 no_padding">vos causes</div>
+                <div class="row">
+                  <div class="col-xs-12 no_padding"><h3>vos causes</h3></div>
+                </div>
+                <div class="row">
+                  <%= render 'shared/causes-indicator' %>
+                </div>
               </div>
             </div>
 
           </div>
 
           <div class="col-xs-12 col-sm-4 no_padding">
-            <div class="header-carousel">
-              <% project_sum = 0  %>
-              <% @user.donations.where(status: 20).each do |donation| %>
-              <% if donation.project.end_date > Date.today %>
-              <% project_sum += 1 %>
-              <% end %>
-              <% end %>
-              <h3> Vos <%= pluralize project_sum, "projet" %> en cours en images</h3>
-            </div>
             <%= render 'shared/carousel' %>
           </div>
         </div>

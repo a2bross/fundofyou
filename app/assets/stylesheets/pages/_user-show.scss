@@ -104,7 +104,8 @@
   background-color: $yellow;
   color: white;
   margin: 5px 10px;
-  margin-bottom: 60px;
+  margin-left: 0px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -157,11 +158,9 @@
 }
 
 .total-critere {
-  display: flex;
   margin-top: 30px;
   text-align: center;
   margin: 5px 10px;
-
   color: #0881A3;
   justify-content: space-around;
   background-color: white;
@@ -364,4 +363,8 @@
 
 .recus_telechargeables {
   margin-top: 40px;
+}
+
+.user-show-slider-label {
+  width: 200px;
 }

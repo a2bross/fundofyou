@@ -18,7 +18,7 @@
                     <p>donation</p>
                   <% end  %>
                 </div>
-                  <% if @project.end_date < Time.now %>
+                  <% if @project.end_date > Date.today %>
                     <div class="important-number"><%= (@project.end_date - @project.start_date).to_i %> J <br> <p>restants</p></div>
                   <% else %>
                     <div class="important-number"> Collecte <br> terminée </div>

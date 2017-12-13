@@ -25,7 +25,7 @@
                 <h5><%= project.name.capitalize %></h5>
                 <div class="index-card-footer">
                   <div class="index-card-bugdet">
-                    <p><%= project.budget.to_i %>€</p>
+                    <p><%= number_with_delimiter(project.budget.to_i, delimiter: " ") %>€</p>
                     <p class="index-card-footer-legend">objectif</p>
                   </div>
                   <div class="index-card-completion">

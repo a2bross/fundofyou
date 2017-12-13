@@ -44,13 +44,12 @@ class Project < ApplicationRecord
   end
 
   def update_completion_rate
-    @collected = 0
-    self.donations.each do |donation|
-      @collected << donation.amount.to_i
+    collected = 0
+    self.donations.where(status: 20).each do |donation|
+      collected += donation.amount_cents
     end
-    completion_rate = (@collected.fdiv(budget.to_i)*100).floor
-    rescue ZeroDivisionError
-      0
+    rate = (collected.fdiv(budget_cents)*100).to_i
+    update(completion_rate: rate)
   end
 
   def check_if_started
@@ -69,6 +68,7 @@ class Project < ApplicationRecord
     Project.all.each do |projet|
       projet.check_if_started
       projet.check_if_started
+      projet.update_completion_rate
     end
   end
 end

@@ -8,19 +8,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" id="carousel-dashboard" role="listbox">
 
-      <div class="item active photo-projects carousel-item" style="background-image: url(<%= image_path @user.projects.first.photo %>);">
+      <div class="item active photo-projects carousel-item" style="background-image: url(<%= image_path @user.donations.first.project.photo %>);">
        <!--  :effect=>"art:ukulele", width: 600, height:1200, crop: :fill, gravity: :face)  -->
         <div class="carousel-caption" id="project-caption">
-          <%= @user.projects.first.name %>
+          <%= @user.donations.first.project.name %>
         </div>
       </div>
 
-      <% @user.projects.each do |project| %>
-      <% if project.end_date > Date.today && project != @user.projects.first %>
-        <div class="item photo-projects carousel-item" style="background-image: url(<%= image_path project.photo %>);">
+      <% @user.donations.each do |donation| %>
+      <% if donation.project.end_date > Date.today && donation != @user.donations.first %>
+        <div class="item photo-projects carousel-item" style="background-image: url(<%= image_path donation.project.photo %>);">
          <!--  :effect=>"art:ukulele", width: 600, height:1200, crop: :fill, gravity: :face)  -->
           <div class="carousel-caption" id="project-caption">
-            <%= project.name %>
+            <%= donation.project.name %>
           </div>
         </div>
         <% end %>

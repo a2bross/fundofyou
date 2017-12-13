@@ -206,7 +206,8 @@
 .container-projects {
   display: flex;
   justify-content: space-between;
-  height: calc(100vh - 70px)
+  height: calc(100vh - 70px);
+  padding: 0px;
 }
 
 .repartition_cause {

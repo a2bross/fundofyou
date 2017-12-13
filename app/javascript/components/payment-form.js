@@ -6,10 +6,10 @@ if (subscription[0]) {
       $(this).toggleClass("active");
     })
   });
-  // const inputPrice = document.getElementById("order_amount");
-  // inputPrice.addEventListener("change", (event) => {
-  //   if (!inputPrice.NaN) {
-  //     document.getElementById('formAmount').submit();
-  //   }
-  // });
+  const inputPrice = document.getElementById("order_amount");
+  inputPrice.addEventListener("change", (event) => {
+    if (!inputPrice.NaN) {
+      document.getElementById('formAmount').submit();
+    }
+  });
 }

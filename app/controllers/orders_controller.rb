@@ -29,12 +29,11 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     authorize @order
-    if @order.update(amount: params[:amount])
-      # respond_to do |format|
-      #   format.html { redirect_to new_order_payment_path(@order) }
-      #   format.js
-      raise
-      redirect_to new_order_payment_path(@order)
+    if @order.update(amount: params[:order][:amount])
+      respond_to do |format|
+        format.html { redirect_to new_order_payment_path(@order) }
+        format.js
+      end
     else
       flash[:alert] = "Error when updating the contribution"
       format.html { redirect_to new_order_payment_path(@order) }
@@ -45,6 +44,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:order, :amount, :payment)
+    params.require(:order).permit(:amount, :payment)
   end
 end

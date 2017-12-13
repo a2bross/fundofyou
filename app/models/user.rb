@@ -36,7 +36,7 @@ class User < ApplicationRecord
     end
     total_cat_donations = cat_sum / 100
 
-    return (total_cat_donations * 100) / total_donations
+    return total_donations == 0 ? 0 : (total_cat_donations * 100) / total_donations
 
   end
 end

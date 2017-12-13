@@ -38,7 +38,7 @@
               <p id="no-project" class="hidden">Veuillez sélectionner au moins un projet.</p>
               <div class="col-xs-12 col-md-6">
                 <input type="checkbox" class="hidden" value="<%= project.id %>" name="project_<%= div_counter %>" id="project_<%= div_counter %>" checked >
-                <div class="result-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path project.photo %>);">
+                <div class="result-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
                   <label for="project_<%= div_counter %>" class="result-choice result-checked clickable">
                     <%= hidden_field_tag :project_key, project.id %>
                     <i class="fa fa-check-circle-o"></i>

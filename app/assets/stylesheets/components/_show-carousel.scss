@@ -3,11 +3,12 @@
 // }
 
 #carousel-dashboard {
-  height: calc(100vh - 185px) !important;
+  height: calc(100vh - 70px) !important;
 }
 
 .carousel-item {
-  height: calc(100vh - 185px) !important;
+  height: calc(100vh - 70px) !important;
+  margin-top: 5px;
 }
 
 .carousel-current-projects {

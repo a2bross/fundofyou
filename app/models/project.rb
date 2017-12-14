@@ -35,7 +35,7 @@ class Project < ApplicationRecord
 
   def score(user)
     score = 0
-    criteria = [:environment, :humanitarian, :social, :research, :preservation, :education]
+    criteria = [:environment, :humanitarian, :social, :research, :preservation, :education, :local, :abroad]
     criteria.each do |criterium|
       score += 1 if (user[criterium] == 1) && (self[criterium] == 1)
     end

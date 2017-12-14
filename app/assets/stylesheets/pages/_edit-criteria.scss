@@ -30,10 +30,11 @@
   padding-top: 10px;
   form {
     margin:30px;
+    margin-bottom: 0px;
   }
   h4 {
     font-size: 15px;
-    margin: 25px 0px;
+    margin: 25px 0px 5px;
     text-align: center;
   }
 }
@@ -68,6 +69,11 @@ input[type=radio]:checked + label {
     color: white;
     opacity: 1;
 }
+
+.button-discover-reset {
+  margin-top: -20vh;
+}
+
 
 @media (max-width: 768px) {
 }

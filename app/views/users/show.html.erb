@@ -7,7 +7,7 @@
 
 <!-- dons -->
         <div class="col-xs-12 col-sm-6" >
-          <div class="card-total-dons" id="total_dons">
+          <div class="clickable-area clickable card-total-dons" id="total_dons">
             <h3>vous avez donné</h3>
             <div class="donations-count">
               <% sum = 0 %>
@@ -21,7 +21,7 @@
 
 <!-- projet -->
         <div class="col-xs-12 col-sm-6" >
-          <div class="card-total-projets" id="total_projets">
+          <div class="clickable-area clickable card-total-projets" id="total_projets">
             <div><h3>pour soutenir</h3></div>
             <% if  @user.donations.where(status: 20).count > 0  %>
               <div class="donations-count"> <%= pluralize @user.donations.where(status: 20).count, "projet" %></div>
@@ -36,11 +36,11 @@
 
 <!-- déductions fiscales -->
         <div class="col-xs-12 col-sm-12" >
-          <div class="paragraphe_deduction" id="deduction">
+          <div class="paragraphe_deduction">
             <h3>Vous pouvez déduire 66% de vos dons soit <%= (deductible_donations = total_donations * 0.66).truncate %>,00 € !</h3>
             <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
             <p> En apportant votre soutien aux <%= pluralize @user.donations.count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %>,00 €.</strong></p>
-            <div class="btn">Voir comment faire</div>
+            <div class="clickable-area btn" id="deduction">Voir comment faire</div>
           </div>
         </div>
       </div>

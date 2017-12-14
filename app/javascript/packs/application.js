@@ -4,6 +4,7 @@ import "../components/payment-form";
 import "../components/result";
 import "../components/project-index";
 import "../components/title";
+import "../components/dashboard";
 import { hideFlashAfter5sec } from '../components/flashes';
 hideFlashAfter5sec();
 

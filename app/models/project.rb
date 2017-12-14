@@ -22,8 +22,7 @@ class Project < ApplicationRecord
 
     valid_projects = Project.all.select{ |project| ((project[:status] == 10) && (project[:completion_rate] < 100)) }
 
-    # sorted_valid_projects = valid_projects.sort_by{ |project| [project.score(user), project[:completion_rate]] }
-    sorted_valid_projects = valid_projects.sort_by{ |project| [project.score(user), -project[:completion_rate]] }
+    sorted_valid_projects = valid_projects.sort_by{ |project| [project.score(user), project[:completion_rate]] }
 
     sorted_valid_projects.last(number_of_recommendations).reverse.each do |project|
       recommendations << { project_id: project[:id], score: project.score(user), selected: true }

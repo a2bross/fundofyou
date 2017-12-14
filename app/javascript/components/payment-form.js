@@ -6,10 +6,4 @@ if (subscription[0]) {
       $(this).toggleClass("active");
     })
   });
-  const inputPrice = document.getElementById("order_amount");
-  inputPrice.addEventListener("change", (event) => {
-    if (!inputPrice.NaN) {
-      $('#formAmount input[type=submit]').click();
-    }
-  });
 }

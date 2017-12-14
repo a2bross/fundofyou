@@ -15,9 +15,9 @@
     </div>
 
     <div class="funnel-main-content">
-      <div class="center-and-underline-title" >
+<!--       <div class="center-and-underline-title" >
         <h3>Les projets recommandés pour vous</h3>
-      </div>
+      </div> -->
 
       <%= form_tag orders_path(@order) do %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -43,7 +43,7 @@
               </label>
             </div>
             <div class="col-xs-12 col-sm-6">
-              <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
+              <input type="checkbox" class="hidden" name="one-shot" id="one-shot" value=1 checked >
               <label for="one-shot" class="subscription-choice flex-center hvr-grow">
                 <div>
                   <h5>Don ponctuel</h5>
@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-        <input type="submit" value="Choisir mes projets" class="btn button-submit">
+        <div class="button-center-results"><input type="submit" value="Choisir mes projets" class="btn button-submit"></div>
       <% end %>
     </div>
   </div>

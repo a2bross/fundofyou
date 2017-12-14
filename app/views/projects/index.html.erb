@@ -52,8 +52,8 @@
       <h2 class="template-title"><%= project.name.capitalize %></h2>
       <div class="template-text template-text-long">
         <div class="project-focus-data">
-          <p>Objectif : <%= project.budget.to_i %>€</p>
-          <p><%= project.completion_rate %>% récoltés</p>
+          <p>Objectif : <%= project.budget.to_i %> €</p>
+          <p><%= project.completion_rate %> % récoltés</p>
         </div>
         <% if project.charity %>
           <p>Par l'association <%= project.charity.name %></p>

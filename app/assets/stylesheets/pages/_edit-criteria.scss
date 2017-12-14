@@ -27,13 +27,14 @@
 }
 
 .funnel-main-content {
-  padding-top: 40px;
+  padding-top: 10px;
   form {
     margin:30px;
   }
   h4 {
-    font-size: 18px;
-    margin: 40px 0px;
+    font-size: 15px;
+    margin: 25px 0px;
+    text-align: center;
   }
 }
 
@@ -55,19 +56,17 @@
   }
 }
 
+
+.local-choices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 input[type=radio]:checked + label {
     background: $brand-success;
     color: white;
     opacity: 1;
-}
-
-.form-button {
-  margin: 30px 0px;
-  display: flex;
-  justify-content: center;
-  .button-reset {
-    order: -1;
-  }
 }
 
 @media (max-width: 768px) {

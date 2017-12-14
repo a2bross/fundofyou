@@ -26,7 +26,7 @@
                   <% else %>
                     <div class="index-card-asso" style="background-image: url('https://kitt.lewagon.com/placeholder/users/a2bross')"></div>
                   <% end %>
-                  <h5><%= truncate project.name.capitalize, length: 50, omission: '...' %></h5>
+                  <h5><%= truncate project.name, length: 50, omission: '...' %></h5>
                 </div>
                 <div class="index-card-footer">
                   <div class="index-card-bugdet">
@@ -55,7 +55,7 @@
   <% @projects.each do |project|%>
     <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
 
-      <h2 class="template-title"><%= project.name.capitalize %></h2>
+      <h2 class="template-title"><%= project.name %></h2>
       <div class="template-text template-text-long">
         <div class="project-focus-data">
           <p>Objectif : <%= project.budget.to_i %> €</p>

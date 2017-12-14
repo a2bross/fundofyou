@@ -32,8 +32,8 @@
                     <%= hidden_field_tag :project_key, project.id %>
                     <i class="fa fa-check-circle-o"></i>
                   </label>
-                  <h5><%= truncate project.name.capitalize, length: 50, omission: '...' %></h5>
-                  <p><%= truncate project.charity.name.capitalize, length: 40, omission: '...' %>
+                  <h5><%= truncate project.name, length: 50, omission: '...' %></h5>
+                  <p><%= truncate project.charity.name, length: 40, omission: '...' %>
                   <p class="bullet bullet-contribution"><span class="result-contribution"></span> €</p>
                 </div>
               </div>
@@ -50,14 +50,14 @@
     <% @projects.each do |project|%>
       <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
 
-        <h2 class="template-title"><%= project.name.capitalize %></h2>
+        <h2 class="template-title"><%= project.name %></h2>
         <div class="template-text template-text-long">
           <div class="project-focus-data">
               <p>Objectif : <%= project.budget.to_i %>€</p>
               <p><%= project.completion_rate %>% récoltés</p>
           </div>
           <p>Par l'association <%= project.charity.name %></p>
-          <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
+          <p> <%= truncate project.description, length: 200, omission: '...' %> </p>
           <%= link_to 'En savoir plus', project_path(project), target: '_blank' %>
 
           <div class="criterium-container">

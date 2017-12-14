@@ -3,30 +3,29 @@
 <div class="template-container">
 
   <div class="scrollable-content">
-    <div class="breadcrumb-centerer">
-      <div class="breadcrumb-container text-center">
-        <div class="breadcrumb-line"></div>
-        <div class="criteria-breadcrumb">
-          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
-          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mon don</div>
-          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>3</span>Mes projets</div>
-          <div class="criteria-breadcrumb-item"><span>4</span>Contribuer</div>
+
+    <%= simple_form_for(@order) do |form| %>
+      <div class="breadcrumb-centerer">
+        <div class="breadcrumb-container text-center">
+          <div class="breadcrumb-line"></div>
+          <div class="criteria-breadcrumb">
+            <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
+            <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mon don</div>
+            <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>3</span>Mes projets</div>
+            <div class="criteria-breadcrumb-item"><span>4</span>Contribuer</div>
+          </div>
+
         </div>
       </div>
-    </div>
 
-    <div class="funnel-main-content">
-      <div class="center-and-underline-title" >
-        <h3>Les projets recommandés pour vous</h3>
-      </div>
-      <%= simple_form_for(@order) do |form| %>
+      <div class="funnel-main-content">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
+        <%= hidden_field_tag :contribution, @order.amount %>
         <div class="container-fluid">
           <div class="row text-center">
             <% div_counter = 0 %>
             <% @projects.each do |project|%>
-            <% div_counter += 1 %>
+              <% div_counter += 1 %>
               <p id="no-project" class="hidden">Veuillez sélectionner au moins un projet.</p>
               <div class="col-xs-12 col-md-6">
                 <input type="checkbox" class="hidden" value="<%= project.id %>" name="project_<%= div_counter %>" id="project_<%= div_counter %>" checked >
@@ -35,46 +34,45 @@
                     <%= hidden_field_tag :project_key, project.id %>
                     <i class="fa fa-check-circle-o"></i>
                   </label>
-                  <h5><%= project.name.capitalize %></h5>
-                  <p><%= project.charity.name.capitalize %></p>
+                  <h5><%= truncate project.name, length: 50, omission: '...' %></h5>
+                  <p><%= truncate project.charity.name, length: 40, omission: '...' %>
                   <p class="bullet bullet-contribution"><span class="result-contribution"></span> €</p>
                 </div>
               </div>
             <% end %>
           </div>
         </div>
-
-        <div class="form-button hidden-xs">
-          <input type="submit" class="btn button-submit" value="Contribuer">
-        </div>
-      <% end %>
-    </div>
-
-  </div>
-  <% @projects.each do |project|%>
-    <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
-
-      <h2 class="template-title"><%= project.name.capitalize %></h2>
-      <div class="template-text template-text-long">
-        <div class="project-focus-data">
-            <p>Objectif : <%= project.budget.to_i %>€</p>
-            <p><%= project.completion_rate %>% récoltés</p>
-        </div>
-        <p>Par l'association <%= project.charity.name %></p>
-        <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
-        <%= link_to 'En savoir plus', project_path(project), target: '_blank' %>
-
-        <div class="criterium-container">
-          <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
-          <% criteria.each_key do |criterium| %>
-              <% if project[criterium] == 1 %>
-                <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
-              <% end %>
-          <% end %>
-        </div>
-        <!--  selected or not -->
       </div>
+      <div class="template-right-cta template-right-lower form-button">
+        <input type="submit" class="btn button-submit" value="Contribuer">
+      </div>
+    <% end %>
+  </div>
 
-    </div>
-  <% end %>
+    <% @projects.each do |project|%>
+      <div class="fixed-background hidden" id="<%= project.id %>" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
+
+        <h2 class="template-title"><%= project.name %></h2>
+        <div class="template-text template-text-long">
+          <div class="project-focus-data">
+              <p>Objectif : <%= project.budget.to_i %>€</p>
+              <p><%= project.completion_rate %>% récoltés</p>
+          </div>
+          <p>Par l'association <%= project.charity.name %></p>
+          <p> <%= truncate project.description, length: 200, omission: '...' %> </p>
+          <%= link_to 'En savoir plus', project_path(project), target: '_blank' %>
+
+          <div class="criterium-container">
+            <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
+            <% criteria.each_key do |criterium| %>
+                <% if project[criterium] == 1 %>
+                  <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
+                <% end %>
+            <% end %>
+          </div>
+          <!--  selected or not -->
+        </div>
+
+      </div>
+    <% end %>
 </div>

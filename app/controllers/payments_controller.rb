@@ -25,6 +25,7 @@ class PaymentsController < ApplicationController
       donation.update(status: 20, execution_date: Date.today)
       donation.project.update_completion_rate
     end
+    flash[:notice] = "Votre donation a bien été prise en compte. Merci !"
     redirect_to user_path(@user)
 
   rescue StandardError => e

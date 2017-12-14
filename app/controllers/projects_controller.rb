@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     # list all active projects
-    @projects = policy_scope(Project).where(status: 10).order(end_date: :desc)
+    @projects = policy_scope(Project).where('status = 10 OR status = 20').order(end_date: :desc)
   end
 
   def new

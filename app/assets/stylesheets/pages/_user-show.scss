@@ -28,6 +28,12 @@
 
 //////////////MENU GAUCHE//////////////////////////
 
+.template-title-dashboard {
+  color: white;
+  margin-top: 70px;
+}
+
+
 .welcome {
   margin: 0px;
   align-self: flex-start;
@@ -66,9 +72,6 @@
 }
 
 
-#mes_donations {
-  height: calc(100vh - 70px);
-}
 
 #actualite {
   padding: 10px;
@@ -133,28 +136,25 @@
 }
 
 
-.total_dons {
-  margin-top: 30px;
-  display: flex;
-  margin: 5px 10px;
-  align-items: center;
+#total_dons {
+  text-align: center;
   color: #0881A3;
-  justify-content: space-between;
   background-color: white;
   padding: 20px;
+  border: 1px solid rgb(230, 230, 230)
+  // h3 {
+  //   display: flex;
+  //   justify-content: space-around;
+  // }
 }
 
-.total_projets {
-  display: flex;
-  margin-left: 0px;
-  margin: 5px 10px;
+#total_projets {
+
+  text-align: center;
+  color: #0881A3;
   background-color: white;
   padding: 20px;
-  color: #0881A3;
-  align-items: center;
-  text-align: left;
-  justify-content: space-between;
-
+  border: 1px solid rgb(230, 230, 230)
 }
 
 .total-critere {
@@ -172,11 +172,11 @@
 }
 
 .donations-count {
+  display: flex;
+  justify-content: space-around;
   color: $brand-success;
   text-align: center;
-  align-items: center;
-  font-size: 250%;
-  margin-right: 55px;
+  font-size: 35px;
 }
 
 .no-project {
@@ -268,7 +268,6 @@
 
 
 .comment-faire {
-  background-color: white;
   margin-top: 5px;
 }
 
@@ -283,8 +282,14 @@
 
 .tax-images {
   display: flex;
-  background-color: white;
+  // h5 {
+  //   color: black;
+  // }
+  // p {
+  //   color: black;
+  // }
 }
+
 
 .tax-icon {
   img {
@@ -333,14 +338,7 @@
 
 }
 
-.formulaire-tax {
-  text-align: center;
-  img {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    position: relative;
-  }
-}
+
 
 .deductible-amount {
   position: absolute;
@@ -366,10 +364,29 @@
   z-index: 2;
 }
 
-.recus_telechargeables {
-  margin-top: 40px;
-}
 
 .user-show-slider-label {
   width: 200px;
+}
+
+.template-text-dashboard {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(250, 250, 250, 0.8);
+  padding: 20px;
+  margin: 5vh 1vw;
+}
+
+.recu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.scroll_function {
+  overflow: auto;
+}
+
+
+.paragraphe_deduction {
+  margin-top: 30px;
 }

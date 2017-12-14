@@ -28,6 +28,12 @@
 
 //////////////MENU GAUCHE//////////////////////////
 
+.template-title-dashboard {
+  color: white;
+  margin-top: 70px;
+}
+
+
 .welcome {
   margin: 0px;
   align-self: flex-start;
@@ -130,28 +136,25 @@
 }
 
 
-.total_dons {
-  margin-top: 30px;
-  display: flex;
-  margin: 5px 10px;
-  align-items: center;
+#total_dons {
+  text-align: center;
   color: #0881A3;
-  justify-content: space-between;
   background-color: white;
   padding: 20px;
+  border: 1px solid rgb(230, 230, 230)
+  // h3 {
+  //   display: flex;
+  //   justify-content: space-around;
+  // }
 }
 
-.total_projets {
-  display: flex;
-  margin-left: 0px;
-  margin: 5px 10px;
+#total_projets {
+
+  text-align: center;
+  color: #0881A3;
   background-color: white;
   padding: 20px;
-  color: #0881A3;
-  align-items: center;
-  text-align: left;
-  justify-content: space-between;
-
+  border: 1px solid rgb(230, 230, 230)
 }
 
 .total-critere {
@@ -169,6 +172,8 @@
 }
 
 .donations-count {
+  display: flex;
+  justify-content: space-around;
   color: $brand-success;
   text-align: center;
   font-size: 35px;

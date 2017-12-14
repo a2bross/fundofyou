@@ -7,17 +7,18 @@
       <div class="breadcrumb-container text-center">
         <div class="breadcrumb-line"></div>
         <div class="criteria-breadcrumb">
-          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
-          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
-          <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+          <div class="criteria-breadcrumb-item"><span>1</span>Mes causes</div>
+          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mon don</div>
+          <div class="criteria-breadcrumb-item"><span>3</span>Mes projets</div>
+          <div class="criteria-breadcrumb-item"><span>4</span>Contribuer</div>
         </div>
       </div>
     </div>
 
     <div class="funnel-main-content">
-      <div class="center-and-underline-title" >
+<!--       <div class="center-and-underline-title" >
         <h3>Les projets recommandés pour vous</h3>
-      </div>
+      </div> -->
 
       <%= form_tag orders_path(@order) do %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -43,8 +44,8 @@
               </label>
             </div>
             <div class="col-xs-12 col-sm-6">
-              <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
-              <label for="one-shot" class="subscription-choice flex-center hvr-grow">
+              <input type="checkbox" class="hidden" name="one-shot" id="one-shot" value=1 >
+              <label for="one-shot" class="subscription-choice flex-center hvr-grow active">
                 <div>
                   <h5>Don ponctuel</h5>
                   <p>Je contribue aujourd'hui uniquement </p>
@@ -53,7 +54,7 @@
             </div>
           </div>
         </div>
-        <input type="submit" value="Choisir mes projets" class="btn button-submit">
+        <div class="button-center-results"><input type="submit" value="Choisir mes projets" class="btn button-submit"></div>
       <% end %>
     </div>
   </div>

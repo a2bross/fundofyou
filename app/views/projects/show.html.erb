@@ -112,7 +112,7 @@
            <!-- Encart noir à gauche -->
               <h2 id="project-name"><%= @project.name %></h2>
               <div class="criterium-container">
-                <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
+                <% criteria = {environment: "Ecologie", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
                 <% criteria.each_key do |criterium| %>
                   <% if @project[criterium] == 1 %>
                     <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>

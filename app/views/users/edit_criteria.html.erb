@@ -16,9 +16,6 @@
     </div>
 
     <div class="funnel-main-content">
-<!--         <div class="center-and-underline-title" >
-          <h3>Choisir les causes qui m'importent</h3>
-        </div> -->
         <form action="/edit_criteria" method="post">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <input type="hidden" name="_method" value="patch">
@@ -84,19 +81,8 @@
                   <i class="fa fa-check hidden"></i>
                 </label>
               </div>
-       <!--        <div class="col-xs-6 col-sm-6 col-md-4">
-                <input type="radio" class="hidden" value="no-scope" name="scope" id="no-scope" required>
-                <label for="no-scope" class="cause-choice-radio-btn hvr-grow">
-                  <i class="fa fa-question"></i> <div>Indifférent</div>
-                  <i class="fa fa-check hidden"></i>
-                </label>
-              </div> -->
             </div>
           </div>
-        <!-- <div class="form-button hidden-xs">
-          <input type="submit" class="btn button-submit" value="Découvrir les projets">
-          <input type="reset" class="btn button-reset" value="Réinitialiser">
-        </div> -->
       </form>
     </div>
   </div>

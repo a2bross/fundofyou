@@ -1,170 +1,118 @@
+<div class="template-container">
+  <div class="scrollable-content">
 
-<div class="height-dashboard">
-  <div class="row no_margin">
-    <div class="col-xs-12 col-sm-2 no_padding background-image ">
+    <div class="container-fluid" >
+      <h1>  Bienvenue <%= @user.first_name.capitalize  %></h1>
+      <div class="row">
 
-      <%= content_for(:navbar_class, "navbar-dashboard") %>
-
-
-      <div class="welcome ">
-        <h1>  Bienvenue <%= @user.first_name.capitalize  %></h1>
-        <%= render 'shared/tabs' %>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-10 no_padding background-image">
-      <div class="tab-content tab-dashboard">
-        <div role="tabpanel" class="tab-pane fade in active" id="dashboard">
-
-          <div class="col-xs-12 col-sm-8 no_padding info-container">
-
-            <div class="col-xs-12 col-sm-6 no_padding">
-              <div class="notifications">
-                <%= render 'shared/widget-actualite' %>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 no_padding">
-              <div class="notifications btn decouvrez">
-                <%= link_to "Découvrez de nouveaux projets", "#" %>
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </div>
-            </div>
-
-            <div class="col-xs-12 no_padding">
-              <div class="total_dons">
-                <div class="col-xs-12 col-sm-4 no_padding"><h3>vous avez donné</h3></div>
-                <div class="donations-count">
-                  <% sum = 0 %>
-                  <% @user.donations.where(status: 20).each do |donation| %>
-                  <% sum += donation.amount_cents.to_i %>
-                  <% end %>
-                  <%= total_donations = sum / 100  %> €
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-12 no_padding">
-              <div class="total_projets">
-                <div class="col-xs-12 col-sm-4 no_padding"><h3>pour soutenir</h3></div>
-                <% if  @user.donations.where(status: 20).count > 0  %>
-                  <div class="donations-count"> <%= pluralize @user.donations.where(status: 20).count, "projet" %></div>
-                <% else %>
-                  <div class="no-project">
-                    <h5>Vous n'avez pas encore financé de projet</h5>
-                    <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
-                  </div>
-                <% end %>
-                  <!-- add condition where status == 20 -->
-              </div>
-            </div>
-
-
-            <div class="col-xs-12 no_padding">
-              <div class="total-critere">
-                <div class="row">
-                  <div class="col-xs-12 no_padding"><h3>vos causes</h3></div>
-                </div>
-                <div class="row">
-                  <%= render 'shared/causes-indicator' %>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-xs-12 col-sm-4 no_padding">
-            <%= render 'shared/carousel' %>
-          </div>
-        </div>
-
-        <div role="tabpanel" class="tab-pane fade" id="mes_donations">
-          <div class="container container-projects">
-            <div class="row">
-              <div class="col-xs-12 col-sm-8 no_padding list-of-projects">
-                <div class="current-projects">
-                  <h1>Redécouvrez les <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez soutenus</h1>
-                </div>
-                <%= render 'shared/project-history' %>
-              </div>
-              <div class="col-xs-12 col-sm-4 no_padding">
-                <div class="map-container">
-                  <div
-                    id="map"
-                    style="max-width: 100%;
-                    height: calc(100vh - 75px);"
-                    data-markers="<%= @markers.to_json %>"
-                  ></div>
-                </div>
-              </div>
+<!-- dons -->
+        <div class="col-xs-12 col-sm-6" >
+          <div class="card-total-dons" id="total_dons">
+            <h3>vous avez donné</h3>
+            <div class="donations-count">
+              <% sum = 0 %>
+              <% @user.donations.where(status: 20).each do |donation| %>
+              <% sum += donation.amount_cents.to_i %>
+              <% end %>
+              <%= total_donations = sum / 100  %> €
             </div>
           </div>
         </div>
 
-        <div role="tabpanel" class="tab-pane fade" id="recu_fiscaux">
-          <div class="container-zone_de_texte col-xs-12 col-sm-8 no_padding">
-            <div class="zone_de_texte ">
-              <div class="introduction-tax">
-                <h2>Mes reçus fiscaux</h2>
-                <h3>Vous pouvez déduire 66% de vos dons soit <%= (deductible_donations = total_donations * 0.66).truncate %>,00 € !</h3>
-                <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
-                <p> En apportant votre soutien aux <%= pluralize @user.donations.count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %>,00 €.</strong></p>
+<!-- projet -->
+        <div class="col-xs-12 col-sm-6" >
+          <div class="card-total-projets" id="total_projets">
+            <div><h3>pour soutenir</h3></div>
+            <% if  @user.donations.where(status: 20).count > 0  %>
+              <div class="donations-count"> <%= pluralize @user.donations.where(status: 20).count, "projet" %></div>
+            <% else %>
+              <div class="no-project">
+                <h5>Vous n'avez pas encore financé de projet</h5>
+                <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
               </div>
-
-
-              <div class="comment-faire col-xs-12 col-sm-12">
-                <h3>Comment faire ?</h3>
-                <div class="tax-images ">
-
-                  <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <p>Lors de votre déclaration d'impôts sur le revenu</p> <h5>Remplissez la rubrique "7UF" du formulaire 2042 <em> (téléchargeable ci-dessous)</em></h5> </div>
-                  <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <p>Joignez les reçus fiscaux à votre déclaration</p> <h5> Ils sont transmis par les associations <em>(disponibles dans cette rubrique)</em> </h5></div>
-                  <div class="tax-icon tax col-xs12 col-sm-4"> <%= image_tag 'tax.png' %> <p>Déduisez du paiement de vos impôts sur le revenu</p> <h5>le montant déductible inscrit sur cette page </h5></div>
-                </div>
-              </div>
-
-              <div class="tax-images col-xs-12 col-sm-12">
-                <div class="col-xs-12 col-sm-12 formulaire-tax">
-                 <i class="fa fa-search" aria-hidden="true"></i>
-                 <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                 <%= cl_image_tag("Tax_form_a3oqjw.png") %>
-                <h1 class="deductible-amount"> <%= (deductible_donations = total_donations * 0.66).truncate %></h1>
-                </div>
-              </div>
-
-            </div>
+            <% end %>
           </div>
+        </div>
 
-          <div class="container-recus col-xs-12 col-sm-4 no_padding">
-            <div class="zone_de_texte mes_recus ">
-              <h3>Télécharger mes reçus fiscaux</h3>
-              <div class="recus_telechargeables">
-                <div class="col-xs-12 col-sm-6 no_padding">
-                  <%= link_to image_tag("certificate.png"), "#" %>
-                  <p>Croix rouge</p>
-                </div>
-                <div class="col-xs-12 col-sm-6 no_padding">
-                  <%= link_to image_tag("certificate.png"), "#" %>
-                  <p>Médecin sans Frontière</p>
-                </div>
-                <div class="col-xs-12 col-sm-6 no_padding">
-                  <%= link_to image_tag("certificate.png"), "#" %>
-                  <p>Reporter sans Frontière</p>
-                </div>
-                <div class="col-xs-12 col-sm-6 no_padding">
-                  <%= link_to image_tag("certificate.png"), "#" %>
-                  <p>WWF</p>
-                </div>
-              </div>
-            </div>
+<!-- déductions fiscales -->
+        <div class="col-xs-12 col-sm-12" >
+          <div class="paragraphe_deduction" id="deduction">
+            <h3>Vous pouvez déduire 66% de vos dons soit <%= (deductible_donations = total_donations * 0.66).truncate %>,00 € !</h3>
+            <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
+            <p> En apportant votre soutien aux <%= pluralize @user.donations.count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %>,00 €.</strong></p>
+            <div class="btn">Voir comment faire</div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <div class="fixed-background" id="total_dons" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
+      <div class="col-xs-12 no_padding">
+      <div>
+        <div class="template-title-dashboard"><h2>Répartition de vos dons par cause</h2></div>
+        <%= render 'shared/causes-indicator' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-background hidden" id="total_projets" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
+     <div class="map-container">
+      <div
+        id="map"
+        style="max-width: 100%;
+        height: calc(100vh - 75px);"
+        data-markers="<%= @markers.to_json %>">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="fixed-background hidden scroll_function" id="deduction" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
+    <div class="comment-faire col-xs-12 col-sm-12">
+    <h3>Comment faire ?</h3>
+      <div class="tax-images template-text-dashboard">
+        <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <p>Lors de votre déclaration d'impôts sur le revenu</p> <h5>Remplissez la rubrique "7UF" du formulaire 2042 </h5> </div>
+        <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <p>Joignez les reçus fiscaux à votre déclaration</p> <h5> Ils sont transmis par les associations <em>(disponibles dans cette rubrique)</em> </h5></div>
+        <div class="tax-icon tax col-xs12 col-sm-4"> <%= image_tag 'tax.png' %> <p>Déduisez du paiement de vos impôts sur le revenu</p> <h5>le montant déductible inscrit sur cette page </h5></div>
+      </div>
+    </div>
+
+    <div class="liste_des_reçus col-xs-12 col-sm-12">
+      <h3>Télécharger mes reçus fiscaux</h3>
+      <div class="">
+        <div class="recu template-text-dashboard">
+          <%= link_to image_tag("certificate.png"), "#" %>
+          <div>
+            <p>Croix rouge</p>
+            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="recu template-text-dashboard">
+          <%= link_to image_tag("certificate.png"), "#" %>
+          <div>
+            <p>Médecin sans Frontière</p>
+            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="recu template-text-dashboard">
+          <%= link_to image_tag("certificate.png"), "#" %>
+          <div>
+            <p>Reporter sans Frontière</p>
+            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="recu template-text-dashboard">
+          <%= link_to image_tag("certificate.png"), "#" %>
+          <div>
+            <p>WWF</p>
+            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-
-<!-- Javascript required for Google Maps API -->
-<%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-<%= javascript_pack_tag "map" %>
 

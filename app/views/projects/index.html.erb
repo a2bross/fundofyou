@@ -5,7 +5,7 @@
   <div class="scrollable-content">
     <div class="funnel-main-content">
       <div class="center-and-underline-title" >
-        <h3>Tous les projets en cours</h3>
+        <h3>Tous les projets</h3>
       </div>
 
       <div class="container-fluid">
@@ -15,6 +15,9 @@
 
               <div class="index-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
                 <%= hidden_field_tag :project_key, project.id %>
+                <% if project.status == 20 %>
+                  <span class="bullet bullet-finished">Terminé</span>
+                <% end %>
                 <% if project.charity %>
 
                   <div class="index-card-asso" style="background-image: url(<%= image_path(project.charity.photo)%>)"></div>

@@ -37,8 +37,16 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+
+.navbar-wagon-brand {
+  display: flex;
+  align-items: center;
+  img {
+   height: 50px;
+  }
+  span {
+    margin-left: 10px;
+  }
 }
 
 .navbar-wagon-brand:hover, .navbar-wagon-brand:active {

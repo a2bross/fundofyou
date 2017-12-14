@@ -50,6 +50,15 @@
   margin-bottom: 60px;
 }
 
+.payment-resume {
+  h3 {
+    border-bottom: 1px solid rgba(0, 0 ,0 , 0.1);
+    padding-bottom: 15px;
+    text-transform: none;
+    margin-bottom: 30px;
+  }
+}
+
 #payment-final-amount {
   color: $brand-primary;
 }

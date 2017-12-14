@@ -17,6 +17,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def chose_donation?
+    true
+  end
+
   def update_criteria?
     true
   end

@@ -48,7 +48,7 @@ class Project < ApplicationRecord
     self.donations.where(status: 20).each do |donation|
       collected += donation.amount_cents
     end
-    rate = (collected.fdiv(budget_cents)*100).to_i
+    rate = (collected.fdiv(budget_cents)*100).to_i unless budget_cents == 0
     update(completion_rate: rate)
   end
 

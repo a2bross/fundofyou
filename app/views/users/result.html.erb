@@ -32,8 +32,8 @@
                     <%= hidden_field_tag :project_key, project.id %>
                     <i class="fa fa-check-circle-o"></i>
                   </label>
-                  <h5><%= project.name.capitalize %></h5>
-                  <p><%= project.charity.name.capitalize %></p>
+                  <h5><%= truncate project.name.capitalize, length: 50, omission: '...' %></h5>
+                  <p><%= truncate project.charity.name.capitalize, length: 40, omission: '...' %>
                   <p class="bullet bullet-contribution"><span class="result-contribution"></span> €</p>
                 </div>
               </div>

@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   # route for submitting your criteria
   patch 'edit_criteria', to: 'users#update_criteria'
 
-  # route for display recommanded project
-  get 'result', to: 'users#result'
+  # route for chosing your donation
+  get 'chose_donation', to: 'users#chose_donation', as: :chose_donation
 
   # user route for show (user dashboard)
   resources :users, only: :show do
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   # route for order and payment
   resources :orders, only: [:create, :update] do
+      # route for display recommanded project
+      get 'result', to: 'users#result'
       resources :payments, only: [:new, :create]
   end
 

@@ -18,17 +18,8 @@
       <div class="center-and-underline-title" >
         <h3>Les projets recommandés pour vous</h3>
       </div>
-      <form action="/orders" method="post">
+      <%= simple_form_for(@order) do |form| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
-        <div class="form-contribution-container">
-          <h4>Je souhaite contribuer à hauteur de :</h4>
-          <div class="form-contribution">
-            <label for="contribution">€ </label>
-            <input name="amount" id="contribution" min="1" type="number" value="30" class="form-control form-contribution-input">
-            <input type="submit" value="Contribuer" class="btn button-submit button-small">
-          </div>
-        </div>
 
         <div class="container-fluid">
           <div class="row text-center">
@@ -55,7 +46,7 @@
         <div class="form-button hidden-xs">
           <input type="submit" class="btn button-submit" value="Contribuer">
         </div>
-      </form>
+      <% end %>
     </div>
 
   </div>

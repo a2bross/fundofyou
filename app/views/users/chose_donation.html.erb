@@ -1,0 +1,64 @@
+<%= content_for(:navbar_class, "navbar-static") %>
+
+<div class="template-container">
+
+  <div class="scrollable-content">
+    <div class="breadcrumb-centerer">
+      <div class="breadcrumb-container text-center">
+        <div class="breadcrumb-line"></div>
+        <div class="criteria-breadcrumb">
+          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Mes causes</div>
+          <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>2</span>Mes projets</div>
+          <div class="criteria-breadcrumb-item"><span>3</span>Contribuer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-main-content">
+      <div class="center-and-underline-title" >
+        <h3>Les projets recommandés pour vous</h3>
+      </div>
+
+      <%= form_tag orders_path(@order) do %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="form-contribution-container">
+          <h4>Je souhaite contribuer à hauteur de :</h4>
+          <div class="form-contribution">
+            <label for="contribution">€ </label>
+            <input name="amount" id="contribution" min="1" type="number" value="30" class="form-control form-contribution-input">
+          </div>
+        </div>
+
+        <h4>La formule de don que vous préférez :</h4>
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-xs-12 col-sm-6">
+              <input type="checkbox" class="hidden" value=1 name="subscription" id="subscription">
+              <label for="subscription" class="subscription-choice flex-center hvr-grow">
+                <div>
+                  <h5>Abonnement</h5>
+                  <p>Je m'abonne pour soutenir chaque mois les causes qui me tiennent à coeur</p>
+                </div>
+              </label>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <input type="checkbox" class="hidden" value=1 name="one-shot" id="one-shot">
+              <label for="one-shot" class="subscription-choice flex-center hvr-grow">
+                <div>
+                  <h5>Don ponctuel</h5>
+                  <p>Je contribue aujourd'hui uniquement </p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Choisir mes projets" class="btn button-submit">
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
+</div>

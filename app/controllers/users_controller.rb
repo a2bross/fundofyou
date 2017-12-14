@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :edit_criteria, :update_criteria, :result]
+  before_action :set_user, only: [:show, :edit, :update, :edit_criteria, :chose_donation, :update_criteria, :result]
 
   def show
     # list all projects
@@ -23,13 +23,17 @@ class UsersController < ApplicationController
       @user.update(params[:scope] => 1) unless (params[:scope] == "no-scope")
     end
     if @user.update(criteria_params)
-      redirect_to :result
+      redirect_to :chose_donation
     else
       redirect_to :edit_criteria
     end
   end
 
+  def chose_donation
+  end
+
   def result
+    @order = Order.find(params[:order_id])
     # methode qui calcule les projets reco de current_user
     @recommendations = Project.recommendation(current_user, 3)
     @projects = []

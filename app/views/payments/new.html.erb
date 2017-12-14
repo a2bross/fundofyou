@@ -18,17 +18,39 @@
       <div class="center-and-underline-title" >
          <h3>Confirmez votre donation</h3>
       </div>
+      <%= form_tag order_payments_path(@order) do %>
 
-      <div class="form-amount-update">
-        <h4>Je souhaite contribuer à hauteur de :</h4>
-        <%= simple_form_for(@order, html: { id: "formAmount"}) do |form| %>
-          <label for="contribution" class="contribution-label">€ </label>
-          <%= form.input :amount, value: @order.amount.to_i, class: "form-contribution-input", label: false %>
-          <%= form.submit "Changer le montant", class: "btn button-submit button-small button-update" %>
-        <% end %>
-      </div>
+        <h4>Vos coordonnées</h4>
+        <div class="form-row contact-form">
+          <div class="form-group col-md-6">
+            <%= label_tag 'first_name', "Prénom" %>
+            <%= text_field_tag 'first_name', @user.first_name, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= label_tag 'last_name', "Nom" %>
+            <%= text_field_tag 'last_name', @user.last_name, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-md-12 contact-form-last">
+            <%= label_tag 'address', "Adresse" %>
+            <%= text_field_tag 'address', @user.address, class: "form-control autocomp", required: true %>
+          </div>
+        </div>
 
-     <div id="render-payment-form"> <%= render "shared/payment-form", order: @order %></div>
+        <div class="text-center">
+          <h3>Montant total de votre donation : <span id="payment-final-amount"><span id="dynamic-price"><%= @order.amount.to_i %></span>€ TTC</span></h3>
+        </div>
+        <div class="text-center">
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Fund of You"
+            data-email="<%= @user.email %>"
+            data-description="Nombre de donations: <%= @order.project_nb %>"
+            data-amount="<%= @order.amount_cents %>"
+            data-currency="<%= @order.amount.currency %>"
+            data-locale="auto"></script>
+        </div>
+      <% end %>
+
 
     </div>
   </div>

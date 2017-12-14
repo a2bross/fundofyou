@@ -8,8 +8,8 @@
         <i class="fa fa-share" aria-hidden="true"></i>
         <div class="project-history-amount"><p> <%= donation.amount_cents / 100 %> €</p></div>
         <div class="project-progress"><h1> <%= donation.project.completion_rate %> % </h1></div>
-        <div class="project-history-name"> <%= donation.project.name.capitalize %></div>
-        <div class="project-history-charity"><p> <%= donation.project.charity.name.capitalize %> </p></div>
+        <div class="project-history-name"> <%= donation.project.name %></div>
+        <div class="project-history-charity"><p> <%= donation.project.charity.name %> </p></div>
         <div class="project-history-date"><p> Date du don : <%= donation.execution_date %> </p></div>
         <div class="project-end_date"><i class="fa fa-clock-o" aria-hidden="true"></i><p> J - <%= (donation.project.end_date - Date.today).to_i %></p></div>
         <div class="status"><p> En cours </p></div>

@@ -137,24 +137,13 @@
 
 
 #total_dons {
-  text-align: center;
-  color: #0881A3;
-  background-color: white;
-  padding: 20px;
-  border: 1px solid rgb(230, 230, 230)
-  // h3 {
-  //   display: flex;
-  //   justify-content: space-around;
-  // }
+  padding: 15px;
+  min-height: 150px;
 }
 
 #total_projets {
-
-  text-align: center;
-  color: #0881A3;
-  background-color: white;
-  padding: 20px;
-  border: 1px solid rgb(230, 230, 230)
+  padding: 15px;
+  min-height: 150px;
 }
 
 .total-critere {
@@ -366,7 +355,7 @@
 
 
 .user-show-slider-label {
-  width: 200px;
+  // width: 200px;
 }
 
 .template-text-dashboard {
@@ -380,6 +369,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  text-align: right;
+  padding: 10px 30px;
 }
 
 .scroll_function {
@@ -388,5 +379,44 @@
 
 
 .paragraphe_deduction {
-  margin-top: 30px;
+  margin-top: 40px;
+  p {
+    font-size: 15px;
+  }
 }
+
+.bullet-dashboard {
+  font-size: 16px;
+  padding: 5px 0px;
+  color: white;
+}
+
+.clickable-area {
+  margin-top: 30px;
+  width: 200px;
+}
+
+.card-total-projets {
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-total-dons {
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.card-total-deduction {
+  width: 50%;
+  min-height: 150px !important;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#deduction {
+  width: 50%;
+  text-align: center;
+}
+

@@ -5,7 +5,7 @@ import { autocomplete } from '../components/autocomplete';
 if (document.getElementById("map")) {
 
   // add event listener on appropriate tab click
-  document.getElementById("donation-tab").addEventListener("click", (event) => {
+  document.getElementById("total_projets").addEventListener("click", (event) => {
     setTimeout(function() {
       const mapElement = document.getElementById('map');
       console.log('click sur la tab donation');

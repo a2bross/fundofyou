@@ -31,8 +31,7 @@
         </div>
 
 <!-- déductions fiscales -->
-        <div class="col-xs-12 col-sm-12" id="deduction">
-          <h2>Mes reçus fiscaux</h2>
+        <div class="col-xs-12 col-sm-12 paragraphe_deduction" id="deduction">
           <h3>Vous pouvez déduire 66% de vos dons soit <%= (deductible_donations = total_donations * 0.66).truncate %>,00 € !</h3>
           <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
           <p> En apportant votre soutien aux <%= pluralize @user.donations.count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %>,00 €.</strong></p>
@@ -43,14 +42,28 @@
   </div>
 
 
-  <div class="fixed-background hidden" id="total_dons" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
-
+  <div class="fixed-background" id="total_dons" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
+      <div class="col-xs-12 no_padding">
+      <div>
+        <div class="template-title"><h2>Répartition de vos dons par cause</h2></div>
+        <%= render 'shared/causes-indicator' %>
+      </div>
+    </div>
   </div>
 
   <div class="fixed-background hidden" id="total_projets" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
+     <div class="map-container">
+      <div
+        id="map"
+        style="max-width: 100%;
+        height: calc(100vh - 75px);"
+        data-markers="<%= @markers.to_json %>">
+      </div>
+    </div>
   </div>
 
-  <div class="fixed-background scroll_function" id="deduction" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
+
+  <div class="fixed-background hidden scroll_function" id="deduction" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
     <div class="comment-faire col-xs-12 col-sm-12">
     <h3>Comment faire ?</h3>
       <div class="tax-images template-text-dashboard">

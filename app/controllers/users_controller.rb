@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       {
         lat: project.latitude,
         lng: project.longitude,
-        infoWindow: { content: render_to_string(partial: "/users/map_box", locals: { project: project }) }
+        infoWindow: { content: render_to_string(partial: "/users/map-box", locals: { project: project }) }
       }
     end
   end

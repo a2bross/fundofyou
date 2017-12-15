@@ -39,6 +39,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &.active {
+    background-color: $brand-success;
+    color: white;
+  }
 }
 
 .welcome {
@@ -78,7 +82,11 @@
   height: 80px;
   background-color: #D8D8D8;
   padding: 0 20px;
-  margin-top:20px;
+  margin: 20px auto;
+  &.active {
+    background-color: $brand-success;
+    color: white;
+  }
 }
 
 .title-deduction {

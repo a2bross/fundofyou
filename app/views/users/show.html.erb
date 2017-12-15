@@ -12,9 +12,9 @@
               <h5>Vous avez donné</h5>
                 <% sum = 0 %>
                 <% @user.donations.where(status: 20).each do |donation| %>
-                <% sum += donation.amount_cents.to_i %>
+                <% sum += donation.amount %>
                 <% end %>
-                <div><%= number_with_delimiter((total_donations = sum / 100), delimiter: " " )%> €</div>
+                <div><%= number_with_delimiter(money_without_cents(total_donations = sum), delimiter: " " )%> €</div>
               <p>Découvrez les causes soutenues</p>
             <% else %>
               <div class="no-project">

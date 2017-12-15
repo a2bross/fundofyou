@@ -48,7 +48,7 @@
   width: 145px;
   font-size: 16px;
   &:hover {
-
+    cursor: pointer;
   }
   &.active {
     background: $brand-success;

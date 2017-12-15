@@ -25,6 +25,9 @@
   background-size: cover;
 }
 
+.container-dashboard {
+  margin: 0 10px;
+}
 
 //////////////MENU GAUCHE//////////////////////////
 
@@ -32,7 +35,11 @@
   color: white;
   margin-top: 70px;
 }
-
+.clickable-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .welcome {
   margin: 0px;
@@ -57,6 +64,21 @@
   h1 {
     text-align: center;
   }
+}
+
+.paragraphe_deduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-total-deduction {
+  width: fit-content;
+  height: 80px;
+  background-color: #D8D8D8;
+  padding: 0 20px;
+  margin-top:20px;
 }
 
 .title-deduction {
@@ -392,7 +414,7 @@
 
 
 .paragraphe_deduction {
-  margin-top: 40px;
+  margin-top: 20px;
   p {
     font-size: 15px;
   }
@@ -404,32 +426,21 @@
   color: white;
 }
 
-.clickable-area {
-  margin-top: 30px;
-  width: 200px;
-}
-
 .card-total-projets {
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+  p {
+    margin-top: 10px;
+  }
 }
 
 .card-total-dons {
   flex-direction: column;
   align-items: center;
-
-}
-
-.card-total-deduction {
-  width: 50%;
-  min-height: 150px !important;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-#deduction {
-  width: 50%;
-  text-align: center;
+  margin-top: 20px;
+  p {
+    margin-top: 10px;
+  }
 }
 

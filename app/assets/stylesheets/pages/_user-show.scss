@@ -53,6 +53,17 @@
     color: white;
   }
 }
+.title-welcome-dashboard {
+  h1 {
+    text-align: center;
+  }
+}
+
+.title-deduction {
+  h3{
+  text-align: center;
+  }
+}
 
 @media(max-width: 720px) {
   .welcome {
@@ -287,6 +298,8 @@
   }
   p {
     margin-top: 10px;
+    font-size: 15px;
+    font-style: italic;
   }
 }
 

@@ -1,8 +1,8 @@
 <div class="template-container">
   <div class="scrollable-content">
 
-    <div class="container-fluid" >
-      <di class="title-welcome-dashboard"><h1>  Bienvenue <%= @user.first_name.capitalize  %></h1></di>
+    <div class="container-fluid container-dashboard">
+      <div class="title-welcome-dashboard"><h1>  Bienvenue <%= @user.first_name.capitalize  %></h1></div>
       <div class="row">
 
 <!-- dons -->
@@ -48,7 +48,7 @@
             <% if @user.donations.where(status: 20).count > 0  %>
             <p> En apportant votre soutien aux <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= number_with_delimiter((deductible_donations = total_donations * 0.66), delimiter: " " ) %> €.</strong></p>
             <% end %>
-            <div class="clickable-area btn subscription-choice hvr-grow col-sm-6 col-sm-offset-3 card-total-deduction" id="deduction">
+            <div class="clickable-area clickable hvr-grow card-total-deduction" id="deduction">
               <h5>Guide de la déduction fiscale</h5>
             </div>
           </div>

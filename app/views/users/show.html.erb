@@ -7,7 +7,7 @@
 
 <!-- dons -->
         <div class="col-xs-12 col-sm-6" >
-          <div class="clickable-area clickable card-total-dons hvr-grow subscription-choice " id="total_dons">
+          <div class="clickable-area clickable card-total-dons hvr-grow subscription-choice active" id="total_dons">
             <% if @user.donations.where(status: 20).count > 0 %>
               <h5>Vous avez donné</h5>
                 <% sum = 0 %>

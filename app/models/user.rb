@@ -37,6 +37,13 @@ class User < ApplicationRecord
     total_cat_donations = cat_sum / 100
 
     return total_donations == 0 ? 0 : (total_cat_donations * 100) / total_donations
+  end
 
+  def paid_projects
+    projects = []
+    donations.where(status: 20).each do |donation|
+      projects << donation.project
+    end
+    return projects.uniq
   end
 end

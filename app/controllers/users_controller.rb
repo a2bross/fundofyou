@@ -2,14 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :edit_criteria, :chose_donation, :update_criteria, :result]
 
   def show
-    # list all projects
-    @projects = Project.all.order(:name)
-
-    @markers = @projects.where.not(latitude: nil, longitude: nil).map do |project|
+    @markers = @user.paid_projects.select{ |project| project.latitude != nil && project.longitude != nil}.map do |project|
       {
         lat: project.latitude,
-        lng: project.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: project.longitude,
+        infoWindow: { content: render_to_string(partial: "/users/map_box", locals: { project: project }) }
       }
     end
   end

@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 20171214101834) do
     t.integer "minimum_donation"
     t.text "description"
     t.date "delivery_date"
-    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_id"
     t.index ["project_id"], name: "index_rewards_on_project_id"
   end
 
@@ -134,6 +134,5 @@ ActiveRecord::Schema.define(version: 20171214101834) do
   add_foreign_key "donations", "subscriptions"
   add_foreign_key "donations", "users"
   add_foreign_key "projects", "charities"
-  add_foreign_key "rewards", "projects"
   add_foreign_key "subscriptions", "users"
 end

@@ -18,7 +18,7 @@
               <p>Découvrez les causes soutenues</p>
             <% else %>
               <div class="no-project">
-                <h5>Vous n'avez pas encore donné.</h5>
+                <h5>Vous n'avez pas encore donné</h5>
               </div>
             <% end %>
           </div>
@@ -30,7 +30,7 @@
 
             <% if  @user.donations.where(status: 20).count > 0  %>
               <h5>Vous avez soutenu</h5>
-              <div> <%=  pluralize @user.donations.where(status: 20).count, "projet" %></div>
+              <div> <%=  pluralize @user.paid_projects.count, "projet" %></div>
               <p>Découvrez les lieux de vos projets</p>
             <% else %>
               <div class="no-project">
@@ -92,39 +92,41 @@
       </div>
     </div>
 
-    <div class="liste_des_reçus col-xs-12 col-sm-12">
-      <h2>Télécharger mes reçus fiscaux</h2>
-      <div class="">
-        <div class="recu template-text-dashboard">
-          <%= link_to image_tag("certificate.png"), "#" %>
-          <div>
-            <p>Croix rouge</p>
-            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+    <% if @user.donations.where(status: 20).count > 0  %>
+      <div class="liste_des_reçus col-xs-12 col-sm-12">
+        <h2>Télécharger mes reçus fiscaux</h2>
+        <div class="">
+          <div class="recu template-text-dashboard">
+            <%= link_to image_tag("certificate.png"), "#" %>
+            <div>
+              <p>Croix rouge</p>
+              <i class="fa fa-cloud-download" aria-hidden="true"></i>
+            </div>
           </div>
-        </div>
-        <div class="recu template-text-dashboard">
-          <%= link_to image_tag("certificate.png"), "#" %>
-          <div>
-            <p>Médecin sans Frontière</p>
-            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          <div class="recu template-text-dashboard">
+            <%= link_to image_tag("certificate.png"), "#" %>
+            <div>
+              <p>Médecin sans Frontière</p>
+              <i class="fa fa-cloud-download" aria-hidden="true"></i>
+            </div>
           </div>
-        </div>
-        <div class="recu template-text-dashboard">
-          <%= link_to image_tag("certificate.png"), "#" %>
-          <div>
-            <p>Reporter sans Frontière</p>
-            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          <div class="recu template-text-dashboard">
+            <%= link_to image_tag("certificate.png"), "#" %>
+            <div>
+              <p>Reporter sans Frontière</p>
+              <i class="fa fa-cloud-download" aria-hidden="true"></i>
+            </div>
           </div>
-        </div>
-        <div class="recu template-text-dashboard">
-          <%= link_to image_tag("certificate.png"), "#" %>
-          <div>
-            <p>WWF</p>
-            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+          <div class="recu template-text-dashboard">
+            <%= link_to image_tag("certificate.png"), "#" %>
+            <div>
+              <p>WWF</p>
+              <i class="fa fa-cloud-download" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
 </div>

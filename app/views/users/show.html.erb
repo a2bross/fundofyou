@@ -2,7 +2,7 @@
   <div class="scrollable-content">
 
     <div class="container-fluid" >
-      <h1>  Bienvenue <%= @user.first_name.capitalize  %></h1>
+      <di class="title-welcome-dashboard"><h1>  Bienvenue <%= @user.first_name.capitalize  %></h1></di>
       <div class="row">
 
 <!-- dons -->
@@ -43,7 +43,7 @@
 <!-- déductions fiscales -->
         <div class="col-xs-12 col-sm-12" >
           <div class="paragraphe_deduction">
-            <h3>Vous pouvez déduire 66% de vos dons<% if @user.donations.where(status: 20).count > 0  %>, soit <%= number_with_delimiter((deductible_donations = total_donations * 0.66), delimiter: " " ) %> €<% end %></h3>
+            <div class="title-deduction"><h3>Vous pouvez déduire 66% de vos dons<% if @user.donations.where(status: 20).count > 0  %>, soit <%= number_with_delimiter((deductible_donations = total_donations * 0.66), delimiter: " " ) %> €<% end %></h3></div>
             <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
             <% if @user.donations.where(status: 20).count > 0  %>
             <p> En apportant votre soutien aux <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= number_with_delimiter((deductible_donations = total_donations * 0.66), delimiter: " " ) %> €.</strong></p>
@@ -86,9 +86,9 @@
     <div class="comment-faire col-xs-12 col-sm-12">
     <h2>Mode d'emploi</h2>
       <div class="tax-images template-text-dashboard">
-        <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <p>Lors de votre déclaration d'impôts sur le revenu</p> <h5>Remplissez la rubrique "7UF" du formulaire 2042 </h5> </div>
-        <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <p>Joignez les reçus fiscaux à votre déclaration</p> <h5> Ils sont transmis par les associations <em>(disponibles dans cette rubrique)</em> </h5></div>
-        <div class="tax-icon tax col-xs12 col-sm-4"> <%= image_tag 'tax.png' %> <p>Déduisez du paiement de vos impôts sur le revenu</p> <h5>le montant déductible inscrit sur cette page </h5></div>
+        <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <h5>Précisez vos dons dans votre déclaration d'impôts sur le revenu</h5> <p>Remplissez la rubrique "7UF" du formulaire 2042 </p> </div>
+        <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <h5>Joignez les reçus fiscaux à votre déclaration</h5> <p>Disponibles dans cette rubrique</p></div>
+        <div class="tax-icon tax col-xs12 col-sm-4"> <%= image_tag 'tax.png' %> <h5>Déduisez le montant de vos impôts sur le revenu</h5> <p>Montant indiqué dans l'encadré à gauche</p></div>
       </div>
     </div>
 

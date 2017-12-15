@@ -8,42 +8,49 @@
 <!-- dons -->
         <div class="col-xs-12 col-sm-6" >
           <div class="clickable-area clickable card-total-dons hvr-grow subscription-choice " id="total_dons">
-            <h5>Vous avez donné
-              <% sum = 0 %>
-              <% @user.donations.where(status: 20).each do |donation| %>
-              <% sum += donation.amount_cents.to_i %>
-              <% end %>
-              <%= total_donations = sum / 100  %> €
-            </h5>
-            <p>Regardez pour quelles causes !</p>
+            <% if @user.donations.where(status: 20).count > 0 %>
+              <h5>Vous avez donné</h5>
+                <% sum = 0 %>
+                <% @user.donations.where(status: 20).each do |donation| %>
+                <% sum += donation.amount_cents.to_i %>
+                <% end %>
+                <div><%= number_with_delimiter((total_donations = sum / 100), delimiter: " " )%> €</div>
+              <p>Découvrez les causes soutenues</p>
+            <% else %>
+              <div class="no-project">
+                <h5>Vous n'avez pas encore donné.</h5>
+              </div>
+            <% end %>
           </div>
         </div>
 
 <!-- projet -->
         <div class="col-xs-12 col-sm-6" >
           <div class="clickable-area clickable card-total-projets subscription-choice hvr-grow " id="total_projets">
-            <h5>Vous avez soutenu
 
             <% if  @user.donations.where(status: 20).count > 0  %>
+              <h5>Vous avez soutenu</h5>
               <div> <%=  pluralize @user.donations.where(status: 20).count, "projet" %></div>
+              <p>Découvrez les lieux de vos projets</p>
             <% else %>
               <div class="no-project">
                 <h5>Vous n'avez pas encore financé de projet</h5>
-                <%= link_to 'Decouvrez les projets', edit_criteria_path, class: "discover-project img-fluid" %>
               </div>
             <% end %>
-            </h5>
-            <p>Découvrez dans quels endroits vos donations ont eu un impact</p>
           </div>
         </div>
 
 <!-- déductions fiscales -->
         <div class="col-xs-12 col-sm-12" >
           <div class="paragraphe_deduction">
-            <h3>Vous pouvez déduire 66% de vos dons soit <%= (deductible_donations = total_donations * 0.66).truncate %>,00 € !</h3>
+            <h3>Vous pouvez déduire 66% de vos dons<% if @user.donations.where(status: 20).count > 0  %>, soit <%= number_with_delimiter((deductible_donations = total_donations * 0.66), delimiter: " " ) %> €<% end %></h3>
             <p>Les dons réalisés au profit des associations reconnues d’intérêt général peuvent faire l’objet d’une réduction d’impôts de 66% selon l’article 200 du Code Général des Impôts.</p>
-            <p> En apportant votre soutien aux <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= (deductible_donations = total_donations * 0.66).truncate %>,00 €.</strong></p>
-            <div class="clickable-area btn subscription-choice hvr-grow col-sm-6 col-sm-offset-3 card-total-deduction" id="deduction"><h5>Comment déduire ?</h5> <p>Accédez à vos reçus fiscaux!</p></div>
+            <% if @user.donations.where(status: 20).count > 0  %>
+            <p> En apportant votre soutien aux <%= pluralize @user.donations.where(status: 20).count, "projet" %> que vous avez sélectionés, vous avez le droit de déduire de votre impôt sur le revenu 2017 la somme de <strong> <%= number_with_delimiter((deductible_donations = total_donations * 0.66), delimiter: " " ) %> €.</strong></p>
+            <% end %>
+            <div class="clickable-area btn subscription-choice hvr-grow col-sm-6 col-sm-offset-3 card-total-deduction" id="deduction">
+              <h5>Guide de la déduction fiscale</h5>
+            </div>
           </div>
         </div>
       </div>
@@ -62,7 +69,7 @@
 
   <div class="fixed-background hidden" id="total_projets" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
     <div class="col-xs-12 map-super-container">
-      <div class="template-title-dashboard card-deduction"><h2>Où se déroulent les projets que j'ai soutenus ?</h2></div>
+      <div class="template-title-dashboard card-deduction"><h2>Répartition des projets soutenus</h2></div>
       <div class="map-container">
         <div
           id="map"
@@ -77,7 +84,7 @@
 
   <div class="fixed-background hidden scroll_function" id="deduction" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://res.cloudinary.com/adb0wzhme6/image/upload/v1513174424/kegkdxkjpn3erhqfmrrs.jpg);">
     <div class="comment-faire col-xs-12 col-sm-12">
-    <h2>Comment faire ?</h2>
+    <h2>Mode d'emploi</h2>
       <div class="tax-images template-text-dashboard">
         <div class="tax-icon calendar col-xs12 col-sm-4"> <%= image_tag 'weekly-calendar.png' %> <p>Lors de votre déclaration d'impôts sur le revenu</p> <h5>Remplissez la rubrique "7UF" du formulaire 2042 </h5> </div>
         <div class="tax-icon attachments col-xs12 col-sm-4"> <%= image_tag 'attachments.png' %> <p>Joignez les reçus fiscaux à votre déclaration</p> <h5> Ils sont transmis par les associations <em>(disponibles dans cette rubrique)</em> </h5></div>

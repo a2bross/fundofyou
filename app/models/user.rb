@@ -22,14 +22,14 @@ class User < ApplicationRecord
   def share(criterium)
     # total amount contributed by user
     sum = 0
-    self.donations.each do |donation|
+    self.donations.where(status: 20).each do |donation|
       sum += donation.amount_cents.to_i
     end
     total_donations = sum / 100
 
     # total amount for selected category
     cat_sum = 0
-    self.donations.each do |donation|
+    self.donations.where(status: 20).each do |donation|
       if donation.project[criterium] == 1
         cat_sum += donation.amount_cents.to_i
       end

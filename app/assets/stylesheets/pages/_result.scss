@@ -10,9 +10,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+  margin-left: -10px;
   label {
     position: relative;
-    left: 98px;
+    left: 95px;
     padding-top: 5px;
   }
 }
@@ -26,7 +27,7 @@
 .form-contribution-input {
   width: 100px;
   text-align: right;
-  margin-left: 5px;
+  padding-right: 20px;
 }
 
 .result-choice {

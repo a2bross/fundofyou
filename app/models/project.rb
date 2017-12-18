@@ -27,7 +27,6 @@ class Project < ApplicationRecord
     sorted_valid_projects.last(number_of_recommendations).reverse.each do |project|
       recommendations << { project_id: project[:id], score: project.score(user), selected: true }
     end
-
     return recommendations
   end
 

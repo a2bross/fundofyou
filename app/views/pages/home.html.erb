@@ -1,9 +1,9 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
-<div class="home-global-container">
-  <div class="container-fluid banner-photo">
+
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 no-padding">
         <div id="my-slider" class="carousel slide" data-ride="carousel">
          <!-- indicators do not nov -->
 <!--           <ol class="carousel-indicators">
@@ -108,11 +108,12 @@
   </div>
 
 
-  <div class="presentation container-fluid">
+<div class="presentation">
+  <div class="container-fluid">
     <div class="row">
       <div class="project">
 
-        <div class="onglet container">
+        <div class="onglet">
           <ul class="nav nav-pills nav-justified ">
             <li class="active"><a href="#en-cours" data-toggle="tab">Projets en cours</a></li>
             <li><a href="#done" data-toggle="tab">Projets terminés</a></li>
@@ -176,7 +177,4 @@
     </div>
     <%= link_to "Explorer tous les projets", projects_path, class: "btn button-submit button-home" %>
   </div>
-
 </div>
-
-

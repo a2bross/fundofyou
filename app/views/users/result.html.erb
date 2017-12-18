@@ -18,15 +18,16 @@
         </div>
       </div>
 
-      <div class="funnel-main-content">
+      <div class="funnel-main-content result-funnel">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%= hidden_field_tag :contribution, @order.amount %>
         <div class="container-fluid">
           <div class="row text-center">
+
+            <p id="no-project" class="hidden">Veuillez sélectionner au moins un projet.</p>
             <% div_counter = 0 %>
             <% @projects.each do |project|%>
               <% div_counter += 1 %>
-              <p id="no-project" class="hidden">Veuillez sélectionner au moins un projet.</p>
               <div class="col-xs-12 col-md-6">
                 <input type="checkbox" class="hidden" value="<%= project.id %>" name="project_<%= div_counter %>" id="project_<%= div_counter %>" checked >
                 <div class="result-card hvr-grow" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path project.photo %>);">
@@ -38,13 +39,22 @@
                   <p><%= truncate project.charity.name, length: 40, omission: '...' %>
                   <p class="bullet bullet-contribution"><span class="result-contribution"></span> €</p>
                 </div>
+                <div class="more-info-mobile">Voir plus</div>
+                <div class="more-info-detail hidden">
+                  <div class="project-focus-data">
+                      <p>Objectif : <%= project.budget.to_i %>€</p>
+                      <p><%= project.completion_rate %>% récoltés</p>
+                  </div>
+                  <p>Par l'association <%= project.charity.name %></p>
+                  <p> <%= truncate project.description, length: 200, omission: '...' %> </p>
+                </div>
               </div>
             <% end %>
           </div>
         </div>
-      </div>
-      <div class="template-right-cta template-right-lower form-button">
-        <input type="submit" class="btn button-submit" value="Contribuer">
+        <div class="template-right-cta template-right-lower form-button">
+          <input type="submit" class="btn button-submit" value="Contribuer">
+        </div>
       </div>
     <% end %>
   </div>
@@ -65,14 +75,14 @@
           <div class="criterium-container">
             <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
             <% criteria.each_key do |criterium| %>
-                <% if project[criterium] == 1 %>
-                  <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
-                <% end %>
+              <% if project[criterium] == 1 %>
+                <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
+              <% end %>
             <% end %>
           </div>
           <!--  selected or not -->
         </div>
-
       </div>
     <% end %>
+
 </div>

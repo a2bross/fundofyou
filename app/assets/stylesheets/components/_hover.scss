@@ -14,3 +14,9 @@
 .hvr-grow:active {
     transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .hvr-grow:hover {
+    transform: none;
+  }
+}

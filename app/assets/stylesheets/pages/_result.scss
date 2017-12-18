@@ -5,6 +5,10 @@
   }
 }
 
+.result-funnel {
+  padding-bottom: 75px;
+}
+
 .form-contribution {
   display: flex;
   align-items: center;
@@ -46,6 +50,25 @@
   left: 50%;
   margin-left: -21px;
   bottom: 0;
+}
+
+.more-info-mobile {
+  background-color: #40C4FF;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+  margin-top: -15px;
+  border: 1px solid #40C4FF;
+}
+
+.more-info-detail {
+  font-size: 12px;
+  border: 1px solid $medium-gray;
+  padding: 15px;
+  transition: all .2s ease-out;
+  p {
+    margin: 0px;
+  }
 }
 
 .criterium-container {

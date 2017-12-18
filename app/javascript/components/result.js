@@ -17,6 +17,7 @@ const resultCards = document.querySelectorAll(".result-card");
 const projectFocus = document.querySelectorAll(".fixed-background");
 const resultChoices = document.querySelectorAll(".result-choice");
 const noProject = document.getElementById('no-project');
+const moreButtons = document.querySelectorAll(".more-info-mobile");
 if (resultCards[0]) {
   updateAmount();
   updatePrices();
@@ -30,6 +31,9 @@ if (resultCards[0]) {
       const id = document.querySelector(".card-focus input").value;
       document.getElementById(id).classList.remove("hidden");
     });
+    card.addEventListener("touchend", (event) => {
+      event.currentTarget.nextElementSibling.nextElementSibling.classList.toggle("hidden");
+    });
   });
   resultChoices.forEach((result) => {
     result.addEventListener("click", (event) => {
@@ -37,6 +41,11 @@ if (resultCards[0]) {
       event.currentTarget.classList.toggle("result-checked")
       event.currentTarget.parentElement.querySelector(".bullet").classList.toggle("hidden");
       updateAmount();
+    });
+  });
+  moreButtons.forEach((button) => {
+    button.addEventListener("touchend", (event) => {
+      event.currentTarget.nextElementSibling.classList.toggle("hidden");
     })
   })
 

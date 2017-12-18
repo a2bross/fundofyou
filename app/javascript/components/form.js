@@ -23,17 +23,18 @@ if (document.getElementById("causes-selected")) {
     //   bullet.classList.toggle("hidden");
     // });
 
-    document.querySelector("input[type=reset]").addEventListener('click', (event) => {
-      const bullets = document.querySelectorAll(".bullet");
-      bullets.forEach((bullet) => { bullet.classList.add("hidden")});
-      const causes = document.querySelectorAll(".cause-choice");
+    // document.querySelector("input[type=reset]").addEventListener('click', (event) => {
+    //   const bullets = document.querySelectorAll(".bullet");
+    //   bullets.forEach((bullet) => { bullet.classList.add("hidden")});
+    //   const causes = document.querySelectorAll(".cause-choice");
 
-      causes.forEach((cause) => { cause.classList.remove("active")});
+    //   causes.forEach((cause) => { cause.classList.remove("active")});
 
-      document.querySelector(".causes-resume em").classList.remove("hidden");
-    });
+    //   document.querySelector(".causes-resume em").classList.remove("hidden");
+    // });
 
     document.querySelector("input[type=submit]").addEventListener('click', (event) => {
+      console.log("coucou")
       event.preventDefault();
       if (document.querySelector(".active") != null) {
         document.forms[0].submit();

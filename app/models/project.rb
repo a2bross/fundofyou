@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   monetize :budget_cents
   validates :name, :budget, :description, :start_date, :end_date, :charity, presence: true
   validates :budget, numericality: { greater_than: 0 }
+  validates :objectives, length: { maximum: 200 }
   mount_uploader :photo, ProjectUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

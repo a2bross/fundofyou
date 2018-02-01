@@ -16,6 +16,14 @@
   input, select {
     margin-top: 10px;
   }
+  input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
 }
 
 .project-new .breadcrumb-line {
@@ -55,6 +63,20 @@
 
 .button-container-margin {
   margin-top: 50px;
+}
+
+.price-range {
+  font-size: 14px;
+  margin-bottom: 50px;
+}
+
+.item-name-column {
+  min-width: 60%;
+  margin-right: 20px;
+}
+
+trix-editor {
+  height: 180px !important;
 }
 
 @media (max-width: 786px) {

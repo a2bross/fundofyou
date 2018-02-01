@@ -40,5 +40,13 @@ if (document.getElementById("first-step")) {
       thirdStep.classList.add("hidden");
     })
 
+
+    const allItemForm = document.getElementById("add-item-form");
+    const addItem = document.querySelector(".add-item");
+    const itemHTML = '<div class="form-column"><div class="item-name-column"><input type="text" name="project[items][][name]" id="project_items__name" value="" placeholder="Nom de l&#39;objet" class="form-control" maxlength="50" /><p class="help-block">50 caractères.</p></div><input type="text" name="project[items][][budget]" id="project_items__budget" value="" placeholder="Montant de l&#39;objet" class="form-control" />';
+    addItem.addEventListener("click", e => {
+      e.preventDefault();
+      allItemForm.insertAdjacentHTML('beforeend', itemHTML);
+   })
   })
 };

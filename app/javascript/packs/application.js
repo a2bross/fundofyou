@@ -6,6 +6,9 @@ import "../components/project-index";
 import "../components/project-new";
 import "../components/title";
 import "../components/dashboard";
+import "../components/picture-upload";
+import "../components/price-slider";
+import "../components/trix";
 import { hideFlashAfter5sec } from '../components/flashes';
 hideFlashAfter5sec();
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214101834) do
+ActiveRecord::Schema.define(version: 20180201131958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20171214101834) do
     t.index ["project_id"], name: "index_donations_on_project_id"
     t.index ["subscription_id"], name: "index_donations_on_subscription_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "budget_cents", default: 0, null: false
+    t.index ["project_id"], name: "index_items_on_project_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -78,6 +88,7 @@ ActiveRecord::Schema.define(version: 20171214101834) do
     t.string "photo"
     t.float "latitude"
     t.float "longitude"
+    t.string "objectives"
     t.index ["charity_id"], name: "index_projects_on_charity_id"
   end
 
@@ -133,6 +144,7 @@ ActiveRecord::Schema.define(version: 20171214101834) do
   add_foreign_key "donations", "projects"
   add_foreign_key "donations", "subscriptions"
   add_foreign_key "donations", "users"
+  add_foreign_key "items", "projects"
   add_foreign_key "projects", "charities"
   add_foreign_key "subscriptions", "users"
 end

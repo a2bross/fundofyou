@@ -1,0 +1,7 @@
+<div class="form-column">
+  <div class="item-name-column">
+    <%= text_field_tag "project[items][][name]", "", placeholder: "Nom de l'objet", class: "form-control", maxlength: 50 %>
+    <p class="help-block">50 caractères.</p>
+  </div>
+  <%= text_field_tag "project[items][][budget]", "", placeholder: "Montant de l'objet", class: "form-control" %>
+</div>

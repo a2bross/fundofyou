@@ -1,15 +1,18 @@
 class Project < ApplicationRecord
   belongs_to :charity
   has_many :rewards, dependent: :destroy
+  has_many :items, dependent: :destroy
   has_many :donations, dependent: :destroy
   has_many :users, through: :donations
   monetize :budget_cents
   validates :name, :budget, :description, :start_date, :end_date, :charity, presence: true
   validates :budget, numericality: { greater_than: 0 }
+  validates :objectives, length: { maximum: 200 }
   mount_uploader :photo, ProjectUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   after_save :check_if_started, :check_if_ended
+  accepts_nested_attributes_for :items
 
 
   def self.recommendation (user, number_of_recommendations)

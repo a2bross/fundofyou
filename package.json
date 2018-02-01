@@ -8,6 +8,7 @@
     "gmaps": "^0.4.24",
     "jquery": "^3.2.1",
     "sweetalert": "^2.0.8",
+    "tinymce": "^4.7.6",
     "typed.js": "^2.0.6"
   },
   "devDependencies": {

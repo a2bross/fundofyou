@@ -3,8 +3,12 @@ import "../components/form";
 import "../components/payment-form";
 import "../components/result";
 import "../components/project-index";
+import "../components/project-new";
 import "../components/title";
 import "../components/dashboard";
+import "../components/picture-upload";
+import "../components/price-slider";
+import "../components/trix";
 import { hideFlashAfter5sec } from '../components/flashes';
 hideFlashAfter5sec();
 
@@ -20,3 +24,4 @@ if (document.getElementById("banner-typed-text")) {
 
 // import "../components/tabs";
 // import "../components/progress-bar";
+

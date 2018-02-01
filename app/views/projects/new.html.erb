@@ -1,44 +1,135 @@
-<div class="container">
-  <div class="row">
-    <%= link_to "Tous les projects", projects_path %>
-    <div class="text-center"><h2>Créer un project</h2></div>
-    <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+<%= content_for(:navbar_class, "navbar-funnel") %>
 
-      <%= simple_form_for(@project) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.association :charity %>
-          <%= f.input :contact_name %>
-          <%= f.input :address, :input_html => { :class => 'autocomp' } %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.input :budget %>
-          <%= f.input :photo %>
-          <%= f.input :environment, as: :boolean %>
-          <%= f.input :humanitarian, as: :boolean %>
-          <%= f.input :social, as: :boolean %>
-          <%= f.input :preservation, as: :boolean %>
-          <%= f.input :education, as: :boolean %>
-          <%= f.input :research, as: :boolean %>
-          <%= f.input :local, as: :boolean %>
-          <%= f.input :abroad, as: :boolean %>
-          <%= f.input :urgency, as: :boolean %>
-          <%= f.input :completion_rate %>
-          <%= f.input :status %>
-        </div>
-
-        <div class="form-actions">
-           <%= f.submit class: "btn btn-primary btn-block"%>
-        </div>
-      <% end %>
-
+<div class="project-new">
+  <div class="breadcrumb-centerer">
+    <div class="breadcrumb-container text-center">
+      <div class="breadcrumb-line"></div>
+      <div class="criteria-breadcrumb">
+        <div class="criteria-breadcrumb-item criteria-breadcrumb-item-active"><span>1</span>Présentation</div>
+        <div class="criteria-breadcrumb-item"><span>2</span>Description</div>
+        <div class="criteria-breadcrumb-item"><span>3</span>Financement</div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Javascript required for Google Maps API -->
-<%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-<%= javascript_pack_tag "map" %>
+<div class="project-form-container">
+  <%= simple_form_for @project do |f| %>
+  <div id="first-step">
+    <div class="form-column">
+      <div class="column-container">
+        <label for="project_name" class="underline-label"><i class="fa fa-address-card-o" aria-hidden="true"></i> Nom du projet</label>
+        <%= f.input :name, label: false, placeholder: "ex: Collecte de vêtements chauds pour les réfugiés", hint: '50 caractères.', input_html: { maxlength: 50 }, error: 'Champ obligatoire' %>
+        <label for="project_photo" class="underline-label"><i class="fa fa-camera" aria-hidden="true"></i> Photo du projet</label>
+        <%= f.input :photo, label: false %>
+        <label for="project_photo" class="btn btn-primary"><i class="fa fa-upload" aria-hidden="true"></i> Choisir une image</label> <span></span>
+      </div>
+      <div class="column-container">
+        <div class="container-fluid">
+        <label class="underline-label"><i class="fa fa-bookmark" aria-hidden="true"></i> Causes</label>
+        <div class="row text-center">
+          <div class="col-xs-4">
+            <input type="checkbox" class="hidden" value=1 name="project[environment]" id="environment">
+            <label for="environment" class="cause-choice">
+              <i class="fa fa-leaf"></i> <div>Ecologie</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" class="hidden" value=1 name="project[humanitarian]" id="humanitarian">
+            <label for="humanitarian" class="cause-choice">
+              <i class="fa fa-life-ring"></i> <div>Humanitaire</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" class="hidden" value=1 name="project[social]" id="social">
+            <label for="social" class="cause-choice">
+              <i class="fa fa-handshake-o"></i> <div>Action sociale</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" class="hidden" value=1 name="project[preservation]" id="preservation">
+            <label for="preservation" class="cause-choice">
+              <i class="fa fa-institution"></i> <div>Patrimoine</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" class="hidden" value=1 name="project[education]" id="education">
+            <label for="education" class="cause-choice">
+              <i class="fa fa-graduation-cap"></i> <div>Education</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" class="hidden" value=1 name="project[research]" id="research">
+            <label for="research" class="cause-choice">
+              <i class="fa fa-flask"></i> <div>Recherche</div>
+              <i class="fa fa-check hidden"></i>
+            </label>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <label for="project_objectives" class="underline-label no-margin-label"><i class="fa fa-address-card-o" aria-hidden="true"></i> Objectifs</label>
+    <%= f.input :objectives, as: :text, hint: '200 caractères.', input_html: { maxlength: 200 }, label: false, placeholder: "ex: Nous avons besoin de collecter et reconditionner 200 pantalons, 250 chemises, 300 T-shirts" %>
+    <div class="button-container text-center">
+      <button id="to-second-step" class="btn btn-primary button-submit">Etape suivante</button>
+    </div>
+  </div>
+
+  <div id="second-step" class="hidden">
+    <label for="project_description" class="underline-label"><i class="fa fa-map-marker" aria-hidden="true"></i> Localisation</label>
+    <%= f.input :address, :input_html => { :class => 'autocomp' }, placeholder: "ex: 22 rue Charles de Gaulle, 67000 Strasbourg, FRANCE", label: false %>
+    <label for="project_description" class="underline-label"><i class="fa fa-address-card-o" aria-hidden="true"></i> Description du projet</label>
+    <input id="project_description" type="hidden" name="project[description]">
+    <trix-editor input="project_description"></trix-editor>
+
+    <div class="button-container button-container-margin text-center">
+      <button id="back-first-step" class="btn btn-primary button-reset">Etape précédente</button>
+      <button id="to-third-step" class="btn btn-primary button-submit">Etape suivante</button>
+    </div>
+  </div>
+
+  <div id="third-step" class="hidden">
+    <div class="form-column">
+      <div class="column-container">
+        <label for="project_budget" class="underline-label"><i class="fa fa-hourglass-half" aria-hidden="true"></i> Montant à collecter</label>
+        <output for="project[budget]">5000</output>
+        <input type="range" id="project_budget" name="project[budget]" min=1000 max=20000 step=500 value=5000>
+        <div class="form-column price-range">
+          <span>1 000 €</span>
+          <span>20 000 €</span>
+        </div>
+      </div>
+      <div class="column-container">
+        <label for="project_start_date" class="underline-label"><i class="fa fa-eur" aria-hidden="true"></i> Durée du projet</label>
+        <div class="form-column">
+          <div class="column-container text-center">
+            <label for="project_start_date" class="small-label">Date de début</label>
+            <%= date_field :project, :start_date, value: Date.today, class: "form-control" %>
+          </div>
+          <div class="column-container text-center">
+            <label for="project_duration" class="small-label">Nombre de jours</label>
+            <%= select_tag :duration, options_for_select([['15 jours', 15], ['30 jours', 30], ['45 jours', 45], ['60 jours', 60]]), class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-item-form">
+      <label class="underline-label"><i class="fa fa-map-marker" aria-hidden="true"></i> Ajouter des objets à financer</label>
+      <%= render "add-item" %>
+    </div>
+    <a class="btn button-secondary add-item"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter un objet</a>
+
+    <div class="button-container button-container-margin text-center">
+      <button id="back-second-step" class="btn btn-primary button-reset">Etape précédente</button>
+      <%= f.submit "Valider", class: "btn btn-primary button-submit" %>
+    </div>
+  </div>
+
+  <% end %>
+</div>

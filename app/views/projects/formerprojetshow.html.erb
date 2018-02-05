@@ -1,0 +1,121 @@
+
+
+<div class="template-container">
+    <div class="container-presentation-show">
+      <div class="scrollable-content">
+        <div class="funnel-main-content">
+          <div class="row project-show-row">
+            <div class="project-statistic">
+              <div class="contribution-info">
+                <div class="important-number"><%= @project.donations.size %> <br>
+                  <% if @project.donations.size > 1 %>
+                    <p><%= 'donation'.pluralize %></p>
+                  <% else %>
+                    <p>donation</p>
+                  <% end  %>
+                </div>
+                  <% if @project.end_date > Date.today %>
+                    <div class="important-number"><%= (@project.end_date - @project.start_date).to_i %> J <br> <p>restants</p></div>
+                  <% else %>
+                    <div class="important-number"> Collecte <br> terminée </div>
+                  <% end %>
+              </div>
+              <div class="budget-details">
+                 <div class="progress-bar">
+                  <div class="indicator-bar" role="progressbar" style="width:<%= [@project.completion_rate, 100].min %>%">
+                    <% if @project.completion_rate > 0 %>
+                      <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
+                      <div class="progress-value"></div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+                <div class="budget-evolution">
+                  <div class="important-number"> <%= number_with_delimiter((@project.completion_rate.to_f / 100 * @project.budget).to_i, delimiter: " ") %> €<br><p>recoltés</p></div>
+                  <div class="important-number">
+                    <%= number_with_delimiter(@project.budget_cents / 100, delimiter: " ") %> €
+                    <br>
+                    <p>objectif</p>
+                  </div>
+                </div>
+            </div>
+                  <div class="center-and-underline-title" >
+                    <h3>À propos</h3>
+                  </div>
+                  <div class= "project-presentation">
+                    <p><%= simple_format(@project.description) %></p>
+                  </div>
+
+                    <div class="center-and-underline-title" >
+                      <h3>L'association</h3>
+                    </div>
+                      <div class="association-identity">
+                        <div class="association-details">
+                          <ul class="association-name">
+                            <% if @project.charity %>
+                              <li><%= image_tag @project.charity.photo, class: "avatar-charity" %></li>
+                            <% else %>
+                              <li> <%= image_tag "dog.jpg", class: "avatar-charity" %></li>
+                            <% end %>
+
+                          </ul>
+                        </div>
+                          <div class="association-info">
+                            <ul>
+                              <% if @project.charity %>
+                              <li><i class="fa fa-user-circle" aria-hidden="true"></i> <%= @project.charity.contact_name %></li>
+                              <li><i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                <% if @project.charity.address != "" %>
+                                  <%= @project.charity.address %>
+                                <% else %>
+                                  <%= @project.address %>
+                                <% end %> </li>
+                              <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @project.charity.email %> </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                      </div>
+            </div>
+                    <div class="association-presentation">
+                      <% if @project.charity %>
+                      <p><%= simple_format(@project.charity.description) %></p>
+                      <% end %>
+                    </div>
+        </div>
+      </div>
+    </div>
+        <% if @project.photo.present? %>
+          <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @project.photo %>');">
+
+            <div class="template-text">
+             <!-- Encart noir à gauche -->
+             <h2 id="project-name"><%= @project.name %></h2>
+             <div class="criterium-container">
+               <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
+               <% criteria.each_key do |criterium| %>
+                 <% if @project[criterium] == 1 %>
+                   <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
+                 <% end %>
+               <% end %>
+             </div>
+            </div>
+
+          </div>
+
+        <% else %>
+          <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
+            <div class="template-text">
+           <!-- Encart noir à gauche -->
+              <h2 id="project-name"><%= @project.name %></h2>
+              <div class="criterium-container">
+                <% criteria = {environment: "Ecologie", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
+                <% criteria.each_key do |criterium| %>
+                  <% if @project[criterium] == 1 %>
+                    <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
+                  <% end %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        <% end %>

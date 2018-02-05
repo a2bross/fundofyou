@@ -4,129 +4,130 @@
   <% content_for :meta_image, image_path(@project.photo) %>
 <% end %>
 
-<div class="template-container">
-    <div class="container-presentation-show">
-      <div class="scrollable-content">
-        <div class="funnel-main-content">
-          <div class="row project-show-row">
-            <div class="project-statistic">
-              <div class="contribution-info">
-                <div class="important-number"><%= @project.donations.size %> <br>
-                  <% if @project.donations.size > 1 %>
-                    <p><%= 'donation'.pluralize %></p>
-                  <% else %>
-                    <p>donation</p>
-                  <% end  %>
-                </div>
-                  <% if @project.end_date > Date.today %>
-                    <div class="important-number"><%= (@project.end_date - @project.start_date).to_i %> J <br> <p>restants</p></div>
-                  <% else %>
-                    <div class="important-number"> Collecte <br> terminée </div>
-                  <% end %>
-              </div>
-              <div class="budget-details">
-                 <div class="progress-bar">
-                  <div class="indicator-bar" role="progressbar" style="width:<%= [@project.completion_rate, 100].min %>%">
-                    <% if @project.completion_rate > 0 %>
-                      <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
-                      <div class="progress-value"></div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-                <div class="budget-evolution">
-                  <div class="important-number"> <%= number_with_delimiter((@project.completion_rate.to_f / 100 * @project.budget).to_i, delimiter: " ") %> €<br><p>recoltés</p></div>
-                  <div class="important-number">
-                    <%= number_with_delimiter(@project.budget_cents / 100, delimiter: " ") %> €
-                    <br>
-                    <p>objectif</p>
-                  </div>
-                </div>
-            </div>
-                  <div class="center-and-underline-title" >
-                    <h3>À propos</h3>
-                  </div>
-                  <div class= "project-presentation">
-                    <p><%= simple_format(@project.description) %></p>
-                  </div>
 
-                    <div class="center-and-underline-title" >
-                      <h3>L'association</h3>
-                    </div>
-                      <div class="association-identity">
-                        <div class="association-details">
-                          <ul class="association-name">
-                            <% if @project.charity %>
-                              <li><%= image_tag @project.charity.photo, class: "avatar-charity" %></li>
-                            <% else %>
-                              <li> <%= image_tag "dog.jpg", class: "avatar-charity" %></li>
-                            <% end %>
+<div class="container">
+  <div class="project-resume">
+    <div class="row">
 
-                          </ul>
-                        </div>
-                          <div class="association-info">
-                            <ul>
-                              <% if @project.charity %>
-                              <li><i class="fa fa-user-circle" aria-hidden="true"></i> <%= @project.charity.contact_name %></li>
-                              <li><i class="fa fa-location-arrow" aria-hidden="true"></i>
-                                <% if @project.charity.address != "" %>
-                                  <%= @project.charity.address %>
-                                <% else %>
-                                  <%= @project.address %>
-                                <% end %> </li>
-                              <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @project.charity.email %> </li>
-                              <% end %>
-                            </ul>
-                          </div>
-                      </div>
-            </div>
-                    <div class="association-presentation">
-                      <% if @project.charity %>
-                      <p><%= simple_format(@project.charity.description) %></p>
-                      <% end %>
-                    </div>
+      <div class="charity-resume col-xs-12 col-sm-3">
+        <div class="project-asso-photo" style="background-image: url(<%= image_path(@project.charity.photo)%>)"></div>
+        <h6>Soutenu par <%= @project.charity.name %></h6>
+      </div>
+      <div class="project-title col-xs-12 col-sm-9">
+        <h2> <%= @project.name %></h2>
+        <h3> @project.objectives</h3>
+      </div>
+
+
+      <div class="showproject-photo col-xs-12 col-sm-8" style="background-image: url('<%= image_path @project.photo %>');">
+      </div>
+
+      <div class="project-figures col-xs-12 col-sm-4">
+
+        <div class="progress-bar" id="collection-progress">
+          <div class="indicator-bar" role="progressbar" style="width:<%= [@project.completion_rate, 100].min %>%">
+            <% if @project.completion_rate > 0 %>
+              <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
+              <div class="progress-value"></div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div class="important-number">
+            <br><p id="key-figures"> <%= number_with_delimiter((@project.completion_rate.to_f / 100 * @project.budget).to_i, delimiter: " ") %> €</p>
+            <p> sur <%= number_with_delimiter(@project.budget_cents / 100, delimiter: " ") %> € </p><br>
+          </div>
+
+          <div class="important-number">
+            <p id="key-figures"> <%= @project.donations.size %> </p>
+            <% if @project.donations.size > 1 %>
+              <p><%= 'donation'.pluralize %>
+            <% else %>
+              donation</p>
+            <% end  %>
+          </div>
+
+          <% if @project.end_date > Date.today %>
+            <br><div class="important-number"> <p id="key-figures"> <%= (@project.end_date - Date.today).to_i %></p>
+            </%> <p> j restants</p></div>
+          <% else %>
+            <div class="important-number"> Collecte <br> terminée </div>
+          <% end %>
+        </div>
+
+        <div class="cta-project">
+          <%= link_to 'Soutenir ce projet', edit_criteria_path, class: "btn button-submit", id: "cta-project-btn" %>
+        </div>
+        <div class="share-buttons">
+          <i class="fa fa-facebook"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-linkedin"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-share-square"></i>
         </div>
       </div>
-    </div>
-        <% if @project.photo.present? %>
-          <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @project.photo %>');">
 
-            <div class="template-text">
-             <!-- Encart noir à gauche -->
-             <h2 id="project-name"><%= @project.name %></h2>
-             <div class="criterium-container">
-               <% criteria = {environment: "Environnement", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
-               <% criteria.each_key do |criterium| %>
-                 <% if @project[criterium] == 1 %>
-                   <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
-                 <% end %>
-               <% end %>
-             </div>
-            </div>
-
+      <div class="project-details col-xs-12">
+        <div class="details-banner">
+          <p><i class="fa fa-map-marker"></i>  <%= @project.address %></p>
+          <p> <i class="fa fa-bookmark"></i></p>
+          <div class="cause-tags">
+            <% if @project.humanitarian > 0 %>
+              <p id="cause-tag">Humanitaire</p>
+            <% else %>
+            <% end %>
+            <% if @project.environment > 0 %>
+              <p id="cause-tag">Ecologie</p>
+            <% else %>
+            <% end %>
+            <% if @project.education > 0 %>
+              <p id="cause-tag">Education</p>
+            <% else %>
+            <% end %>
+            <% if @project.social > 0 %>
+              <p id="cause-tag">Action sociale</p>
+            <% else %>
+            <% end %>
+            <% if @project.preservation > 0 %>
+              <p id="cause-tag">Patrimoine</p>
+            <% else %>
+            <% end %>
+            <% if @project.research > 0 %>
+              <p id="cause-tag">Recherche</p>
+            <% else %>
+            <% end %>
           </div>
-
-        <% else %>
-          <div class="fixed-background" style="background-image: linear-gradient(-225deg, rgba(0,10,16,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "form-background.jpg" %>);">
-            <div class="template-text">
-           <!-- Encart noir à gauche -->
-              <h2 id="project-name"><%= @project.name %></h2>
-              <div class="criterium-container">
-                <% criteria = {environment: "Ecologie", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>
-                <% criteria.each_key do |criterium| %>
-                  <% if @project[criterium] == 1 %>
-                    <p class="bullet bullet-criterium"><i class="fa fa-tag" aria-hidden="true"></i> <%= criteria[criterium] %></p>
-                  <% end %>
-                <% end %>
-              </div>
-
-            </div>
-          </div>
-        <% end %>
-
-        <div class="template-right-cta template-right-lower">
-          <%= link_to 'Soutenir ce projet', edit_criteria_path, class: "btn button-submit" %>
         </div>
+      </div>
+
+      <div class="project-cta col-xs-12">
+        <%= link_to "Découvrir l'association", "#", class: "btn button-submit", id: "cta-project-banner-btn" %>
+        <%= link_to "Actus", "#", class: "btn button-submit", id: "cta-project-banner-btn" %>
+      </div>
+
+      <div class="project-description col-xs-12 col-sm-8">
+        <h3>A propos</h3>
+        <p> <%= @project.description %> </p>
+      </div>
+      <div class="project-object col-xs-12 col-sm-4">
+        <h3>Soutenir</h3>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>

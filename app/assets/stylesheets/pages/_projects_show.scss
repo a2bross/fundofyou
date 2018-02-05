@@ -1,40 +1,158 @@
-.details {
-  padding: 0px 25px;
+
+
+
+.project-resume {
+  height: calc(100vh - 70px);
+  margin-top: 70px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
-.project-show-row{
-  margin:0px;
+
+
+.project-asso-photo {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background-size: cover !important;
+  background-position: center !important;
 }
 
-.project-statistic {
-  width: fit-content;
-  margin: 0 auto;
+
+.showproject-photo {
+  height: 50vh;
 }
 
-.contribution-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 15px;
-}
-.budget-evolution {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 15px;
-  margin-bottom: -3px;
+.project-content {
+  border-top: 2px solid $yellow;
+  padding-left: 20px;
+  p {
+    margin-bottom: 0px;
+  }
 }
 
-.important-number {
+
+#collection-progress {
+  background-color: rgba(220, 220, 220, 1);
+  width: 100%;
+  height: 4px;
+  padding: 0px;
+  border: 0px solid white;
+  border-radius: 0px;
+  font-size: 0px;
+}
+
+
+.cta-project {
   text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.2;
 }
 
-.important-number p {
-  font-size: 14px;
+.share-buttons {
+  margin-top: 10px;
+  padding: 0px 40px;
+  display: flex;
+  justify-content: space-around;
+  i:hover {
+    color: $yellow;
+  }
 }
+
+
+#key-figures {
+  font-size: 25px;
+}
+
+
+#cta-project-btn {
+  width: 100%;
+  padding: 9px 25px;
+  margin: 15px 5px;
+}
+
+.project-details {
+  display: flex;
+  margin-top : 10px;
+  p {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  i {
+    margin-left: 15px;
+  }
+}
+
+.cause-tags {
+  display: flex;
+}
+
+#cause-tag {
+  background-color: rgb(100, 100, 100);
+  border-radius: 5px;
+  align-items: center;
+  color: white;
+  padding: 2px 5px;
+  margin-left: 10px;
+  p {
+    margin: 0px;
+  }
+}
+
+.details-banner {
+  margin: 10px 0px;
+  display: flex;
+}
+
+.project-cta {
+  border-top: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+
+#cta-project-banner-btn {
+  padding: 5px 15px;
+  margin: 10px 10px;
+}
+
+/////////////////FORMER PROJECT SHOW ///////////////////
+
+// .details {
+//   padding: 0px 25px;
+// }
+
+// .project-show-row{
+//   margin:0px;
+// }
+
+// .project-statistic {
+//   width: fit-content;
+//   margin: 0 auto;
+// }
+
+// .contribution-info {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   font-size: 15px;
+// }
+// .budget-evolution {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   font-size: 15px;
+//   margin-bottom: -3px;
+// }
+
+// .important-number {
+//   text-align: center;
+//   font-size: 20px;
+//   font-weight: bold;
+//   line-height: 1.2;
+// }
+
+// .important-number p {
+//   font-size: 14px;
+// }
 
 .progress-bar {
   height: 30px;
@@ -48,7 +166,7 @@
 
 .indicator-bar {
   height: 100%;
-  background-color: $blue;
+  background-color: $yellow;
   transition-duration: 1s;
   border-radius: 30px;
   text-align: center; /* To center it horizontally (if you want) */
@@ -75,8 +193,8 @@
   left: 15px;
 }
 .progress-value {
-  width: 26px;
-  height: 25px;
+  // width: 26px;
+  // height: 25px;
   line-height: 35px;
   background: $blue;
   border-radius: 50px;
@@ -96,49 +214,49 @@
   0% { width: 0; }
 }
 
-.project-presentation {
-  // margin: 50px 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 40px;
-  margin-left: 40px;
-}
+// .project-presentation {
+//   // margin: 50px 40px;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+//   margin-right: 40px;
+//   margin-left: 40px;
+// }
 
-.budget-details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .budget-details {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
-.association-presentation {
-  margin: 20px;
-}
+// .association-presentation {
+//   margin: 20px;
+// }
 
-.association-identity {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 50px;
-  padding-left: 0px;
-  margin: auto;
-  max-width: 400px;
-  background-color: $light-gray;
-}
+// .association-identity {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   padding-right: 50px;
+//   padding-left: 0px;
+//   margin: auto;
+//   max-width: 400px;
+//   background-color: $light-gray;
+// }
 
-.association-name li {
-  list-decoration: none;
-  display: block;
-  text-align: center;
-}
+// .association-name li {
+//   list-decoration: none;
+//   display: block;
+//   text-align: center;
+// }
 
-.association-info li {
-  list-style-type: none;
-  padding: 5px;
-  color: #5C636E;
-  font-size: 15px;
-}
+// .association-info li {
+//   list-style-type: none;
+//   padding: 5px;
+//   color: #5C636E;
+//   font-size: 15px;
+// }
  @media (max-width: 1200px) {
   .progress-bar {
     // display: none;

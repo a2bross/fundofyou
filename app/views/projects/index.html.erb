@@ -64,7 +64,7 @@
         <% if project.charity %>
           <p>Par l'association <%= project.charity.name %></p>
         <% end %>
-        <p> <%= truncate project.description, length: 300, omission: '...' %> </p>
+        <p> <%= truncate project.description, length: 500, omission: '...' %> </p>
 
         <div class="criterium-container">
           <% criteria = {environment: "Ecologie", humanitarian: "Humanitaire", social: "Action sociale", research: "Recherche", preservation: "Patrimoine", education: "Education"} %>

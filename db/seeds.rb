@@ -15,12 +15,14 @@ User.create(first_name: "Augustin",
 
 puts "created user"
 
+
 Subscription.create(subscription_date: Date.new(2017,12,1),
   user_id: 1,
   amount_cents: 50,
   )
 
 puts "created subscription"
+
 
 Charity.create(name: "Médecin sans frontière",
   email: "asso@msf.fr",
@@ -32,7 +34,8 @@ Charity.create(name: "Croix rouge",
   description: "Red Cross is an association that help people a lot",
   )
 
-puts "created Charity"
+
+puts "created Charities"
 
 
 
@@ -77,40 +80,73 @@ Project.create(name: "Let's go to school Again",
   start_date: Date.new(2017,11,1),
   end_date: Date.new(2017,12,06),
   charity_id: 2,
-  budget_cents: 87000,
+  budget_cents: 600000,
   education: 1,
   )
 
-puts "created project"
+Project.create(name:"Help Rohyngas Children",
+ description: "this is a educational_project",
+ contact_name: "Hubert Laroche",
+ address: "23 rue de l'Université",
+ start_date: Date.new(2018,01,15),
+ end_date: Date.new(2018,02,15),
+ charity_id: 2,
+ status: 10,
+ budget_cents: 300000,
+ environment: nil,
+ humanitarian: nil,
+ social: 1,
+ preservation: nil,
+ research: nil,
+ local: nil,
+ abroad: nil,
+ urgency: nil,
+ education: nil,
+ completion_rate: 30,
+ photo: nil,
+ objectives: nil
+ )
 
 
-Donation.create(amount_cents: 12000,
-  execution_date: Date.new(2017,12,30),
-  project_id: 1,
-  subscription_id: 1,
-  user_id: 1,
-  )
-
-Donation.create(amount_cents: 23000,
-  execution_date: Date.new(2017,11,22),
-  project_id: 2,
-  subscription_id: 1,
-  user_id: 1)
-
-Donation.create(amount_cents: 23000,
-  execution_date: Date.new(2017,10,22),
-  project_id: 2,
-  subscription_id: 1,
-  user_id: 1)
-
-Donation.create(amount_cents: 23000,
-  execution_date: Date.new(2017,11,22),
-  project_id: 5,
-  user_id: 1,
-  )
+puts "created projects"
 
 
-puts "created donation"
+Item.create(name:
+    project_id: 1
+    budget_cents: 50
+)
+
+puts "created items"
+
+# Donation.create(amount_cents: 12000,
+#   execution_date: Date.new(2017,12,30),
+#   project_id: 1,
+#   subscription_id: 1,
+#   user_id: 1,
+#   )
+
+# Donation.create(amount_cents: 23000,
+#   execution_date: Date.new(2017,11,22),
+#   project_id: 2,
+#   subscription_id: 1,
+#   user_id: 1)
+
+# Donation.create(amount_cents: 23000,
+#   execution_date: Date.new(2017,10,22),
+#   project_id: 2,
+#   subscription_id: 1,
+#   user_id: 1)
+
+# Donation.create(amount_cents: 23000,
+#   execution_date: Date.new(2017,11,22),
+#   project_id: 5,
+#   user_id: 1,
+#   )
+
+
+# puts "created donation"
+
+############################################################################
 
 # def generate_project(project_id, array)
 #   puts "Creating project..."

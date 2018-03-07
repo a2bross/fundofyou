@@ -22,11 +22,16 @@
 
 .showproject-photo {
   height: 50vh;
+  background-size: cover !important;
+  background-position: center !important;
+  //border: solid 0.5px rgb(230, 230, 230);
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+
 }
 
 .project-content {
   border-top: 2px solid $yellow;
-  padding-left: 20px;
+  padding-left: 30px;
   p {
     margin-bottom: 0px;
   }
@@ -110,9 +115,53 @@
 
 
 #cta-project-banner-btn {
-  padding: 5px 15px;
+  padding: 9px 15px;
   margin: 10px 10px;
 }
+
+.project_description {
+  p {
+    font-size: 12px;
+  }
+}
+
+
+.project-item:hover {
+    border: 1px solid $yellow;
+
+    //box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+    transition-duration: 0.3s;
+
+}
+
+
+.project-item {
+  border: 1px solid rgb(180, 180, 180);
+  height: 100px auto;
+  width: 75%;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 12px 10px;
+
+  p {
+    margin-bottom: 0px;
+    font-size: 16px;
+  }
+}
+
+#item-name {
+  font-size: 15px;
+}
+
+#item-budget {
+  font-size: 16px;
+}
+
+#calcul-deduction-fiscal {
+  font-size: 12px;
+  color: rgb(110, 110, 110);
+}
+
 
 /////////////////FORMER PROJECT SHOW ///////////////////
 

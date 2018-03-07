@@ -15,7 +15,7 @@
       </div>
       <div class="project-title col-xs-12 col-sm-9">
         <h2> <%= @project.name %></h2>
-        <h3> @project.objectives</h3>
+        <h3><%=  @project.objectives %></h3>
       </div>
 
 
@@ -27,7 +27,7 @@
         <div class="progress-bar" id="collection-progress">
           <div class="indicator-bar" role="progressbar" style="width:<%= [@project.completion_rate, 100].min %>%">
             <% if @project.completion_rate > 0 %>
-              <h4 class="progress-title"><%= @project.completion_rate %> % </h4>
+              <!-- <h4 class="progress-title"><%= @project.completion_rate %> % </h4> -->
               <div class="progress-value"></div>
             <% end %>
           </div>
@@ -52,7 +52,7 @@
             <br><div class="important-number"> <p id="key-figures"> <%= (@project.end_date - Date.today).to_i %></p>
             </%> <p> j restants</p></div>
           <% else %>
-            <div class="important-number"> Collecte <br> terminée </div>
+            <br> <div class="important-number"> Collecte terminée </div>
           <% end %>
         </div>
 
@@ -73,27 +73,27 @@
           <p><i class="fa fa-map-marker"></i>  <%= @project.address %></p>
           <p> <i class="fa fa-bookmark"></i></p>
           <div class="cause-tags">
-            <% if @project.humanitarian > 0 %>
+            <% if @project.humanitarian.to_i > 0 %>
               <p id="cause-tag">Humanitaire</p>
             <% else %>
             <% end %>
-            <% if @project.environment > 0 %>
+            <% if @project.environment.to_i > 0 %>
               <p id="cause-tag">Ecologie</p>
             <% else %>
             <% end %>
-            <% if @project.education > 0 %>
+            <% if @project.education.to_i > 0 %>
               <p id="cause-tag">Education</p>
             <% else %>
             <% end %>
-            <% if @project.social > 0 %>
+            <% if @project.social.to_i > 0 %>
               <p id="cause-tag">Action sociale</p>
             <% else %>
             <% end %>
-            <% if @project.preservation > 0 %>
+            <% if @project.preservation.to_i > 0 %>
               <p id="cause-tag">Patrimoine</p>
             <% else %>
             <% end %>
-            <% if @project.research > 0 %>
+            <% if @project.research.to_i > 0 %>
               <p id="cause-tag">Recherche</p>
             <% else %>
             <% end %>
@@ -108,24 +108,36 @@
 
       <div class="project-description col-xs-12 col-sm-8">
         <h3>A propos</h3>
-        <p> <%= @project.description %> </p>
+        <p> <%= sanitize @project.description %> </p>
       </div>
       <div class="project-object col-xs-12 col-sm-4">
         <h3>Soutenir</h3>
-      </div>
 
+        <%= form_tag orders_path(@order) do %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="project-item">
+            <p>Je contribue à hauteur de:</p>
+            <div class="form-contribution">
+              <label for="contribution">€ </label>
+              <input name="amount" id="contribution" type="text" min="1" type="number" value="30" class="form-control form-contribution-input">
+              <input type="submit" value="Je donne" class="btn button-submit" id="cta-project-banner-btn">
+            </div>
+          <% end %>
+        </div>
+
+        <% @project.items.each do |item| %>
+          <div class="project-item hvr-grow">
+            <p id=item-budget>Je contribue à hauteur de <%= number_with_delimiter(item.budget_cents / 100, delimiter: " ") %> €</p>
+            <p id="calcul-deduction-fiscal"><em>(<%= number_with_delimiter((item.budget_cents * 0.34 / 100).round(2), delimiter: " ") %> € après déduction fiscale)</em></p>
+            <p id="item-name"> soit l'équivalent <i class="far fa-hand-point-right"></i><%= item.name.capitalize %></p>
+            <%= link_to "Je donne", "#", class: "btn button-submit", id: "cta-project-banner-btn" %>
+          </div>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 </div>
